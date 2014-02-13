@@ -8,14 +8,14 @@
         <link rel="shortcut icon" href="{{ STATIC_URL }}base/favicon.ico">
         
         <!-- Base CSS -->
-        <link rel="stylesheet" href="{{ STATIC_URL }}/utilities/static/css/foundation.css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}utilities/static/css/foundation.css" />
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base/css/main.css">
 
         {% block extra_css %}
         {% endblock %}
 
         <!-- Base JS -->
-        <script src="js/vendor/modernizr.js"></script>
+        <script src="{{ STATIC_URL }}utilities/static/js/modernizr.js"></script>
 
         {% block header_javascript %}
         {% endblock %}
@@ -36,13 +36,10 @@
                 {% block body_html %}
                 {% endblock %}
             </div>
-
-            {% block footer_javascript %}
-            {% endblock %}
         </div>
 
-        <script src="{{ STATIC_URL }}/utilities/static/js/vendor/jquery.js"></script>
-        <script src="{{ STATIC_URL }}/utilities/static/js/foundation.min.js"></script>
+        <script src="{{ STATIC_URL }}utilities/static/js/jquery.js"></script>
+        <script src="{{ STATIC_URL }}utilities/static/js/foundation.min.js"></script>
         <script>
           $(document).foundation();
         </script>

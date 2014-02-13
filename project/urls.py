@@ -11,7 +11,7 @@ urlpatterns = patterns('',
         kwargs={'template':'home.html'},
         name='home'
     ),
-    (r'^events/', include('events.urls', namespace='events', app_name='events')),
+    (r'^teams/', include('teams.urls', namespace='teams', app_name='teams')),
     (r'^/', include('main.urls', namespace='main', app_name='main')),
     url(r'^admin/', include(admin.site.urls))
 )

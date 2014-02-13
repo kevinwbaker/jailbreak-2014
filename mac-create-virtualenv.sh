@@ -1,9 +1,8 @@
 #!/bin/bash
 
 new_install=false
-VENV_NAME='ducss-site'
 
-if [ ! -d "env/$VENV_NAME" ]; then
+if [ ! -d "env" ]; then
 
 	#
 	# Check if Homebrew is installed
@@ -17,6 +16,8 @@ if [ ! -d "env/$VENV_NAME" ]; then
 		brew update
 	fi
 
+	brew install mysql
+
 	which -s python || brew install python --with-brewed-openssl
 	which -s virtualenv || pip install virtualenv
 
@@ -26,16 +27,16 @@ if [ ! -d "env/$VENV_NAME" ]; then
         mkdir "env"
     fi
 	
-    virtualenv --no-site-packages "env/$VENV_NAME"
+    virtualenv --no-site-packages "env"
 
-	source "env/$VENV_NAME/bin/activate"
+	source "env/bin/activate"
 
 	#
 	# Install application requirements
 	#
 	pip install -r requirements.txt || { echo ' === localrun failed. pip could not installed the required files. === ' ; exit 1; }
 else
-	source "env/$VENV_NAME/bin/activate"
+	source "env/bin/activate"
 fi
 
 

@@ -3,7 +3,7 @@ import datetime
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 
-from events.models import Team
+from teams.models import Team
 
 def teams(request, template=None):
     '''Lists all the teams'''

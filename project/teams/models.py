@@ -11,7 +11,7 @@ class Team(models.Model):
 
 	slug = models.SlugField()
 	name = models.CharField(max_length=128)
-	photo = models.FileField
+	photo = models.FileField(upload_to='teams')
 	sponsor_link = models.URLField()
 	description = models.TextField()
 	university = models.ForeignKey('University')
