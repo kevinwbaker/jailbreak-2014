@@ -11,8 +11,8 @@ urlpatterns = patterns('',
         kwargs={'template':'home.html'},
         name='home'
     ),
-    (r'^teams/', include('teams.urls', namespace='teams', app_name='teams')),
     (r'^/', include('jailbreak.urls', namespace='main', app_name='main')),
+    (r'^teams/', include('teams.urls', namespace='teams', app_name='teams')),
     url(r'^admin/', include(admin.site.urls))
 )
 
