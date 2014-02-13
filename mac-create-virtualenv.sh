@@ -16,8 +16,7 @@ if [ ! -d "env" ]; then
 		brew update
 	fi
 
-	brew install mysql
-
+	which -s mysql || brew install mysql
 	which -s python || brew install python --with-brewed-openssl
 	which -s virtualenv || pip install virtualenv
 

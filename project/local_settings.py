@@ -18,8 +18,6 @@ DEBUG_TOOLBAR_PANELS = [
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
-    'HIDE_DJANGO_SQL': False,
-    'TAG': 'div',
 }
 
 import settings

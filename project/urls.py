@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, url, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
@@ -7,12 +7,12 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$',
-        view='main.views.home',
+        view='jailbreak.views.home',
         kwargs={'template':'home.html'},
         name='home'
     ),
     (r'^teams/', include('teams.urls', namespace='teams', app_name='teams')),
-    (r'^/', include('main.urls', namespace='main', app_name='main')),
+    (r'^/', include('jailbreak.urls', namespace='main', app_name='main')),
     url(r'^admin/', include(admin.site.urls))
 )
 
