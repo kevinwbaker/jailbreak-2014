@@ -7,22 +7,7 @@
         <h1>Upcoming Events</h1>
 
         <div class="row">
-            {% for event in events %}
-                <div class="col">
-                    <div class="event">
-                        <div class="date">
-                            <span class="day">{{ event.date.day }}</span>
-                            <span class="month">{{ event.date|date:"b" }}</span>
-                        </div>
-                        <div class="info">
-                            <h3><a href="{% url events:event event.slug %}">{{ event.title }}</a></h3>
-                            <span>{{ event.location }}</span>
-                            <span>{{ event.time }}</span>
-                        </div>
-                    </div>
-                    {{ event.description|truncatewords_html:30|safe }}
-                </div>
-            {% endfor %}
+
         </div>
     </section>
 {% endblock %}

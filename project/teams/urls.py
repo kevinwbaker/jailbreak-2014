@@ -5,12 +5,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('teams',
-    url(r'^all$',
+    url(r'^$',
         view='views.teams',
         kwargs={'template':'teams.html'},
         name='teams'
     ),
-    url(r'^team/(?P<slug>[-\w]+)/$',
+    url(r'^(?P<slug>[-\w]+)/$',
     	view='views.team',
     	kwargs={'template':'team.html'},
     	name='team'
