@@ -1,6 +1,6 @@
 python-memcached
 MySQL-python==1.2.4
-Django==1.4.5
+Django==1.6
 South==0.8.1
 decorator==3.4.0
 django-debug-toolbar>=0.9.4
