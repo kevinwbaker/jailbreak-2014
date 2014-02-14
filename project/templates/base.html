@@ -9,6 +9,7 @@
         
         <!-- Base CSS -->
         <link rel="stylesheet" href="{{ STATIC_URL }}utilities/css/foundation.min.css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}utilities/css/foundation-font-icons.css" />
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base/css/main.css">
 
         {% block extra_css %}
@@ -21,11 +22,15 @@
         {% endblock %}
     </head>
     <body>
-        <div id="wrapper">
+        <div class="off-canvas-wrap">
+          <div class="inner-wrap">
+
             <header id="header">
                 <div>
-                    <div class="large-6 small-8 columns">
-                        <a id="menu-burger" class="show-for-small-only"></a>
+                    <div class="large-6 small-10 columns">
+                        <div id="menu-burger" class="show-for-small-only">
+                            <a class="left-off-canvas-toggle"><i class="fi-list"></i></a>
+                        </div>
 
                         <div id="site-title">
                             <h1><a href="/">Jailbreak 2014</a></h1>
@@ -38,11 +43,32 @@
                 </div>
             </header>
 
+            <!-- Off Canvas Menu -->
+            <aside class="left-off-canvas-menu">
+                <!-- whatever you want goes here -->
+                <ul>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#">Item 1</a></li>
+                </ul>
+            </aside>
+
+            <!-- main content goes here -->
             <div id="main-content">
+                <h1><i class="fi-shield"></i></h1>
                 {% block body_html %}
                 {% endblock %}
             </div>
-        </div>
+
+          <!-- close the off-canvas menu -->
+          <a class="exit-off-canvas"></a>
+          </div><!-- close #inner-wrap -->
+        </div><!-- close #off-canvas-wrap -->
 
         <script src="{{ STATIC_URL }}utilities/js/jquery.js"></script>
         <script src="{{ STATIC_URL }}utilities/js/foundation.min.js"></script>

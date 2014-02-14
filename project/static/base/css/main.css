@@ -7,26 +7,44 @@
 	#header {
 		background: #171717;
 		height: 70px;
-		padding: 10px;
+		overflow: hidden;
+	}
+
+	#menu-burger {
+		margin-left: -15px;
+		border-right: 1px solid white;
+		height: 70px;
+		width: 70px;
+		padding: 0;
+		float: left;
+	}
+
+	#menu-burger a {
+		display: block;
+		color: white;
+		line-height: 1.4em;
+		font-size: 3em;
+		text-align: center;
 	}
 
 	#site-title {
 		text-indent: -9999px;
 		background: url("../images/jailbreak-header-smaller.png") no-repeat;
 		height: 50px;
+		margin: 10px 0;
+		margin-left: 70px;
 	}
 
 	#site-title h1 {
 		display: inline;
-		
 	}
 } 
 
 
  /* ===============================
-  * min-width 1025px, large screens
+  * min-width 641px, medium screens
   */
-@media only screen and (min-width: 64.063em) { 
+@media only screen and (min-width: 40.063em) {
 	/* Header */
 	#header {
 		height: 100px;
@@ -34,13 +52,14 @@
 
 	#site-title {
 		background: url("../images/jailbreak-header.png") no-repeat;
-		height: 100px;
+		height: 75px;
+		margin: 15px 0 0 0;
 	}
-
 
 	#supporters-logo {
 		background: url("../images/logos/supporters.png") top right no-repeat;
 		text-indent: -9999px;
-		height: 100px;
+		height: 75px;
+		margin: 15px 0 0 0;
 	}
 }
