@@ -3,8 +3,23 @@
  * Define mobile styles
  */
 @media only screen { 
+	/* Header */
+	#header {
+		background: #171717;
+		height: 70px;
+		padding: 10px;
+	}
 
+	#site-title {
+		text-indent: -9999px;
+		background: url("../images/jailbreak-header-smaller.png") no-repeat;
+		height: 50px;
+	}
 
+	#site-title h1 {
+		display: inline;
+		
+	}
 } 
 
 
@@ -12,6 +27,20 @@
   * min-width 1025px, large screens
   */
 @media only screen and (min-width: 64.063em) { 
+	/* Header */
+	#header {
+		height: 100px;
+	}
+
+	#site-title {
+		background: url("../images/jailbreak-header.png") no-repeat;
+		height: 100px;
+	}
 
 
+	#supporters-logo {
+		background: url("../images/logos/supporters.png") top right no-repeat;
+		text-indent: -9999px;
+		height: 100px;
+	}
 }
