@@ -148,6 +148,11 @@ CRISPY_FAIL_SILENTLY = not DEBUG
 
 COMPRESS_ENABLED = True
 
+# Jailbreak Specific Things
+START_LNG = -6.3098048
+START_LAT = 53.3418701
+RADIUS_EARTH = 6373.0
+
 # Try to import local_settings.
 try:
     from local_settings import *

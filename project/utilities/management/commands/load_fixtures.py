@@ -22,5 +22,5 @@ class Command(BaseCommand):
             # Check that the app is one of our own, not a 3rd party app.
             if settings.DIRNAME in __import__(app_name).__file__:
                 load_fixtures(app_name, 'fixtures')
-                if settings.DEVELOPMENT_MODE:
+                if settings.DEBUG:
                     load_fixtures(app_name, 'fixtures_dev')

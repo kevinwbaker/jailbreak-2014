@@ -23,8 +23,8 @@
 	#menu-burger a {
 		display: block;
 		color: white;
-		line-height: 1.4em;
-		font-size: 3em;
+		line-height: 2.3em;
+		font-size: 2em;
 		text-align: center;
 	}
 
@@ -52,6 +52,75 @@
 		border-style: solid;
 	}
 
+	/* Cards */
+	.card {
+		position: relative;
+		padding: 10px;
+		border: 1px solid #E6E6E6;
+		border-radius: 5px;
+		margin-bottom: 20px;
+		box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 3px 0px;
+		color: rgb(85, 85, 85);
+		border-width: 1px;
+		border-style: solid;
+		border-color: rgb(221, 221, 221);
+		border-bottom-color: rgb(187, 187, 187);
+	}
+
+	.card p {
+		margin: 0;
+	}
+
+	.card .time {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-style: italic;
+		font-size: 0.4em
+	}
+
+	.card .buttons {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+	}
+
+	.card .buttons .button {
+		margin-bottom: 0;
+		margin-right: 5px;
+	}
+
+	.card .buttons:after {
+		content: '';
+		clear: both;
+	}
+
+	.location span {
+		font-style: italic;
+		font-size: 85%;
+	}
+
+	/* Super Cards */
+	.super-card {
+		background: #171717;
+		border-color: #3A3A3A;
+		color: #EBEBEB;
+	}
+
+	.super-card img {
+		float: left;
+		padding-right: 10px;
+	}
+
+	.super-card h4 {
+		color: #EBEBEB;
+	}
+
+	.super-card a {
+		color: #FBD753;
+		border-bottom: 1px dotted #FBD753;
+	}
+
 	/* Headers */
 	h1, h2, h3 {
 		color: #3A3A3A;
@@ -64,7 +133,7 @@
 	/* Buttons */
 	.button {
 		background: #3A3A3C;
-		color: #F8D451;
+		color: #FBD753;
 		text-transform: uppercase;
 		border-radius: 3px;
 	}
@@ -80,6 +149,15 @@
 		padding-bottom: 0.5rem;
 		padding-left: 1rem;
 		font-size: 0.55rem;
+	}
+
+	.button i {
+		padding-right: 5px;
+	}
+
+	/* Other */
+	.clear {
+		clear: both;
 	}
 } 
 
@@ -133,7 +211,7 @@
 		position: relative;
 		list-style: none;
 		border-bottom: 1px solid #E6E6E6;
-		padding: 25px 10px 10px;
+		padding: 35px 10px 10px 15px;
 		background: #F5F5F5;
 	}
 
@@ -146,7 +224,7 @@
 	    height: 0px;
 	    border-style: inset;
 	    border-width: 44px 44px 0 0;
-	    border-color: #4C4C4C transparent transparent transparent;
+	    border-color: #4C4C4E transparent transparent transparent;
 	    transform:rotate(360deg);
 	    -ms-transform:rotate(360deg);
 	    -moz-transform:rotate(360deg);
@@ -165,12 +243,15 @@
 		width: 93px;
 		height: 93px;
 		margin: 0px;
-		color: #F8D451;
+		color: #FBD753;
 	}
 
-	.location span {
+	.last-checkin-time {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 0.4em;
 		font-style: italic;
-		font-size: 85%;
 	}
 
 	#standings h4 {
@@ -185,6 +266,6 @@
 
 	#standings a.button {
 		display: inline-block;
-		margin-top: 5px;
+		margin: 5px 0 0 0;
 	}
 }

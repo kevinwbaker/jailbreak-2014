@@ -1,0 +1,67 @@
+[
+    {
+        "model": "teams.team",
+        "pk": 1, 
+        "fields": {
+            "number": 14,
+            "name": "Peter & Sean",
+            "slug": "peter-sean",
+            "photo": "",
+            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
+            "description": "We're two mad people raising money for chairty! We are adventuring off into the final frontier",
+            "university": 0
+        }
+    },
+    {
+        "model": "teams.team",
+        "pk": 2, 
+        "fields": {
+            "number": 12,
+            "name": "Jack and Jill",
+            "slug": "jack-and-jill",
+            "photo": "",
+            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
+            "description": "Aliquam quam mauris, convallis quis fringilla suscipit, pulvinar nec dui. Pellentesque eget euismod quam. Curabitur neque felis, vestibulum quis adipiscing et, dictum ut sem. Curabitur orci velit, hendrerit sed nulla eu, fermentum ullamcorper lorem.",
+            "university": 0
+        }
+    },
+    {
+        "model": "teams.team",
+        "pk": 3, 
+        "fields": {
+            "number": 43,
+            "name": "Catherine the great and John",
+            "slug": "catherine-the-great-and-john",
+            "photo": "",
+            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
+            "description": "Aliquam vulputate molestie tincidunt. Maecenas eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
+            "university": 1
+        }
+    },
+    {
+        "model": "teams.team",
+        "pk": 4, 
+        "fields": {
+            "number": 23,
+            "name": "Mary Boyle and Jackie King",
+            "slug": "mary-boyle-and-jackie-kind",
+            "photo": "",
+            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
+            "description": "Maecenas eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
+            "university": 2
+        }
+    },
+    {
+        "model": "teams.team",
+        "pk": 5, 
+        "fields": {
+            "number": 43,
+            "name": "Richard and Michael",
+            "slug": "richard-and-michael",
+            "photo": "",
+            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
+            "description": "Eget leo nisi. Vestibulum iaculis. Eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
+            "university": 3
+        }
+    }
+]

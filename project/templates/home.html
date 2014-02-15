@@ -5,54 +5,26 @@
     <section id="standings" class="large-4 show-for-large-up columns">
         <h3>Standings</h3>
         <ul>
-            <li>
+            {% for team in standings %}
+            <li{% cycle '' ' class="odd"' %}>
                 <div class="row">
-                    <div class="rank"><span>#1</span></div>
+                    <div class="rank"><span>#{{ forloop.counter }}</span></div>
+
+                    <span class="last-checkin-time">{{ team.last_checkin.time|timesince|default:"never" }} ago</span>
 
                     <div class="large-6 columns">
                         <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
                     </div>
                     <div class="large-6 columns">                      
-                        <h4><a href="">Kate &amp; Tom</a></h4>
-                        <p>Team 14 - TCD</p>
-                        <p class="location">Sdyney, Australia <span>(21,1345 km)</span></p>
+                        <h4><a href="">{{ team.name }}</a></h4>
+                        <p>Team {{ team.number }} - {{ team.university_name|upper }}</p>
+                        <p class="location">{{ team.last_checkin.name }} <span>({{ team.distance|floatformat:"1" }} km)</span></p>
 
-                        <a href="" class="button small">Donate</a>
+                        <a href="{{ team.sponsor_link }}" class="button small"><i class="fi-heart"></i>Donate</a>
                     </div>
                 </div>
             </li>
-            <li class="odd">
-                <div class="row">
-                    <div class="rank"><span>#2</span></div>
-                    
-                    <div class="large-6 columns">
-                        <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
-                    </div>
-                    <div class="large-6 columns">
-                        <h4><a href="">Cathal and Catherine</a></h4>
-                        <p>Team 12 - NUIG</p>
-                        <p class="location">Dubai, UAE <span>(11,135 km)</span></p>
-
-                        <a href="" class="button small">Donate</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="row">
-                    <div class="rank"><span>#3</span></div>
-                    
-                    <div class="large-6 columns">
-                        <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
-                    </div>
-                    <div class="large-6 columns">
-                        <h4><a href="">Eochy and Mike</a></h4>
-                        <p>Team 99 - UCC</p>
-                        <p class="location">Paris, Frane <span>(8,6345 km)</span></p>
-
-                        <a href="" class="button small">Donate</a>
-                    </div>
-                </div>
-            </li>
+            {% endfor %}
         </ul>
     </section>
 
@@ -62,16 +34,39 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76235.50443936698!2d-6.249427395117186!3d53.33682034292388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sie!4v1392484951339" width="800" height="450" frameborder="0" style="border:0"></iframe>
         </section>
 
-        <section id="social-feed" class="large-12 medium-12 small-12 columns">
-            <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-2">
-                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"></li>
-                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space.jpg"></li>
-                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk.jpg"></li>
+        <section id="social-feed" class="small-12 columns">
+            <div class="card super-card takeoff">
+                <img src="{{ STATIC_URL }}base/images/cartoons/balloon.png" />
+                <span class="time">2 hours ago</span>
 
-                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"></li>
-                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space.jpg"></li>
-                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk.jpg"></li>
-            </ul>
+                <h4><a href="">Team 14 Jack &amp; Jill</a> just left Europe</h4>
+                <p>After flying for 4 hours Jack and Jill have arrived at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a>, putting them in first place!</p>
+
+                <div class="buttons">
+                    <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
+                    <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
+                    <a href="#" class="button secondary small"><i class="fi-heart"></i>Donate</a>
+                </div>
+
+                <br class="clear" />
+            </div>
+
+            <div class="card">
+                <p><a href="">Team 14: Jack &amp; Jill (TCD)</a> just checked in at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a></p>
+            </div>
+
+            <div class="card">
+                <p><a href="">Team 43: Richard and Michael (UCD)</a> just checked in at <a href="" class="location">Dublin Airport, Dublin <span>(32 km)</span></a></p>
+            </div>
+
+            <div class="card">
+                <p><a href="">Team 14: Jack &amp; Jill</a> just checked in at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a></p>
+            </div>
+
+            <div class="card">
+                <p><a href="">Team 99: Catherine &amp; James</a> just checked in at <a href="" class="location">Sydney, Australia <span>(12,312 km)</span></a></p>
+            </div>
+
         </section>
     </section>
 </div>  

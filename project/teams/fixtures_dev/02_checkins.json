@@ -1,0 +1,46 @@
+[
+	{
+		"model": "teams.checkin",
+		"pk": 1,
+		"fields": {
+			"name": "Dublin Airport, Ireland",
+			"lng_position": -6.23993397,
+			"lat_position": 53.42515896,
+			"team": 1,
+			"time": "2014-02-15T17:54:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 2,
+		"fields": {
+			"name": "London, UK",
+			"lng_position": -0.17876386,
+			"lat_position": 51.4916703,
+			"team": 2,
+			"time": "2014-02-15T11:54:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 3,
+		"fields": {
+			"name": "Hollyhead, Wales",
+			"lng_position": -4.63680982,
+			"lat_position": 53.3084157,
+			"team": 4,
+			"time": "2014-02-15T18:54:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 4,
+		"fields": {
+			"name": "Paris, France",
+			"lng_position": 2.37658739,
+			"lat_position": 48.80119231,
+			"team": 5,
+			"time": "2014-02-14T09:54:26"
+		}
+	}
+]

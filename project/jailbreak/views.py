@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404
 
+from teams.models import Team
 from utilities.utils import create_form
 
 
@@ -14,5 +15,8 @@ def home(request, template=None):
     '''Home page'''
     context = RequestContext(request)
 
+    teams = Team.objects.all()
+
+    context['standings'] = sorted(teams, key=lambda x: x.distance, reverse=True)
     context['home_page'] = True
     return render_to_response(template, context_instance=context)
