@@ -2,7 +2,7 @@
 
 {% block body_html %}
 <div class="row">
-    <section id="standings" class="large-4 show-for-large-up columns">
+    <section id="standings" class="medium-4 show-for-medium-up columns">
         <h3>Standings</h3>
         <ul>
             {% for team in standings %}
@@ -10,12 +10,12 @@
                 <div class="row">
                     <div class="rank"><span>#{{ forloop.counter }}</span></div>
 
-                    <span class="last-checkin-time">{{ team.last_checkin.time|timesince|default:"never" }} ago</span>
+                    <span class="last-checkin-time">{{ team.last_checkin.time|timesince|default:"never" }}</span>
 
-                    <div class="large-6 columns">
+                    <div class="medium-6 columns">
                         <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
                     </div>
-                    <div class="large-6 columns">                      
+                    <div class="medium-6 columns">                      
                         <h4><a href="">{{ team.name }}</a></h4>
                         <p>Team {{ team.number }} - {{ team.university_name|upper }}</p>
                         <p class="location">{{ team.last_checkin.name }} <span>({{ team.distance|floatformat:"1" }} km)</span></p>
@@ -25,17 +25,20 @@
                 </div>
             </li>
             {% endfor %}
+            <li class="full-standings-list">
+                <a href="">Full Standings List...</a>
+            </li>
         </ul>
     </section>
 
-    <section id="home-main" class="large-8 small-12 columns">
+    <section id="home-main" class="medium-8 small-12 columns">
 
         <section id="map" class="flex-video">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76235.50443936698!2d-6.249427395117186!3d53.33682034292388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sie!4v1392484951339" width="800" height="450" frameborder="0" style="border:0"></iframe>
         </section>
 
-        <section id="social-feed" class="small-12 columns">
-            <div class="card super-card takeoff">
+        <section id="social-feed" >
+            <div class="card super-card">
                 <img src="{{ STATIC_URL }}base/images/cartoons/balloon.png" />
                 <span class="time">2 hours ago</span>
 
@@ -45,26 +48,53 @@
                 <div class="buttons">
                     <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
                     <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
-                    <a href="#" class="button secondary small"><i class="fi-heart"></i>Donate</a>
+                    <a href="#" class="button small"><i class="fi-heart"></i>Donate</a>
                 </div>
 
                 <br class="clear" />
             </div>
 
+
             <div class="card">
+                <span class="time">1 hours ago</span>
+
                 <p><a href="">Team 14: Jack &amp; Jill (TCD)</a> just checked in at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a></p>
             </div>
 
             <div class="card">
-                <p><a href="">Team 43: Richard and Michael (UCD)</a> just checked in at <a href="" class="location">Dublin Airport, Dublin <span>(32 km)</span></a></p>
+                <span class="time">2 hours ago</span>
+
+                <p><a href="">Team 71: Richard and Michael Boyle (NUIG)</a> just checked in at <a href="" class="location">Dublin Airport, Dublin, Ireland <span>(322 km)</span></a></p>
             </div>
 
             <div class="card">
-                <p><a href="">Team 14: Jack &amp; Jill</a> just checked in at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a></p>
+                <span class="time">3 hours ago</span>
+
+                <p><a href="">Team 1: Janna &amp; Kevin</a> just checked in at <a href="" class="location">Cario, Egypt <span>(1,312 km)</span></a></p>
             </div>
+            
 
             <div class="card">
+                <span class="time">4 hours ago</span>
+
                 <p><a href="">Team 99: Catherine &amp; James</a> just checked in at <a href="" class="location">Sydney, Australia <span>(12,312 km)</span></a></p>
+            </div>
+
+
+            <div class="card super-card">
+                <img src="{{ STATIC_URL }}base/images/cartoons/balloon.png" />
+                <span class="time">2 hours ago</span>
+
+                <h4><a href="">Team 14 Jack &amp; Jill</a> just left Europe</h4>
+                <p>After flying for 4 hours Jack and Jill have arrived at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a>, putting them in first place!</p>
+
+                <div class="buttons">
+                    <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
+                    <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
+                    <a href="#" class="button small"><i class="fi-heart"></i>Donate</a>
+                </div>
+
+                <br class="clear" />
             </div>
 
         </section>

@@ -13,7 +13,7 @@
 
 	#menu-burger {
 		margin-left: -15px;
-		border-right: 1px solid white;
+		border-right: 1px solid #3A3A3A;
 		height: 70px;
 		width: 70px;
 		padding: 0;
@@ -37,7 +37,13 @@
 	}
 
 	#site-title h1 {
-		display: inline;
+		display: block;
+		width: 383px;
+		height: 75px;
+	}
+
+	#site-title a {
+		display: block;
 	}
 
 	/* Home Main */
@@ -52,10 +58,14 @@
 		border-style: solid;
 	}
 
+	#social-feed {
+		margin: 0 20px;
+	}
+
 	/* Cards */
 	.card {
 		position: relative;
-		padding: 10px;
+		padding: 18px 10px 10px;
 		border: 1px solid #E6E6E6;
 		border-radius: 5px;
 		margin-bottom: 20px;
@@ -65,6 +75,7 @@
 		border-style: solid;
 		border-color: rgb(221, 221, 221);
 		border-bottom-color: rgb(187, 187, 187);
+		background: white;
 	}
 
 	.card p {
@@ -73,8 +84,8 @@
 
 	.card .time {
 		position: absolute;
-		top: 10px;
-		right: 10px;
+		top: 4px;
+		right: 8px;
 		font-style: italic;
 		font-size: 0.4em
 	}
@@ -116,9 +127,22 @@
 		color: #EBEBEB;
 	}
 
+	.super-card p {
+		margin-bottom: 20px;
+	}
+
 	.super-card a {
 		color: #FBD753;
 		border-bottom: 1px dotted #FBD753;
+	}
+
+	.super-card .time {
+		top: 8px;
+	}
+
+	.super-card .button:not(.secondary) {
+		color: #3A3A3A;
+		background: #FBD753;
 	}
 
 	/* Headers */
@@ -186,16 +210,17 @@
 
 		/* Standings */
 	#standings {
+		margin: 0;
 		padding: 0;
-		border-right: 1px solid #E6E6E6;
-		border-left: 1px solid #E6E6E6;
 		overflow: none;
 	}
 
 	#standings h3 {
 		margin: 0;
 		background: #EBEBEB;
-		border-bottom: 1px solid #E6E6E6;
+		border-style: solid;
+		border-color: #E6E6E6;
+		border-width: 0 1px 1px 1px;
 		padding: 6px 10px 2px;
 		text-shadow: 0px 2px 3px #fff;
 		text-transform: uppercase;
@@ -204,15 +229,18 @@
 	}
 
 	#standings ul {
-		margin: 0;
+		margin: 0 0 20px;
 	}
 
 	#standings li {
 		position: relative;
 		list-style: none;
-		border-bottom: 1px solid #E6E6E6;
+		border-style: solid;
+		border-color: #E6E6E6;
+		border-width: 0 1px 1px 1px;
 		padding: 35px 10px 10px 15px;
 		background: #F5F5F5;
+		
 	}
 
 	#standings li.odd {
@@ -254,18 +282,33 @@
 		font-style: italic;
 	}
 
-	#standings h4 {
-		font-size: 1.2em;
-		margin: 5px 0 0;
+	#standings li h4 {
+		font-size: 1.1em;
+		margin: 0;
 	}
 
-	#standings p {
+	#standings li p {
 		font-size: 0.8em;
 		margin: 0;
 	}
 
-	#standings a.button {
+	#standings li a.button {
 		display: inline-block;
 		margin: 5px 0 0 0;
+	}
+
+	#standings .full-standings-list {
+		padding: 0;
+		text-align: center;
+		border-radius: 0 0 3px 3px;
+	}
+
+	#standings .full-standings-list a {
+		display: block;
+		padding: 10px;
+	}
+
+	#standings .full-standings-list a:hover {
+		background: #EBEBEB;
 	}
 }
