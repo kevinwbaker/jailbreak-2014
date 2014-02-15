@@ -1,19 +1,78 @@
 {% extends 'base.html' %}
 
 {% block body_html %}
-    <section id="standings">
-        
+<div class="row">
+    <section id="standings" class="large-4 show-for-large-up columns">
+        <h3>Standings</h3>
+        <ul>
+            <li>
+                <div class="row">
+                    <div class="rank"><span>#1</span></div>
+
+                    <div class="large-6 columns">
+                        <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
+                    </div>
+                    <div class="large-6 columns">                      
+                        <h4><a href="">Kate &amp; Tom</a></h4>
+                        <p>Team 14 - TCD</p>
+                        <p class="location">Sdyney, Australia <span>(21,1345 km)</span></p>
+
+                        <a href="" class="button small">Donate</a>
+                    </div>
+                </div>
+            </li>
+            <li class="odd">
+                <div class="row">
+                    <div class="rank"><span>#2</span></div>
+                    
+                    <div class="large-6 columns">
+                        <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
+                    </div>
+                    <div class="large-6 columns">
+                        <h4><a href="">Cathal and Catherine</a></h4>
+                        <p>Team 12 - NUIG</p>
+                        <p class="location">Dubai, UAE <span>(11,135 km)</span></p>
+
+                        <a href="" class="button small">Donate</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="rank"><span>#3</span></div>
+                    
+                    <div class="large-6 columns">
+                        <a href="" class="th radius"><img class="profiler" src="http://placehold.it/150x150" /></a>
+                    </div>
+                    <div class="large-6 columns">
+                        <h4><a href="">Eochy and Mike</a></h4>
+                        <p>Team 99 - UCC</p>
+                        <p class="location">Paris, Frane <span>(8,6345 km)</span></p>
+
+                        <a href="" class="button small">Donate</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </section>
 
-    <section id="">
+    <section id="home-main" class="large-8 small-12 columns">
 
-        <section id="map">
-        
+        <section id="map" class="flex-video">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76235.50443936698!2d-6.249427395117186!3d53.33682034292388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sie!4v1392484951339" width="800" height="450" frameborder="0" style="border:0"></iframe>
         </section>
 
-        <section id="social-feed">
+        <section id="social-feed" class="large-12 medium-12 small-12 columns">
+            <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-2">
+                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"></li>
+                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space.jpg"></li>
+                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk.jpg"></li>
 
+                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"></li>
+                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space.jpg"></li>
+                <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk.jpg"></li>
+            </ul>
         </section>
-
     </section>
+</div>  
 {% endblock %}
