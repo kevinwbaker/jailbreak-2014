@@ -64,6 +64,7 @@
 
 	/* Cards */
 	.card {
+		overflow: none;
 		position: relative;
 		padding: 18px 10px 10px;
 		border: 1px solid #E6E6E6;
@@ -111,6 +112,55 @@
 		font-size: 85%;
 	}
 
+	/* Twitter Cards */
+	.twitter .body {
+		position: relative;
+	}
+
+	.twitter .body .header {
+		height: 50px;
+	}
+
+	.twitter .body h4 {
+		display: inline-block;
+		font-size: 0.8em;
+		vertical-align: middle
+	}
+
+	.twitter .body h4 img {
+		float: left;
+		border-radius: 4px;
+		padding: 5px 5px 5px 0;
+	}
+
+	.twitter .lower {
+		margin-top: 10px;
+		border-top: 1px solid #E6E6E6;
+		padding-top: 10px;
+	}
+
+	.twitter .lower .logo {
+		font-size: 1.6em;
+		color: #01A1DE;
+	}
+
+	.twitter .lower .button {
+		float: right;
+		margin: 0 5px 0 0;
+	}
+
+	.twitter .lower:last-child {
+		margin: 0;
+	}
+
+	.twitter-media {
+		padding: 0px;
+	}
+
+	.twitter-media .body {
+		padding: 10px;
+	}
+	
 	/* Super Cards */
 	.super-card {
 		background: #171717;
