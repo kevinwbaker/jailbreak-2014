@@ -49,7 +49,7 @@
 	/* Home Main */
 	#home-main {
 		padding: 0;
-		overflow: none;
+		overflow: hidden;
 	}
 
 	#map {
@@ -64,7 +64,7 @@
 
 	/* Cards */
 	.card {
-		overflow: none;
+		overflow: hidden;
 		position: relative;
 		padding: 18px 10px 10px;
 		border: 1px solid #E6E6E6;
@@ -118,23 +118,26 @@
 	}
 
 	.twitter .body .header {
-		height: 50px;
+		height: 40px;
+		margin-bottom: 10px;
 	}
 
 	.twitter .body h4 {
 		display: inline-block;
-		font-size: 0.8em;
-		vertical-align: middle
+		font-size: 0.9em;
+		vertical-align: top;
+		margin: 0;
 	}
 
-	.twitter .body h4 img {
-		float: left;
+	.twitter .body .avatar { 
+		display: inline-block;
+		overflow: hidden;
 		border-radius: 4px;
-		padding: 5px 5px 5px 0;
+		margin-right: 10px;
 	}
 
 	.twitter .lower {
-		margin-top: 10px;
+		margin-top: 10px !important;
 		border-top: 1px solid #E6E6E6;
 		padding-top: 10px;
 	}
@@ -258,11 +261,11 @@
 		margin: 15px 0 0 0;
 	}
 
-		/* Standings */
+	/* Standings */
 	#standings {
 		margin: 0;
 		padding: 0;
-		overflow: none;
+		overflow: hidden;
 	}
 
 	#standings h3 {
