@@ -10,7 +10,7 @@ def static(request):
         static_url = settings.STATIC_URL
     return {'STATIC_URL': static_url}
 
-def get_current_path(request):
+def jailbreak_settings(request):
     return {
-       'current_path': request.get_full_path()
+       'MAIN_SPONSOR_PAGE': settings.MAIN_SPONSOR_PAGE
      }

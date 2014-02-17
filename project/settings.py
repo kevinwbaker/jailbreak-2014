@@ -107,7 +107,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'utilities.context_processors.get_current_path'
+    'utilities.context_processors.jailbreak_settings'
 )
 
 INSTALLED_APPS = (
@@ -154,6 +154,8 @@ COMPRESS_ENABLED = True
 START_LNG = -6.3098048
 START_LAT = 53.3418701
 RADIUS_EARTH = 6373.0
+
+MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 
 # Try to import local_settings.
 try:

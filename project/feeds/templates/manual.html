@@ -12,6 +12,7 @@
         {% endif %}
 
         <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
+        
         {% if post.has_team %}
             <div class="donate-button small">
                 <div class="donate-link">
@@ -22,6 +23,9 @@
                 </div>
                 <br class="clear" />
             </div>
+        {% else %}
+            <a href="{{ MAIN_SPONSOR_PAGE }}" class="button small"><i class="fi-heart"></i>Donate</a>
+
         {% endif %}
     </div>
 
