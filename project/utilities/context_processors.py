@@ -9,3 +9,8 @@ def static(request):
     else:
         static_url = settings.STATIC_URL
     return {'STATIC_URL': static_url}
+
+def get_current_path(request):
+    return {
+       'current_path': request.get_full_path()
+     }

@@ -13,23 +13,30 @@ class Team(models.Model):
     UCC = 2
     UCD = 3
     UNIVERSITIES = (
-        (TCD, 'tcd'),
-        (NUIG, 'nuig'),
-        (UCC, 'ucc'),
-        (UCD, 'ucd'),
+        (TCD, 'tcd', "Trinity College Dublin"),
+        (NUIG, 'nuig', "National University of Ireland, Galway"),
+        (UCC, 'ucc', "University College Cork"),
+        (UCD, 'ucd', "University College Dublin"),
     )
     
     number = models.PositiveIntegerField()
     name = models.CharField(max_length=128)
     slug = models.SlugField()
     photo = models.FileField(upload_to='teams')
+    cover_photo = models.FileField(upload_to='teams/cover-photo', null=True)
     sponsor_link = models.URLField()
-    description = models.TextField()
+    description = models.CharField(max_length=255)
+    donate_reason = models.CharField(max_length=255)
+    amount_raised = models.IntegerField()
     university = models.PositiveSmallIntegerField()
 
     @property
     def university_name(self):
         return self.UNIVERSITIES[self.university][1]
+
+    @property
+    def university_full_name(self):
+        return self.UNIVERSITIES[self.university][2]
     
     @property
     @memoize_instance

@@ -4,6 +4,7 @@
  */
 @media only screen { 
 
+	/* Teams Page List */
 	ul.list {
 		margin-bottom: 0;
 	}
@@ -18,6 +19,71 @@
   * min-width 641px, medium screens
   */
 @media only screen and (min-width: 40.063em) {
+	/* Team Page */
+	.header {
+		margin-top: 40px;
+		height: 425px;
+		position: relative;
+	}
 
+	#cover-photo {
+		height: 300px;
+		overflow: hidden;
+	}
 
+	#profiler {
+		position: absolute;
+		top: 180px;
+		left: 50px;
+		background: #fff;
+		border-width: 2px;
+		border-style: solid;
+		border-radius: 5px;
+	}
+
+	#profiler img{
+		margin: 5px;
+	}
+
+	.profiler-tcd { border-color: #FDDC39; }
+	.profiler-ucd { border-color: #1DAFEC; }
+	.profiler-nuig { border-color: #EA168C; }
+	.profiler-ucc { border-color: #17A552; }
+
+	.header .details {
+		position: absolute;
+		top: 280px;
+		left: 275px;
+	}
+
+	.header .details h2 {
+		margin: 0;
+	}
+
+	.header .details .university {
+		font-size: 0.4em;
+	}
+
+	.header .details p {
+		margin: 0;
+	}
+
+	.header .desc {
+		font-size: 90%;
+	}
+
+	.left {
+		float: left;
+		width: 48%;
+		margin-right: 4%;
+	}
+
+	.raised {
+		font-size: 2em;
+		text-align: center;
+	}
+
+	.raised span {
+		color: #17A552;
+	}
 }

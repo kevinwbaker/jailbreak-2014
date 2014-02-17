@@ -1,3 +1,5 @@
+{% load unescape %}
+
 <div class="card super-card">
     <img src="{{ STATIC_URL }}base/images/cartoons/{{ post.media }}" />
     <span class="time">{{ post.time|timesince }}</span>
@@ -5,10 +7,21 @@
     {{ post.message|safe }}
 
     <div class="buttons">
-        <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
+        {% if post.has_team %}
+            <a href="https://twitter.com/intent/tweet?original_referer={{ request.build_absolute_uri|urlencode }}&amp;text={{ post.message|striptags|truncatechars:100|unescape|urlencode }}{{ " #jailbreak2014"|urlencode}}&amp;tw_p=tweetbutton&amp;url={{ request.build_absolute_uri|urlencode }}&amp;via=jailbreakhq" target="_blank" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
+        {% endif %}
+
         <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
         {% if post.has_team %}
-            <a href="{{ post.team.sponsor_link }}" class="button small"><i class="fi-heart"></i>Donate</a>
+            <div class="donate-button small">
+                <div class="donate-link">
+                    <a href="{{ post.team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
+                </div>
+                <div class="count">
+                    &euro; <div class="odometer" data-value="{{ post.team.amount_raised }}">0</div>
+                </div>
+                <br class="clear" />
+            </div>
         {% endif %}
     </div>
 

@@ -12,40 +12,64 @@
     <section id="team">
 
         <div class="row">
-        	<header class="small-12 columns">
-        		<div id="cover-photo">
-        			<img src="{{ STATIC_URL }}/base/images/headers/{{ team.university_name }}-header.png" />
-        		</div>
-        	
-        		<img src="{{ team.photo|default:"http://placehold.it/200x200" }}" id="profiler"
-        		 />
-        		<h2>#{{team.number }}: {{ team.name }} <span class="university">({{ team.university_name|upper }})</span></h2>
-        		<p>{{ team.description }}</p>
-        	</header>
+        	<div class="small-12 columns">
+                <header class="header">
+            		<div id="cover-photo" class="show-for-medium-up">
+            			<img src="{{ STATIC_URL }}/base/images/headers/{{ team.university_name }}-header.png" height="200" />
+            		</div>
+            	
+            		<div id="profiler" class="profiler-{{ team.university_name }}">
+                        <img src="{{ team.photo|default:"http://placehold.it/200x200" }}" />
+                    </div>
+
+            		<div class="details">
+                        <h2>#{{team.number }}: {{ team.name }} <span class="university"><a href="">{{ team.university_full_name }}</a></span></h2>
+                        
+                        <p class="desc">{{ team.description }}</p>
+                    </div>
+                </header>
+        	</div>
         </div>
 
         <div class="row">
         	<div class="small-12 medium-6 columns">
-        		<p>{{ team.name }} last checked in {{ team.last_checkin.time|timesince }} at {{ team.last_checkin.name }} <small>({{ team.distance|floatformat:"1" }} km)</small> </p>
-
+                <h3 class="raised">Raised: <span>&euro; 4,352</span></h3>
         		<div class="donate-box">
         			<h5>Why should I donate?</h5>
-	        		<p>In purus nibh, elementum eu feugiat et, pharetra nec metus. Quisque nec sapien imperdiet, blandit sapien sed, porttitor nibh. Nulla scelerisque eu purus sed convallis.</p>
-	        		<button href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</button>
+	        		<p>{{ team.donate_reason }}</p>
+	        		<div class="donate-button">
+                        <div class="donate-link">
+                            <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
+                        </div>
+                        <div class="count">
+                            &euro; <div class="odometer" data-value="{{ team.amount_raised }}">0</div>
+                        </div>
+                        <br class="clear" />
+                    </div>
         		</div>
         	</div>
 
         	<div class="small-12 medium-6 columns">
+                <p>{{ team.name }} last checked in {{ team.last_checkin.time|timesince }} ago at {{ team.last_checkin.name }} <small>({{ team.distance|floatformat:"1" }} km)</small> </p>
+
         		<div class="flex-video">
         			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76235.50443936698!2d-6.249427395117186!3d53.33682034292388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sie!4v1392484951339" width="800" height="450" frameborder="0" style="border:0"></iframe>
         		</div>
         	</div>
         </div>
 
+        
         <div class="row">
             <div class="small-12 medium-6 columns">
+                <h3>Team Updates</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 columns">    
                 {% for post in team.posts.all %}
-                    {% show_post post %}
+                    <div class="{%cycle 'left' '' %}">
+                        {% show_post post %}
+                    </div>
                 {% endfor %}
             </div>
         </div>

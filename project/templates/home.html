@@ -2,6 +2,9 @@
 
 {% load show_post %}
 
+{% block extra_css %}
+{% endblock %}
+
 {% block body_html %}
 <div class="row">
     <section id="standings" class="medium-4 show-for-medium-up columns">
@@ -22,7 +25,15 @@
                         <p>Team {{ team.number }} - {{ team.university_name|upper }}</p>
                         <p class="location">{{ team.last_checkin.name }} <span>({{ team.distance|floatformat:"1" }} km)</span></p>
 
-                        <a href="{{ team.sponsor_link }}" class="button small"><i class="fi-heart"></i>Donate</a>
+                        <div class="donate-button small">
+                            <div class="donate-link">
+                                <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
+                            </div>
+                            <div class="count">
+                                &euro; <div class="odometer" data-value="{{ team.amount_raised }}">0</div>
+                            </div>
+                            <br class="clear" />
+                        </div>
                     </div>
                 </div>
             </li>
@@ -49,12 +60,5 @@
 {% endblock %}
 
 {% block footer_javascript %}
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=155223981291622";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    
 {% endblock %}

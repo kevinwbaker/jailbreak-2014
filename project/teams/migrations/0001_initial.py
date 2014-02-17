@@ -15,8 +15,11 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=128)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
             ('photo', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
+            ('cover_photo', self.gf('django.db.models.fields.files.FileField')(max_length=100, null=True)),
             ('sponsor_link', self.gf('django.db.models.fields.URLField')(max_length=200)),
-            ('description', self.gf('django.db.models.fields.TextField')()),
+            ('description', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('donate_reason', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('amount_raised', self.gf('django.db.models.fields.IntegerField')()),
             ('university', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
         ))
         db.send_create_signal(u'teams', ['Team'])
@@ -53,7 +56,10 @@ class Migration(SchemaMigration):
         },
         u'teams.team': {
             'Meta': {'object_name': 'Team'},
-            'description': ('django.db.models.fields.TextField', [], {}),
+            'amount_raised': ('django.db.models.fields.IntegerField', [], {}),
+            'cover_photo': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'null': 'True'}),
+            'description': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'donate_reason': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'number': ('django.db.models.fields.PositiveIntegerField', [], {}),

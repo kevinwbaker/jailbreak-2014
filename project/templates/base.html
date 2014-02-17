@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}utilities/css/foundation-font-icons.css" />
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base/css/main.css">
 
+        <!-- Odometer -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}utilities/css/odometer-minimal.css" />
+
         {% block extra_css %}
         {% endblock %}
 
@@ -70,9 +73,9 @@
                 {% endblock %}
             </div>
 
-          <!-- close the off-canvas menu -->
-          <a class="exit-off-canvas"></a>
-          </div><!-- close #inner-wrap -->
+            <!-- close the off-canvas menu -->
+            <a class="exit-off-canvas"></a>
+            </div><!-- close #inner-wrap -->
         </div><!-- close #off-canvas-wrap -->
 
         <script src="{{ STATIC_URL }}utilities/js/jquery.js"></script>
@@ -80,6 +83,21 @@
         <script>
           $(document).foundation();
         </script>
+       
+        <!-- Odometer counter for the donate buttons -->
+        <script src="{{ STATIC_URL }}utilities/js/odometer.js"></script>
+        <script>
+            $(document).ready(function() {
+                // odometer animation for donate buttons
+                setTimeout(function(){
+                    $(".odometer").each(function(index) {
+                        var value = $(this).attr('data-value');
+                        $(this).html(value);
+                    });
+                }, 1000);
+            });
+        </script>
+
         {% block footer_javascript %}
         {% endblock %}
     </body>

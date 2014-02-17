@@ -143,6 +143,11 @@
 		clear: both;
 	}
 
+	.card .buttons a {
+		text-decoration: 0;
+		border: none;
+	}
+
 	/* Social Cards */
 	.card .team {
 		border-bottom: 1px solid #E6E6E6;
@@ -285,6 +290,32 @@
 		background: #FBD753;
 	}
 
+	.super-card .buttons .donate-button {
+		margin: 0;
+		vertical-align: top;
+		display: block;
+		min-width: 130px;
+		display: inline-block;
+	}
+
+	.super-card .buttons .donate-button .donate-link a,
+	.super-card .buttons .donate-button .count {
+		height: 26px;
+	}
+
+	.super-card .buttons .donate-button a {
+		background: #FBD753;
+		color: #3A3A3C;
+	}
+
+	.super-card .buttons .donate-button a:hover {
+		background: #FCE283;
+		color: #4C4C4E;
+		-webkit-transition: background-color 300ms ease-out;
+		-moz-transition: background-color 300ms ease-out;
+		transition: background-color 300ms ease-out;
+	}
+
 	/* Headers */
 	h1, h2, h3 {
 		color: #3A3A3A;
@@ -315,8 +346,69 @@
 		font-size: 0.55rem;
 	}
 
-	button i, .button i {
+	button i, .button i, .donate-button i {
 		padding-right: 5px;
+	}
+
+	.donate-button {
+	 	font-size: 1.2rem;
+	 	margin: 4px 0;
+	}
+
+	.donate-button.small {
+	 	font-size: 0.6rem;
+	}
+
+	.donate-button a {
+		color: #FBD753;
+	}
+
+	.donate-link a {
+		background: #3A3A3C;
+		color: #FBD753;
+		text-transform: uppercase;
+		border-radius: 3px 0 0 3px;
+		float: left;
+		padding-top: 0.9rem;
+		padding-bottom: 1rem;
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+
+	.donate-button.small .donate-link a {
+		height: 3.3em;
+		padding-top: 0.45rem;
+		padding-bottom: 0.5rem;
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
+	}
+
+	.donate-link a:hover {
+		background: #4C4C4E;
+		-webkit-transition: background-color 300ms ease-out;
+		-moz-transition: background-color 300ms ease-out;
+		transition: background-color 300ms ease-out;
+	}
+
+	.donate-button .count {
+		background: #4C4C4E;
+		color: #FBD753;
+		text-transform: uppercase;
+		border-radius: 0 3px 3px 0;
+		display: inline-block;
+		border-left: 1px solid #3A3A3C;
+		padding-top: 0.8rem;
+		padding-right: 1rem;
+		padding-bottom: 1rem;
+		padding-left: 1rem;
+	}
+
+	.donate-button.small .count {
+		height: 3.3em;
+		padding-top: 0.4rem;
+		padding-right: 0.5rem;
+		padding-bottom: 0.5rem;
+		padding-left: 0.5rem;
 	}
 
 	/* Other */
@@ -376,6 +468,7 @@
 	.rank {
 	    width: 0px;
 	    height: 0px;
+	    color: #4C4C4E;
 	    border-style: inset;
 	    border-width: 44px 44px 0 0;
 	    border-color: #4C4C4E transparent transparent transparent;
