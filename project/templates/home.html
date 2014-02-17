@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load show_post %}
+
 {% block body_html %}
 <div class="row">
     <section id="standings" class="medium-4 show-for-medium-up columns">
@@ -38,130 +40,21 @@
         </section>
 
         <section id="social-feed" >
-            <div class="card super-card">
-                <img src="{{ STATIC_URL }}base/images/cartoons/balloon.png" />
-                <span class="time">2 hours ago</span>
-
-                <h4><a href="">Team 14 Jack &amp; Jill</a> just left Europe</h4>
-                <p>After flying for 4 hours Jack and Jill have arrived at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a>, putting them in first place!</p>
-
-                <div class="buttons">
-                    <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
-                    <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
-                    <a href="#" class="button small"><i class="fi-heart"></i>Donate</a>
-                </div>
-
-                <br class="clear" />
-            </div>
-
-
-            <div class="card">
-                <span class="time">1 hours ago</span>
-
-                <p><a href="">Team 14: Jack &amp; Jill (TCD)</a> just checked in at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a></p>
-            </div>
-
-            <div class="card">
-                <span class="time">2 hours ago</span>
-
-                <p><a href="">Team 71: Richard and Michael Boyle (NUIG)</a> just checked in at <a href="" class="location">Dublin Airport, Dublin, Ireland <span>(322 km)</span></a></p>
-            </div>
-
-            <div class="card">
-                <span class="time">3 hours ago</span>
-
-                <p><a href="">Team 1: Janna &amp; Kevin</a> just checked in at <a href="" class="location">Cario, Egypt <span>(1,312 km)</span></a></p>
-            </div>
-            
-
-            <div class="card">
-                <span class="time">4 hours ago</span>
-
-                <p><a href="">Team 99: Catherine &amp; James</a> just checked in at <a href="" class="location">Sydney, Australia <span>(12,312 km)</span></a></p>
-            </div>
-
-
-            <div class="card super-card">
-                <img src="{{ STATIC_URL }}base/images/cartoons/balloon.png" />
-                <span class="time">2 hours ago</span>
-
-                <h4><a href="">Team 14 Jack &amp; Jill</a> just left Europe</h4>
-                <p>After flying for 4 hours Jack and Jill have arrived at <a href="" class="location">Dubai, UAE <span>(8,312 km)</span></a>, putting them in first place!</p>
-
-                <div class="buttons">
-                    <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
-                    <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
-                    <a href="#" class="button small"><i class="fi-heart"></i>Donate</a>
-                </div>
-
-                <br class="clear" />
-            </div>
-
-            <div class="card twitter twitter-media">
-                <img src="https://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg:large" />
-
-                <div class="body">
-                    <span class="time">3 hours</span>
-
-                    <div class="header">
-                        <div class="avatar"><img src="http://placehold.it/40x40" /></div>
-                        <h4>
-                            <a href="">Team 24: Jack &amp; Jill</a><br />
-                            <span class="username">@jailbreakers2014</span>
-                        </h4>
-                    </div>
-
-                    <p>We just meet this lovely couple who gave us $100 dollars. Sweetest people. <a href="">#jailbreak2014</a></p>
-               
-                    <div class="lower">
-                        <span class="logo"><a href="" about="_blank" title="View this tweet on Twitter"><i class="fi-social-twitter"></i></span></a>
-
-                        <a href="" class="button secondary small" about="_blank" title="Reply to this tweet on Twitter">
-                            <i class="fi-at-sign"></i>Reply
-                        </a>
-                        <a href="" class="button secondary small" about="_blank"  title="Retweet this tweet on Twitter">
-                            <i class="fi-quote"></i>Retweet
-                        </a>
-                        <a href="" class="button secondary small"  about="_blank" title="Favourite this tweet on Twitter">
-                            <i class="fi-star"></i>Favourite
-                        </a>
-                        <br class="clear" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="card twitter">
-                <div class="body">
-                    <span class="time">6 hours</span>
-
-                    <div class="header">
-                        <div class="avatar"><img src="http://placehold.it/40x40" /></div>
-                        <h4>
-                            <a href="">Team 24: Jack &amp; Jill</a><br />
-                            <span class="username">@jailbreakers2014</span>
-                        </h4>
-                    </div>
-
-                    <p>We just meet this lovely couple who gave us $100 dollars. Sweetest people. <a href="">#jailbreak2014</a></p>
-               
-                    <div class="lower">
-                        <span class="logo"><a href="" about="_blank" title="View this tweet on Twitter"><i class="fi-social-twitter"></i></span></a>
-
-                        <a href="" class="button secondary small" about="_blank" title="Reply to this tweet on Twitter">
-                            <i class="fi-at-sign"></i>Reply
-                        </a>
-                        <a href="" class="button secondary small" about="_blank"  title="Retweet this tweet on Twitter">
-                            <i class="fi-quote"></i>Retweet
-                        </a>
-                        <a href="" class="button secondary small"  about="_blank" title="Favourite this tweet on Twitter">
-                            <i class="fi-star"></i>Favourite
-                        </a>
-                        <br class="clear" />
-                    </div>
-                </div>
-            </div>
-
+            {% for post in posts %}
+                {% show_post post %}
+            {% endfor %}
         </section>
     </section>
 </div>  
+{% endblock %}
+
+{% block footer_javascript %}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=155223981291622";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 {% endblock %}

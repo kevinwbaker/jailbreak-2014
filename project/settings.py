@@ -126,6 +126,7 @@ INSTALLED_APPS = (
 
     # apps
     'teams',
+    'feeds',
     'utilities'
 )
 

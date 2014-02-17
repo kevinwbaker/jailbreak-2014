@@ -1,0 +1,39 @@
+<div class="card twitter {% if post.has_media %}twitter-media{% endif %} {% if post.has_team %}is-team{% endif %}">
+    {% if post.has_team %}
+        <div class="team">
+            <p><img src="{{ post.team.photo|default:"http://placehold.it/40x40" }}" width="40" height="40" alt="{{ post.team.name }}" /><a href="">Team {{ post.team.number }}: {{ post.team.name }}</a></p>
+        </div>
+    {% endif %}
+
+    {% if post.has_media %}
+        <img src="{{ post.media }}" />
+    {% endif %}
+
+    <div class="body">
+        <span class="time">{{ post.time|timesince }}</span>
+
+        <div class="header">
+            <div class="avatar"><img src="{{ post.user_photo }}" width="40" height="40" /></div>
+            <h4>
+                <span class="username"><a href="{{ post.user_url }}">@{{ post.user }}</a></span>
+            </h4>
+        </div>
+
+        <p>{{ post.message|safe }}</p>
+   
+        <div class="lower">
+            <span class="logo"><a href="{{ post.url }}" about="_blank" title="View this tweet on Twitter"><i class="fi-social-twitter"></i></span></a>
+
+            <a href="{{ post.url }}" class="button secondary small" about="_blank" title="Reply to this tweet on Twitter">
+                <i class="fi-at-sign"></i>Reply
+            </a>
+            <a href="{{ post.url }}" class="button secondary small" about="_blank"  title="Retweet this tweet on Twitter">
+                <i class="fi-quote"></i>Retweet
+            </a>
+            <a href="{{ post.url }}" class="button secondary small"  about="_blank" title="Favourite this tweet on Twitter">
+                <i class="fi-star"></i>Favourite
+            </a>
+            <br class="clear" />
+        </div>
+    </div>
+</div>

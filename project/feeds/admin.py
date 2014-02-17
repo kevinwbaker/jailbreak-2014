@@ -1,5 +1,7 @@
 from django.contrib import admin
 
-from events.models import Feed
+from feeds.models import Feed
+from feeds.models import Post
 
 admin.site.register(Feed)
+admin.site.register(Post)

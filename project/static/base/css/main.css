@@ -66,7 +66,7 @@
 	.card {
 		overflow: hidden;
 		position: relative;
-		padding: 18px 10px 10px;
+		padding: 10px;
 		border: 1px solid #E6E6E6;
 		border-radius: 5px;
 		margin-bottom: 20px;
@@ -81,6 +81,7 @@
 
 	.card p {
 		margin: 0;
+		padding-right: 50px;
 	}
 
 	.card .time {
@@ -107,63 +108,107 @@
 		clear: both;
 	}
 
-	.location span {
-		font-style: italic;
-		font-size: 85%;
+	/* Social Cards */
+	.card .team {
+		border-bottom: 1px solid #E6E6E6;
+		padding-bottom: 5px;
+		margin-bottom: 5px;
 	}
 
-	/* Twitter Cards */
-	.twitter .body {
+	.card .team img {
+		display: inline-block;
+		margin-right: 10px;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	.card .team p {
+		padding: 0;
+		margin: 0;
+	}
+
+	.card .body {
 		position: relative;
 	}
 
-	.twitter .body .header {
+	.card .body .header {
 		height: 40px;
 		margin-bottom: 10px;
 	}
 
-	.twitter .body h4 {
+	.card .body .avatar { 
 		display: inline-block;
-		font-size: 0.9em;
-		vertical-align: top;
-		margin: 0;
-	}
-
-	.twitter .body .avatar { 
-		display: inline-block;
-		overflow: hidden;
-		border-radius: 4px;
 		margin-right: 10px;
 	}
 
-	.twitter .lower {
+	.card .body h4 {
+		display: inline-block;
+		font-size: 1em;
+		margin: 0;
+		height: 50px;
+		vertical-align: middle
+	}
+
+	.card .lower {
 		margin-top: 10px !important;
 		border-top: 1px solid #E6E6E6;
 		padding-top: 10px;
 	}
 
-	.twitter .lower .logo {
+	.card .lower .logo {
 		font-size: 1.6em;
-		color: #01A1DE;
 	}
 
-	.twitter .lower .button {
+	.card .lower .button {
 		float: right;
 		margin: 0 5px 0 0;
 	}
 
-	.twitter .lower:last-child {
+	.card .lower:last-child {
 		margin: 0;
+	}
+
+	/* Twitter Cards */
+	.twitter .body .avatar { 
+		overflow: hidden;
+		border-radius: 4px;
+	}
+
+	.twitter .lower .logo a {
+		color: #01A1DE;
 	}
 
 	.twitter-media {
 		padding: 0px;
+		border-bottom: 1px solid #E6E6E6;
+	}
+
+	.twitter-media .team {
+		padding: 10px;
+		margin: 0;
 	}
 
 	.twitter-media .body {
 		padding: 10px;
 	}
+
+	/* Facebook Embed */
+	.facebook .lower .logo a {
+		color: #3B5998;
+	}
+
+	.facebook .body p {
+		margin: 0 0 10px 0;
+		padding: 0
+	}
 	
+	.facebook .body .media {
+		display: block;
+		margin: 0 auto;
+		border: 1px solid #E6E6E6;
+		box-shadow: 1px 1px 4px 0px #EBEBEB;
+	}
+
 	/* Super Cards */
 	.super-card {
 		background: #171717;
@@ -182,6 +227,7 @@
 
 	.super-card p {
 		margin-bottom: 20px;
+		padding: 0;
 	}
 
 	.super-card a {
@@ -235,6 +281,11 @@
 	/* Other */
 	.clear {
 		clear: both;
+	}
+
+	.distance {
+		font-style: italic;
+		font-size: 85%;
 	}
 } 
 

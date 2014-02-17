@@ -1,0 +1,37 @@
+<div class="card facebook {% if post.has_team %}is-team{% endif %}">
+    {% if post.has_team %}
+        <div class="team">
+            <p><img src="{{ post.team.photo|default:"http://placehold.it/40x40" }}" width="40" height="40" alt="{{ post.team.name }}" /><a href="">Team {{ post.team.number }}: {{ post.team.name }}</a></p>
+        </div>
+    {% endif %}
+
+    <div class="body">
+        <span class="time">{{ post.time|timesince }}</span>
+
+        <div class="header">
+            <div class="avatar"><img src="{{ post.user_photo }}" width="40" height="40" /></div>
+            <h4>
+                <span class="username"><a href="{{ post.user_url }}">{{ post.user }}</a></span>
+            </h4>
+        </div>
+
+        <p>{{ post.message|safe }}</p>
+
+        <img src="{{ post.media }}" class="media" />
+   
+        <div class="lower">
+            <span class="logo"><a href="{{ post.url }}" about="_blank" title=""><i class="fi-social-facebook"></i></span></a>
+
+            <a href="{{ post.url }}" class="button secondary small" about="_blank" title="Like on this post on Facebook">
+                <i class="fi-like"></i>Like
+            </a>
+            <a href="{{ post.url }}" class="button secondary small" about="_blank"  title="Comment on this post on Facebook">
+            	<i class="fi-comment"></i>Comment
+            </a>
+            <a href="{{ post.url }}" class="button secondary small"  about="_blank" title="Share this post with your friends on Facebook">
+                <i class="fi-lightbulb"></i>Share
+            </a>
+            <br class="clear" />
+        </div>
+    </div>
+</div>

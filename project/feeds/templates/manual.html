@@ -1,0 +1,16 @@
+<div class="card super-card">
+    <img src="{{ STATIC_URL }}base/images/cartoons/{{ post.media }}" />
+    <span class="time">{{ post.time|timesince }}</span>
+
+    {{ post.message|safe }}
+
+    <div class="buttons">
+        <a href="#" class="button secondary small"><i class="fi-social-twitter"></i>Tweet</a>
+        <a href="#" class="button secondary small"><i class="fi-like"></i>Like</a>
+        {% if post.has_team %}
+            <a href="{{ post.team.sponsor_link }}" class="button small"><i class="fi-heart"></i>Donate</a>
+        {% endif %}
+    </div>
+
+    <br class="clear" />
+</div>
