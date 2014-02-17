@@ -14,5 +14,15 @@ urlpatterns = patterns('teams',
     	view='views.team',
     	kwargs={'template':'team.html'},
     	name='team'
-    )
+    ),
+    url(r'^universities/compare$',
+        view='views.universities',
+        kwargs={'template':'universities.html'},
+        name='universities'
+    ),
+    url(r'^universities/(?P<slug>[\w-]+)/$',
+        view='views.university',
+        kwargs={'template':'university.html'},
+        name='university'
+    ),
 )

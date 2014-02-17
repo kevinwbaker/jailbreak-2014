@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ university.full_name }} - {{ block.super }}{% endblock %}
+
+
+
+{% block body_html %}
+<div class="row">
+	<div class="small-12">
+		<section id="university">
+			<h2>{{ university.full_name }}</h2>
+		</section>
+	</div>
+</div>
+   
+{% endblock %}

@@ -25,7 +25,31 @@ def team(request, slug, template=None):
     context['team_page'] = True
     return render_to_response(template, context_instance=context)
 
+def universities(request, template=None):
+    '''All the universities compared and contrasted'''
+    context = RequestContext(request)
+
+    return render_to_response(template, context_instance=context)
+
+def university(request, slug, template=None):
+    '''Lists all the teams for a university and all it's team members'''
+    context = RequestContext(request)
+
+    return render_to_response(template, context_instance=context)
+
+@login_required
+def edit_team(request, template=None):
+    '''View to allow teams edit their details'''
+    context = RequestContext(request)
+
+    if request.method == 'POST':
+        pass
+
+    return render_to_response(template, context_instance=context)
+
 @staff_member_required
 def add_checkin(request, template=None):
     '''Allow staff to add a new checkin for a team'''
-    pass
+    context = RequestContext(request)
+
+    return render_to_response(template, context_instance=context)

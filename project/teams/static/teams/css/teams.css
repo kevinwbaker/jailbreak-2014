@@ -4,14 +4,20 @@
  */
 @media only screen { 
 
-	/* Teams Page List */
-	ul.list {
-		margin-bottom: 0;
+	#teams {
+		margin-top: 40px;
 	}
 
-	ul.list li {
-		height: 220px;
+	#teams li {
+		border-bottom: 1px solid #E6E6E6;
+		margin-top: 20px;
 	}
+
+	#teams li p {
+		margin: 0;
+	}
+
+
 
 }
 
@@ -19,6 +25,12 @@
   * min-width 641px, medium screens
   */
 @media only screen and (min-width: 40.063em) {
+	/* Teams */
+	#teams li {
+		border-bottom: none;
+		border-right: 1px solid #E6E6E6;
+	}
+
 	/* Team Page */
 	.header {
 		margin-top: 40px;
@@ -76,14 +88,5 @@
 		float: left;
 		width: 49%;
 		margin-right: 2%;
-	}
-
-	.raised {
-		font-size: 2em;
-		text-align: center;
-	}
-
-	.raised span {
-		color: #17A552;
 	}
 }
