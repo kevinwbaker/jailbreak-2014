@@ -1,5 +1,10 @@
-<div class="card">
-    <span class="time">{{ post.time|timesince }}</span>
+<div class="card checkin">
+	<div class="team">
+        <p><img src="{{ post.team.photo|default:"http://placehold.it/40x40" }}" width="30" height="30" alt="{{ post.team.name }}" /><a href="{% url "team" post.team.slug %}">Team {{ post.team.number }}: {{ post.team.name }}</a></p>
 
-    {{ post.message|safe }}
+        <span class="time">{{ post.time|timesince }}</span>
+    </div>
+    <div class="body">
+        <p>{{ post.message|safe }}</p>
+    </div>
 </div>

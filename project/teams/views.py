@@ -2,6 +2,8 @@ import datetime
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 from teams.models import Team
 
@@ -22,3 +24,8 @@ def team(request, slug, template=None):
 
     context['team_page'] = True
     return render_to_response(template, context_instance=context)
+
+@staff_member_required
+def add_checkin(request, template=None):
+    '''Allow staff to add a new checkin for a team'''
+    pass

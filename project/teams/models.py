@@ -3,6 +3,7 @@ from math import sin, cos, sqrt, atan2, radians
 
 from django.db import models
 from django.conf import settings
+from utilities.utils.memoize import memoize_instance
 
 class Team(models.Model):
     '''Team taking part'''
@@ -31,6 +32,7 @@ class Team(models.Model):
         return self.UNIVERSITIES[self.university][1]
     
     @property
+    @memoize_instance
     def last_checkin(self):
         try:
             return self.checkins.latest('time')

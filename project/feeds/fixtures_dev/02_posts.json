@@ -36,7 +36,7 @@
             "source": 1,
             "url": null,
             "media": null,
-            "message": "<p><a href=\"\">Team 71: Richard and Michael Boyle (NUIG)</a> just checked in at <a href=\"\" class=\"location\">Dublin Airport, Dublin, Ireland <span>(10.2 km)</span></a></p>",
+            "message": "Just checked in at Dublin Airport, Dublin, Ireland <small>(10.2 km)</small>",
             "time": "2014-02-16T11:00:01",
             "user": null,
             "user_photo": null,
@@ -96,7 +96,7 @@
             "source": 1,
             "url": null,
             "media": "",
-            "message": "<p><a href=\"\">Team 71: Richard and Michael Boyle (NUIG)</a> just checked in at <a href=\"\" class=\"location\">Dublin Airport, Dublin, Ireland <span>(10.2 km)</span></a></p>",
+            "message": "Just checked in at Dublin Airport, Dublin, Ireland <small>(10.2 km)</small>",
             "time": "2014-02-16T10:05:00",
             "user": null,
             "user_photo": null,
@@ -111,7 +111,7 @@
             "source": 1,
             "url": null,
             "media": "",
-            "message": "<p><a href=\"\">Team 71: Richard and Michael Boyle (NUIG)</a> just checked in at <a href=\"\" class=\"location\">Dublin Airport, Dublin, Ireland <span>(10.2 km)</span></a></p>",
+            "message": "Just checked in at the Poppy Fields, Netherlands (134 km)",
             "time": "2014-02-16T11:12:00",
             "user": null,
             "user_photo": null,
@@ -132,6 +132,21 @@
             "user_photo": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/t1/c0.0.100.100/p100x100/1454634_358058574329423_1361581216_a.jpg",
             "user_url": "https://www.facebook.com/JailbreakHQ",
             "team": null
+        }
+    },
+    {
+        "model": "feeds.post",
+        "pk": 10, 
+        "fields": {
+            "source": 1,
+            "url": null,
+            "media": "",
+            "message": "Just checked in at Paris, France <small>(103 km)</small>",
+            "time": "2014-02-16T10:36:00",
+            "user": null,
+            "user_photo": null,
+            "user_url": null,
+            "team": 1
         }
     }
 ]

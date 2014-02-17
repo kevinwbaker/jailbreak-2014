@@ -21,7 +21,7 @@ def home(request, template=None):
     context['standings'] = sorted(teams, key=lambda x: x.distance, reverse=True)
     
     # Feed
-    posts = Post.objects.all().order_by('-time')
+    posts = Post.objects.all().order_by('-time').select_related('team')
     context['posts'] = posts
 
     context['home_page'] = True

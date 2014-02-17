@@ -10,7 +10,7 @@ urlpatterns = patterns('teams',
         kwargs={'template':'teams.html'},
         name='teams'
     ),
-    url(r'^(?P<slug>[-\w]+)/$',
+    url(r'^(?P<slug>[\w-]+)/$',
     	view='views.team',
     	kwargs={'template':'team.html'},
     	name='team'
