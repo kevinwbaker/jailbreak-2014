@@ -17,7 +17,31 @@
 		margin: 0;
 	}
 
+	#universities {
+		margin: 40px 0;
+	}
 
+	#universities h3 {
+		padding-left: 10px;
+	}
+
+	#universities .pricing-table .title {
+		font-weight: 900;
+		font-size: 1.2em;
+		color: #3A3A3C;
+	}
+
+	#universities .pricing-table.tcd .title { background: #FDDC39; }
+	#universities .pricing-table.ucd .title { background: #1DAFEC; }
+	#universities .pricing-table.nuig .title { background: #EA168C; }
+	#universities .pricing-table.ucc .title { background: #17A552; }
+
+	.award-badge {
+		height: 200px;
+		border-radius: 5px;
+		overflow: hidden;
+		background: #171717;
+	}
 
 }
 

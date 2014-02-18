@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ event.title }} - {{ block.super }}{% endblock %}
+{% block title %}Team {{ team.number }}: {{ team.name }} - {{ block.super }}{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{{ STATIC_URL }}teams/css/teams.css" type="text/css" />

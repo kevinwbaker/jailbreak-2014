@@ -2,10 +2,81 @@
 
 {% block title %}Compare Universities - {{ block.super }}{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}teams/css/teams.css" type="text/css" />
+{% endblock %}
+
 {% block body_html %}
 <div class="row">
 	<div class="small-12">
 		<section id="universities">
+
+			<h3>Best University Awards</h3>
+
+            <div class="row">
+	            <div class="small-12 medium-6 columns">
+		            <div class="award card">
+		            	<div class="row">
+			            	<div class="small-6 columns">
+			            		<div class="award-badge">
+			            			<img src="{{ STATIC_URL }}base/images/cartoons/euro.png" />
+			            		</div>
+			            	</div>
+			            	<div class="small-6 columns">
+			            		<h4>Best Money Raisers</h4>
+			            		<p>{{ best_raisers }} are so far the best at raising money online having raised a superb &euro; {{ best_raisers_amount }} on average per team thus far.</p>
+			            	</div>
+			            </div>
+
+			            <div class="lower">
+			            	<div class="buttons">
+			            		<a href="" class="button small"><i class="fi-social-twitter"></i> Tweet</a>
+			            		<a href="" class="button small"><i class="fi-like"></i> like</a>
+		            		</div>
+		            	</div>
+		            </div>
+	            </div>
+
+	            <div class="small-12 medium-6 columns">
+		            <div class="award card">
+		            	<div class="row">
+			            	<div class="small-6 columns">
+			            		<div class="award-badge">
+			            			<img src="{{ STATIC_URL }}base/images/cartoons/balloon.png" />
+			            		</div>
+			            	</div>
+			            	<div class="small-6 columns">
+			            		<h4>Best Travellers</h4>
+			            		<p>{{ best_travellers }} are the best travellers having traveller on average {{ best_travellers_distance }} km per team.</p>
+			            	</div>
+		            	</div>
+
+		            	<div class="lower">
+			            	<div class="buttons">
+			            		<a href="" class="button small"><i class="fi-social-twitter"></i> Tweet</a>
+			            		<a href="" class="button small"><i class="fi-like"></i> like</a>
+		            		</div>
+	            		</div>
+	            	</div>
+	            </div>
+
+            </div><!-- ends best university awards -->
+
+			<h3>Each University's Effort</h3>
+
+			<div class="row">
+				{% for university in universities %}
+                <div class="small-12 medium-6 large-3 columns">
+                    <ul class="pricing-table {{ university.name }}">
+                      <li class="title">{{ university.full_name }}</li>
+                      {% for stat in university.stats %}
+                      	<li class="bullet-item">{{ stat.name }}</li>
+                      	<li class="price">{{ stat.value|safe }}</li>
+                      {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
 			
 		</section>
 	</div>

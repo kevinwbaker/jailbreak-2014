@@ -28,7 +28,7 @@ class Team(models.Model):
     description = models.CharField(max_length=255)
     donate_reason = models.CharField(max_length=255)
     amount_raised = models.IntegerField()
-    university = models.PositiveSmallIntegerField()
+    university = models.PositiveSmallIntegerField(db_index=True)
 
     @property
     def university_name(self):
