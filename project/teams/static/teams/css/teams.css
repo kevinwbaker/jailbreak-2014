@@ -4,10 +4,6 @@
  */
 @media only screen { 
 
-	#teams {
-		margin-top: 40px;
-	}
-
 	#teams li {
 		border-bottom: 1px solid #E6E6E6;
 		margin-top: 20px;
@@ -15,10 +11,6 @@
 
 	#teams li p {
 		margin: 0;
-	}
-
-	#universities {
-		margin: 40px 0;
 	}
 
 	#universities h3 {
@@ -57,7 +49,6 @@
 
 	/* Team Page */
 	.header {
-		margin-top: 40px;
 		height: 425px;
 		position: relative;
 	}

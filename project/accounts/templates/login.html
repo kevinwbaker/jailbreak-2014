@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load show_post %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block body_html %}
+<div class="row">
+    <section id="login" class="small-6 columns">
+        <h3>Login</h3>
+        
+        {{ login_form }}
+        <img src="{{ STATIC_URL }}base/images/cartoons/train.png" />
+    </section>
+</div>  
+{% endblock %}

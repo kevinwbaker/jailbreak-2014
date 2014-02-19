@@ -26,7 +26,6 @@ class Team(models.Model):
     cover_photo = models.FileField(upload_to='teams/cover-photo', null=True)
     sponsor_link = models.URLField()
     description = models.CharField(max_length=255)
-    donate_reason = models.CharField(max_length=255)
     amount_raised = models.IntegerField()
     university = models.PositiveSmallIntegerField(db_index=True)
 
@@ -66,7 +65,7 @@ class Team(models.Model):
         return distance
 
     def __unicode__(self):
-        return "{name} ({number} - {university})".format(name=self.name, number=self.number, university=self.university_name.upper())
+        return "{university}: {number} - {name}".format(name=self.name, number=self.number, university=self.university_name.upper())
 
 class Checkin(models.Model):
     '''Locations the team has checked in at'''

@@ -7,11 +7,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$',
-        view='jailbreak.views.home',
+        view='accounts.views.home',
         kwargs={'template':'home.html'},
         name='home'
     ),
-    (r'^/', include('jailbreak.urls')),
+    (r'^accounts/', include('accounts.urls')),
     (r'^teams/', include('teams.urls')),
     url(r'^admin/', include(admin.site.urls))
 )

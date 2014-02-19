@@ -51,19 +51,28 @@
                 <!-- whatever you want goes here -->
                 <ul class="off-canvas-list">
                     <li><label>Pages</label></li>
-                    <li><a href="/"><i class="fi-home"></i> Home</a></li>
-                    <li><a href="/teams/"><i class="fi-torsos-all"></i> Team Listing</a></li>
-                    <li><a href="/snapchat-rat/"><i class="fi-social-snapchat"></i> Snapchat Rat Race</a></li>
+                    <li><a href="/"><i class="fi-home"></i>Home</a></li>
+                    <li><a href="/teams/"><i class="fi-torsos-all"></i>Team Listing</a></li>
+                    <li><a href="/teams/universities/compare"><i class="fi-trophy"></i>University Awards</a></li>
+                    <li><a href="/snapchat-rat-race/"><i class="fi-social-snapchat"></i>Snapchat Rat Race</a></li>
                 </ul>
                 <ul class="off-canvas-list">
                     <li><label>Contact Us</label></li>
-                    <li><a href="#"><i class="fi-mail"></i> Send us an email</a></li>
-                    <li><a href="#"><i class="fi-megaphone"></i> Press Enquiries</a></li>
+                    <li><a href="#"><i class="fi-mail"></i>Send us an email</a></li>
+                    <li><a href="#"><i class="fi-megaphone"></i>Press Enquiries</a></li>
                 </ul>
                 <ul class="off-canvas-list">
                     <li><label>FQA</label></li>
-                    <li><a href="#"><i class="fi-info"></i> What is Jailbreak?</a></li>
-                    <li><a href="#"><i class="fi-heart"></i> How can I donate?</a></li>
+                    <li><a href="#"><i class="fi-info"></i>What is Jailbreak?</a></li>
+                    <li><a href="#"><i class="fi-heart"></i>How can I donate?</a></li>
+                </ul>
+                <ul class="off-canvas-list">
+                    <li><label>Miscellaneous</label></li>
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url "login" %}"><i class="fi-lock"></i>Login</a></li>
+                    {% else %}
+                        <li><a href="{% url "logout" %}"><i class="fi-eject"></i>Logout</a></li>
+                    {% endif %}
                 </ul>
             </aside>
 

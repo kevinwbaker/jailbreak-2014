@@ -20,7 +20,7 @@ class Migration(SchemaMigration):
             ('description', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('donate_reason', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('amount_raised', self.gf('django.db.models.fields.IntegerField')()),
-            ('university', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
+            ('university', self.gf('django.db.models.fields.PositiveSmallIntegerField')(db_index=True)),
         ))
         db.send_create_signal(u'teams', ['Team'])
 
@@ -66,7 +66,7 @@ class Migration(SchemaMigration):
             'photo': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'sponsor_link': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
-            'university': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
+            'university': ('django.db.models.fields.PositiveSmallIntegerField', [], {'db_index': 'True'})
         }
     }
 

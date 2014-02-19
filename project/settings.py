@@ -1,4 +1,6 @@
 import os
+import datetime
+
 DIRNAME = os.path.abspath(os.path.dirname(__file__).decode('utf-8'))
 
 DEBUG = False
@@ -126,6 +128,7 @@ INSTALLED_APPS = (
     'compressor',
 
     # apps
+    'accounts',
     'teams',
     'feeds',
     'utilities'
@@ -156,6 +159,7 @@ START_LAT = 53.3418701
 RADIUS_EARTH = 6373.0
 
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
+START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
 
 # Try to import local_settings.
 try:

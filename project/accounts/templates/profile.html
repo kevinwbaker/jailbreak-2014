@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load show_post %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block body_html %}
+<div class="row">
+    <section id="profile" class="small-12 columns">
+        <h3>Profile</h3>
+        
+        {{ edit_team_form }}
+    </section>
+</div>  
+{% endblock %}

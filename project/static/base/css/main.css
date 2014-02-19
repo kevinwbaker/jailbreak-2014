@@ -8,7 +8,7 @@
 		background: #171717;
 		height: 70px;
 		overflow: hidden;
-		border-bottom: 2px solid #3A3A3C;
+		margin-bottom: 40px;
 	}
 
 	#menu-burger {
@@ -44,12 +44,21 @@
 
 	#site-title a {
 		display: block;
+		height: 100%;
+	}
+
+	.off-canvas-list i[class^='fi-'] {
+		padding-right: 10px;
+		width: 25px;
+		display: inline-block;
+		text-align: center;
 	}
 
 	/* Home Main */
 	#home-main {
 		padding: 0;
 		overflow: hidden;
+		margin-top: -40px;
 	}
 
 	#map {
@@ -69,6 +78,60 @@
 
 	#main-stats ul.pricing-table {
 		border-radius: 5px;
+	}
+
+	#countdown {
+		position: relative;
+		margin-top: -40px;
+		height: 100vh;
+		background: #171717;
+	}
+
+	#countdown-bg {
+		background: url(../images/kilmainham.jpg) no-repeat;
+		background-size: 100%;
+		height: 100vh;
+		width: 100%;
+		-webkit-filter: blur(3px);
+		-moz-filter: blur(3px);
+		-o-filter: blur(3px);
+		-ms-filter: blur(3px);
+		filter: blur(3px);
+	}
+
+	.timer-box {
+		position: absolute;;
+		top: 25%;
+		left: 22%;
+		border-radius: 20px;
+		background: rgba(0, 0, 0, 0.5);
+		border: 1px solid #4C4C4E;
+		padding: 20px 30px;
+		color: #F5F5F5;
+		max-width: 695px;
+	}
+	.timer-box h2 {
+		color: #F5F5F5;
+		text-align: center;
+		margin-bottom: 25px;
+	}
+
+	.timer-box p {
+		padding: 0 25px;
+		text-align: center;
+		margin-bottom: 0
+	}
+
+	.timer-box p a {
+		color: #FBD753;
+		border-bottom: 1px dotted #FBD753;
+		
+	}
+
+	.flip-clock-label {
+		color: #F5F5F5 !important;
+		text-transform: uppercase;
+		font-size: 83%;
 	}
 
 	/* List Styling */
@@ -393,7 +456,7 @@
 
 	.donate-button.small .donate-link a {
 		height: 3.3em;
-		padding-top: 0.45rem;
+		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
 		padding-right: 0.5rem;
 		padding-left: 0.5rem;
@@ -421,7 +484,7 @@
 
 	.donate-button.small .count {
 		height: 3.3em;
-		padding-top: 0.4rem;
+		padding-top: 0.5rem;
 		padding-right: 0.5rem;
 		padding-bottom: 0.5rem;
 		padding-left: 0.5rem;
@@ -466,6 +529,7 @@
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
+		margin-top: -40px;
 	}
 
 	#standings h3 {
