@@ -11,6 +11,8 @@ django-grappelli==2.4.5
 django-pylibmc==0.5.0
 django-storages
 boto
+django-boto
+django-s3-folder-storage
 gunicorn==18.0
 pylibmc==1.2.3
 python-memcached==1.53
@@ -19,3 +21,4 @@ sqlparse==0.1.11
 wsgiref==0.1.2
 psycopg2
 newrelic
+

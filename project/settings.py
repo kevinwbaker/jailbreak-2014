@@ -26,15 +26,15 @@ if not DEBUG:
     DATABASES = {'default': dj_database_url.config()}
         
     # Access information for the S3 bucket
-    """AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     AWS_STATIC_BUCKET_NAME = os.environ['AWS_STATIC_BUCKET_NAME']
-    BOTO_S3_BUCKET = os.environ['BOTO_BUCKET']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STATIC_BUCKET_NAME']
+    BOTO_S3_BUCKET = os.environ['AWS_STATIC_BUCKET_NAME']
     #AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
 
     # Make this unique, and don't share it with anybody.
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+    #SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
     # Static files are stored in the bucket at /static
     # and user-uploaded files are stored at /media
@@ -46,7 +46,12 @@ if not DEBUG:
     STATIC_S3_PATH = 'static'
     AWS_S3_SECURE_URLS = False
     AWS_QUERYSTRING_AUTH = False
-    AWS_PRELOAD_METADATA = True"""
+    AWS_PRELOAD_METADATA = True
+    # URL prefix for static files.
+    STATIC_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
+else:
+    # URL prefix for static files.
+    STATIC_URL = '/static/'
 
 
 # Localisation
@@ -72,9 +77,6 @@ MEDIA_URL = '/%s/' % UPLOADS_DIRNAME
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 STATIC_ROOT = os.path.normpath(os.path.join(DIRNAME, '..', 'static'))
-
-# URL prefix for static files.
-STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -143,6 +145,7 @@ INSTALLED_APPS = (
     'compressor',
     'storages',
     'gunicorn',
+    'storages',
 
     # apps
     'accounts',
