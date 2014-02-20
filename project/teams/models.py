@@ -1,4 +1,5 @@
 import datetime
+from decimal import Decimal
 from math import sin, cos, sqrt, atan2, radians
 
 from django.db import models
@@ -24,15 +25,15 @@ class Team(models.Model):
     )
 
     STARTING_LAT = (
-        (settings.DUBLIN_START_LAT, "Dublin"),
-        (settings.CORK_START_LAT, "Cork"),
-        (settings.GALWAY_START_LAT, "Galway")
+        (Decimal(settings.DUBLIN_START_LAT), "Dublin"),
+        (Decimal(settings.CORK_START_LAT), "Cork"),
+        (Decimal(settings.GALWAY_START_LAT), "Galway")
     )
 
     STARTING_LNG = (
-        (settings.DUBLIN_START_LNG, "Dublin"),
-        (settings.CORK_START_LNG, "Cork"),
-        (settings.GALWAY_START_LNG, "Galway")
+        (Decimal(settings.DUBLIN_START_LNG), "Dublin"),
+        (Decimal(settings.CORK_START_LNG), "Cork"),
+        (Decimal(settings.GALWAY_START_LNG), "Galway")
     )
 
     number = models.PositiveIntegerField()
@@ -126,6 +127,4 @@ class Checkin(models.Model):
     time = models.DateTimeField(default=datetime.datetime.utcnow)
 
     def __unicode__(self):
-        return "Checkin in from {team} at {name})".format(team=self.team, name=self.name, )
-
-
+        return "Checkin in from {team} at {name})".format(team=self.team, name=self.name)
