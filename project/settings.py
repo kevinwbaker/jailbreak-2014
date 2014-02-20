@@ -48,6 +48,10 @@ if not DEBUG:
     # URL prefix for static files.
     STATIC_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
 
+    # django compressor
+    COMPRESS_URL = STATIC_URL
+    COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 
 UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
 
