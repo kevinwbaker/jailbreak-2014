@@ -23,10 +23,9 @@ class Team(models.Model):
     name = models.CharField(max_length=128)
     slug = models.SlugField()
     photo = models.FileField(upload_to='teams')
-    cover_photo = models.FileField(upload_to='teams/cover-photo', null=True)
     sponsor_link = models.URLField()
     description = models.CharField(max_length=255)
-    amount_raised = models.IntegerField()
+    amount_raised = models.IntegerField(default=0)
     university = models.PositiveSmallIntegerField(db_index=True)
 
     @property
