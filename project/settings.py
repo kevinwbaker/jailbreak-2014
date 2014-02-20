@@ -245,6 +245,7 @@ LOGGING = {
     }
 }
 
+RADIO_LIVE = os.environ.get('RADIO_LIVE', False)
 
 if DEBUG:
     # Try to import local_settings.

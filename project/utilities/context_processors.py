@@ -26,5 +26,5 @@ def jailbreak_settings(request):
        'DEFAULT_PROFILER': settings.DEFAULT_PROFILER,
        'STARTED': started,
        'SECONDS_TO_START': seconds_to_start,
-       'RADIO_LIVE': True
+       'RADIO_LIVE': settings.RADIO_LIVE
     }
