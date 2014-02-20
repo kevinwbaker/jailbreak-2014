@@ -47,6 +47,11 @@ if not DEBUG:
     AWS_S3_SECURE_URLS = False
     AWS_QUERYSTRING_AUTH = False
     AWS_PRELOAD_METADATA = True
+    # URL prefix for static files.
+    STATIC_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
+else:
+    # URL prefix for static files.
+    STATIC_URL = '/static/'
 
 
 # Localisation
@@ -72,9 +77,6 @@ MEDIA_URL = '/%s/' % UPLOADS_DIRNAME
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 STATIC_ROOT = os.path.normpath(os.path.join(DIRNAME, '..', 'static'))
-
-# URL prefix for static files.
-STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
