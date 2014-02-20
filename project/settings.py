@@ -49,8 +49,8 @@ if not DEBUG:
     STATIC_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
 
     # django compressor
-    COMPRESS_URL = STATIC_URL
-    COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    #COMPRESS_URL = STATIC_URL
+    #COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
 UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     # 3rd party apps
     'south',
     'crispy_forms',
-    'compressor',
+    #'compressor',
     'storages',
 
     # apps
