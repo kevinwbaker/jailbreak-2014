@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'crispy_forms_foundation',
     'compressor',
+    'storages',
 
     # apps
     'accounts',

@@ -43,8 +43,18 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         #'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'ducss'
+        'LOCATION': 'jailbreak14'
     }
 }
 
 START_TIME = datetime.datetime(2011, 1, 1)
+
+# Reset S3 storage stuff for local dev work
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+)
+
+
+
