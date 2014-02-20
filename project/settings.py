@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'south',
     'crispy_forms',
     'compressor',
+    'gunicorn',
 
     # apps
     'accounts',
@@ -204,6 +205,10 @@ RADIUS_EARTH = 6373.0
 
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+}
 
 
 if DEBUG:
