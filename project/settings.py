@@ -144,6 +144,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'compressor',
     'gunicorn',
+    'storages',
 
     # apps
     'accounts',

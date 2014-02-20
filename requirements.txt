@@ -17,3 +17,6 @@ sqlparse==0.1.11
 wsgiref==0.1.2
 psycopg2
 newrelic
+django-storages
+boto
+django-boto
