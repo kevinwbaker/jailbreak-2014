@@ -11,7 +11,7 @@
             "description": "We're two mad people raising money for chairty! We are adventuring off into the final frontier",
             "amount_raised": 4321,
             "university": 0,
-            "start_lat": 53.3418701,
+            "start_lat": 53.3418,
             "start_lng": -6.3098
         }
     },
@@ -44,7 +44,7 @@
             "amount_raised": 1421,
             "university": 1,
             "start_lat": 53.2740,
-            "start_lng": -9.0496433
+            "start_lng": -9.0496
         }
     },
     {

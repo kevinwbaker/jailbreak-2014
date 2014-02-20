@@ -23,6 +23,18 @@ class Team(models.Model):
         (UCD, 'ucd'),
     )
 
+    STARTING_LAT = (
+        (settings.DUBLIN_START_LAT, "Dublin"),
+        (settings.CORK_START_LAT, "Cork"),
+        (settings.GALWAY_START_LAT, "Galway")
+    )
+
+    STARTING_LNG = (
+        (settings.DUBLIN_START_LNG, "Dublin"),
+        (settings.CORK_START_LNG, "Cork"),
+        (settings.GALWAY_START_LNG, "Galway")
+    )
+
     number = models.PositiveIntegerField()
     name = models.CharField(max_length=128)
     slug = models.SlugField()
@@ -32,8 +44,8 @@ class Team(models.Model):
     amount_raised = models.IntegerField(default=200)
     university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
     
-    start_lat = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LAT)
-    start_lng = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LNG)
+    start_lat = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LAT, choices=STARTING_LAT)
+    start_lng = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LNG, choices=STARTING_LNG)
 
     @classmethod
     def university_key_to_value(cls, search):
