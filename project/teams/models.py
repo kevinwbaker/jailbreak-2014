@@ -32,6 +32,14 @@ class Team(models.Model):
     amount_raised = models.IntegerField(default=0)
     university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
 
+    @classmethod
+    def university_key_to_value(cls, search):
+        for value, key in cls.UNIVERSITIES:
+            if key == search:
+                return value
+
+        return None
+
     @property
     def university_key(self):
         return self.UNIVERSITIES[self.university][1]

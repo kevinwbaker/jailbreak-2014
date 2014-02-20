@@ -7,8 +7,6 @@ class UserProfile(models.Model):
 
     profile_completed = models.BooleanField(default=False)
 
-    team = models.OneToOneField('teams.Team', related_name='team', null=True)
-
     @property
     def has_team(self):
         return self.team is not None

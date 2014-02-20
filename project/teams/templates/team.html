@@ -10,7 +10,7 @@
 
 {% block body_html %}
     <section id="team">
-    
+
         <div class="row">
         	<div class="small-12 columns">
                 <header class="header">
@@ -23,7 +23,7 @@
                     </div>
 
             		<div class="details">
-                        <h2>#{{team.number }}: {{ team.name }} <span class="university"><a href="">{{ team.university_full_name }}</a></span></h2>
+                        <h2>#{{team.number }}: {{ team.name }} <span class="university"><a href="{% url "university" team.university_key %}">{{ team.university_full_name }}</a></span></h2>
                         
                         <p class="desc">{{ team.description }}</p>
                     </div>

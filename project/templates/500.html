@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
+{% block title %}Ooops... Something terrible has happend - {{ block.super }}{% endblock %}
+
 {% block body_html %}
-    <h1>Our fault! A server error has occurred.</h1>
-    <p>A admin has been alerted to this problem and is dispatching a team of ill-trained volunteers to solve the problem.</p>
+
+<div class="row">
+	<div class="small-12 columns">
+	    <h1>Our fault! A server error has occurred.</h1>
+	    <p>A admin has been alerted to this problem and is dispatching a team of ill-trained volunteers to solve the problem.</p>
+    </div>
+</div>
 {% endblock %}

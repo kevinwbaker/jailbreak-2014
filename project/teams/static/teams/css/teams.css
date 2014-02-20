@@ -4,29 +4,29 @@
  */
 @media only screen { 
 
-	#teams li {
+	.teams-list li {
 		border-bottom: 1px solid #E6E6E6;
 		margin-top: 20px;
 	}
 
-	#teams li p {
+	.teams-list li p {
 		margin: 0;
 	}
 
-	#universities h3 {
+	.university-page h3 {
 		padding-left: 10px;
 	}
 
-	#universities .pricing-table .title {
+	.university-page .pricing-table .title {
 		font-weight: 900;
 		font-size: 1.2em;
 		color: #3A3A3C;
 	}
 
-	#universities .pricing-table.tcd .title { background: #FDDC39; }
-	#universities .pricing-table.ucd .title { background: #1DAFEC; }
-	#universities .pricing-table.nuig .title { background: #EA168C; }
-	#universities .pricing-table.ucc .title { background: #17A552; }
+	.university-page .pricing-table.tcd .title { background: #FDDC39; }
+	.university-page .pricing-table.ucd .title { background: #1DAFEC; }
+	.university-page .pricing-table.nuig .title { background: #EA168C; }
+	.university-page .pricing-table.ucc .title { background: #17A552; }
 
 	.award-badge {
 		height: 200px;
@@ -42,9 +42,15 @@
   */
 @media only screen and (min-width: 40.063em) {
 	/* Teams */
-	#teams li {
+	.teams-list li {
 		border-bottom: none;
 		border-right: 1px solid #E6E6E6;
+	}
+
+	.compare-button {
+		display: inline-block;
+		float: right;
+		margin-top: 20px;
 	}
 
 	/* Team Page */

@@ -1,0 +1,20 @@
+<li>
+    <div class="small-4 medium-6 columns">
+        <a href="{% url "team" team.slug %}" class="th radius"><img class="profiler" src="{{ team.photo_url }}" height="150" widht="150" /></a>
+    </div>
+    <div class="small-8  medium-6 columns"> 
+        <h4><a href="{% url "team" team.slug %}">{{ team.name }}</a></h4>
+        <p>Team {{ team.number }} - {{ team.university_name }}</p>
+        <p>{{ team.last_checkin.name }} <small>({{ team.distance|floatformat:"1" }} km)</small></p>
+
+        <div class="donate-button small">
+            <div class="donate-link">
+                <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
+            </div>
+            <div class="count">
+                &euro; <div class="odometer" data-value="{{ team.amount_raised }}">0</div>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+</li>

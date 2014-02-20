@@ -13,7 +13,7 @@ urlpatterns = patterns('',
         name='home'
     ),
     (r'^accounts/', include('accounts.urls')),
-    (r'^teams/', include('teams.urls')),
+    (r'^', include('teams.urls')), # there are multiple base urls in this app
     url(r'^admin/', include(admin.site.urls)),
     url(r'^donate/$', RedirectView.as_view(url=settings.MAIN_SPONSOR_PAGE, permanent=False))
 )

@@ -9,7 +9,7 @@
 {% block body_html %}
 <div class="row">
 	<div class="small-12">
-		<section id="universities">
+		<section id="universities" class="university-page">
 
 			<h3>Best University Awards</h3>
 
@@ -67,7 +67,7 @@
 			<div class="row">
 				{% for university in universities %}
                 <div class="small-12 medium-6 large-3 columns">
-                    <ul class="pricing-table {{ university.name }}">
+                    <ul class="pricing-table {{ university.key }}">
                       <li class="title">{{ university.full_name }}</li>
                       {% for stat in university.stats %}
                       	<li class="bullet-item">{{ stat.name }}</li>

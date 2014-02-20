@@ -5,17 +5,17 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('teams',
-    url(r'^$',
+    url(r'^teams/$',
         view='views.teams',
         kwargs={'template':'teams.html'},
         name='teams'
     ),
-    url(r'^(?P<slug>[\w-]+)/$',
+    url(r'^teams/(?P<slug>[\w-]+)/$',
     	view='views.team',
     	kwargs={'template':'team.html'},
     	name='team'
     ),
-    url(r'^universities/compare$',
+    url(r'^universities/challenges/$',
         view='views.universities',
         kwargs={'template':'universities.html'},
         name='universities'
