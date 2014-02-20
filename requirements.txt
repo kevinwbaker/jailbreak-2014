@@ -20,3 +20,4 @@ newrelic
 django-storages
 boto
 django-boto
+django-s3-folder-storage
