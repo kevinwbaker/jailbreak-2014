@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     (r'^accounts/', include('accounts.urls')),
     (r'^teams/', include('teams.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^.*$', RedirectView.as_view(url=settings.MAIN_SPONSOR_PAGE, permanent=False))
+    url(r'^donate/$', RedirectView.as_view(url=settings.MAIN_SPONSOR_PAGE, permanent=False))
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',
