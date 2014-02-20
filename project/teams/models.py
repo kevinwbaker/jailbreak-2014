@@ -3,7 +3,11 @@ from math import sin, cos, sqrt, atan2, radians
 
 from django.db import models
 from django.conf import settings
+from django_boto.s3.storage import S3Storage
+
 from utilities.utils.memoize import memoize_instance
+
+s3 = S3Storage()
 
 class Team(models.Model):
     '''Team taking part'''
@@ -22,7 +26,7 @@ class Team(models.Model):
     number = models.PositiveIntegerField()
     name = models.CharField(max_length=128)
     slug = models.SlugField()
-    photo = models.FileField(upload_to='teams')
+    photo = models.FileField(storage=s3, upload_to='jailbreak14-uploads-teams')
     sponsor_link = models.URLField()
     description = models.CharField(max_length=255)
     amount_raised = models.IntegerField(default=0)

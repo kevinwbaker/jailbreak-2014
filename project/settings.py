@@ -144,8 +144,6 @@ INSTALLED_APPS = (
     'crispy_forms_foundation',
     'compressor',
     'storages',
-    'gunicorn',
-    'storages',
 
     # apps
     'accounts',
@@ -153,6 +151,11 @@ INSTALLED_APPS = (
     'feeds',
     'utilities'
 )
+
+if not DEBUG:
+    INSTALLED_APPS += (
+        'gunicorn',
+    )
 
 def get_cache():
   import os
