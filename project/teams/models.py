@@ -52,6 +52,14 @@ class Team(models.Model):
             return "University College Dublin"
 
     @property
+    def photo_url(self):
+        if not self.photo:
+            return settings.DEFAULT_PROFILER
+
+        return self.UPLOADS_URL + self.photo
+    
+
+    @property
     @memoize_instance
     def last_checkin(self):
         try:

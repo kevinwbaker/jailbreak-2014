@@ -51,7 +51,7 @@ if not DEBUG:
     # django compressor
     #COMPRESS_URL = STATIC_URL
     #COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    DEFAULT_PROFILER = 'static/base/images/jailbreak-profiler.jpg'
+    DEFAULT_PROFILER = STATIC_URL + 'base/images/jailbreak-profiler.jpg'
 
 
 UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/jailbreak14/'

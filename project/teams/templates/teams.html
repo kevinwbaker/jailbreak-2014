@@ -14,7 +14,7 @@
 	        {% for team in teams %}
 	        	<li>
 	        		<div class="small-4 medium-6 columns">
-	                    <a href="{% url "team" team.slug %}" class="th radius"><img class="profiler" src="{{ UPLOADS_URL }}{{ team.photo }}" height="150" widht="150" /></a>
+	                    <a href="{% url "team" team.slug %}" class="th radius"><img class="profiler" src="{{ team.photo_url }}" height="150" widht="150" /></a>
 	                </div>
 	                <div class="small-8  medium-6 columns"> 
 	                    <h4><a href="{% url "team" team.slug %}">{{ team.name }}</a></h4>
