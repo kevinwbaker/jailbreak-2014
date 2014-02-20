@@ -5,7 +5,9 @@ from django.shortcuts import render, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-from teams.models import Team
+from teams.models import Team, Checkin
+from teams.forms import CreateCheckinForm, EditTeamForm
+from utilities.utils import create_form
 
 def teams(request, template=None):
     '''Lists all the teams'''
@@ -114,5 +116,9 @@ def edit_team(request, template=None):
 def add_checkin(request, template=None):
     '''Allow staff to add a new checkin for a team'''
     context = RequestContext(request)
+
+    form = create_form(CreateCheckinForm, request, request)
+    if request.method == 'POST':
+        pass
 
     return render_to_response(template, context_instance=context)

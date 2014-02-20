@@ -68,7 +68,8 @@
 	}
 
 	#social-feed,
-	#main-stats {
+	#main-stats,
+	#radio {
 		margin: 0 20px;
 	}
 
@@ -498,6 +499,11 @@
 	.distance {
 		font-style: italic;
 		font-size: 85%;
+	}
+
+	.alert-box ol,
+	.alert-box ul {
+		margin-bottom: 0;
 	}
 } 
 

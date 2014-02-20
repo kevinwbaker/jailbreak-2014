@@ -16,7 +16,7 @@
     <div class="timer-box">
         <h2>Jailbreak 2014 starts in...</h2>
         <div id="countdown-timer"></div>
-        <p>Find out what <a href="/pages/about-jailbreak/">Jailbreak 2014</a> is all about. Checkout our <a href="/teams/">teams</a> for this year, learn about the <a href="/pages/snapchat-rat-race/">Snapchat Rat Race</a>, or <a href="/donate">donate</a> to Jailbreak.</p>
+        <p>Find out what <a href="/pages/about-jailbreak14/">Jailbreak 2014</a> is all about. Checkout our <a href="/teams/">teams</a> for this year, learn about the <a href="/pages/snapchat-rat-race/">Snapchat Rat Race</a>, or <a href="/donate">donate</a> to Jailbreak.</p>
     </div>
 </section>
 
@@ -85,6 +85,17 @@
             </div>
         </section>
 
+        {% if RADIO_LIVE %}
+        <section id="radio">
+            <div class="row">
+                <div class="small-12 medium-6 columns"></div>
+                <div class="small-12 medium-6 columns">
+                    <a target="_blank" href="http://new.livestream.com/DUFM/events/2429209" class="button expand"><i class="fi-volume"></i> Listen Live on Trinity FM</a>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
         <section id="social-feed" >
             {% for post in posts %}
                 {% show_post post %}
@@ -105,7 +116,7 @@
                 clockFace: 'DailyCounter',
                 countdown: true
             });
-            clock.setTime({{ seconds_to_start }});
+            clock.setTime({{ SECONDS_TO_START }});
             clock.start();
         });
     </script>

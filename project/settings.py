@@ -112,10 +112,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-# Regex patterns used in multiple url.py files.
-DOMAIN_PATTERN = '(?P<domain>[\w-]+\.[\w.-]+)'
-EMAIL_LHS_PATTERN = '(?P<email_lhs>[0-9A-Za-z\.+_\-]+)'
-
 TEMPLATE_DIRS = (
     'templates',
 )
@@ -145,7 +141,9 @@ INSTALLED_APPS = (
     # 3rd party apps
     'south',
     'crispy_forms',
+    'crispy_forms_foundation',
     'compressor',
+    'storages',
     'gunicorn',
     'storages',
 
@@ -195,6 +193,7 @@ SITE_ID = 1
 INTERNAL_IPS = ('127.0.0.1',)
 
 CRISPY_FAIL_SILENTLY = not DEBUG
+CRISPY_TEMPLATE_PACK = 'foundation'
 
 COMPRESS_ENABLED = True
 
@@ -205,6 +204,7 @@ RADIUS_EARTH = 6373.0
 
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -233,7 +233,6 @@ LOGGING = {
         },
     }
 }
-
 
 
 if DEBUG:

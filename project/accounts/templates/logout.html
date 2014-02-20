@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load show_post %}
+{% block title %}You've been logged out - {{ block.super }}{% endblock %}
 
 {% block extra_css %}
 {% endblock %}
@@ -8,9 +8,10 @@
 {% block body_html %}
 <div class="row">
     <section id="logout" class="small-12 columns">
-        <h3>Logout</h3>
+        <h3>You've been logged out!</h3>
         
-        <p>You've been successfully logged out</p>
+        <p>You've been successfully logged out.</p>
+        <p>You can <a href="{% url "login" %}">login again</a> or go to the <a href="/">home page</a>.</p>
     </section>
 </div>  
 {% endblock %}

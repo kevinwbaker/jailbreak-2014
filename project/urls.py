@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',
-    (r'^(?P<url>.*/)$', 'flatpage'),
+    (r'^pages/(?P<url>.*/)$', 'flatpage'),
 )
 
 # In debug mode, static files are automatically served by Django.

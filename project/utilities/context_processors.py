@@ -1,5 +1,5 @@
-import hmac, hashlib
-from datetime import datetime
+import datetime
+
 from django.conf import settings
 
 def static(request):
@@ -11,6 +11,17 @@ def static(request):
     return {'STATIC_URL': static_url}
 
 def jailbreak_settings(request):
+    # timer related stuff
+    if settings.START_TIME > datetime.datetime.now():
+        started = False
+        seconds_to_start = (settings.START_TIME - datetime.datetime.now()).total_seconds()
+    else:
+        started = True
+        seconds_to_start = 0
+
     return {
-       'MAIN_SPONSOR_PAGE': settings.MAIN_SPONSOR_PAGE
-     }
+       'MAIN_SPONSOR_PAGE': settings.MAIN_SPONSOR_PAGE,
+       'STARTED': started,
+       'SECONDS_TO_START': seconds_to_start,
+       'RADIO_LIVE': True
+    }

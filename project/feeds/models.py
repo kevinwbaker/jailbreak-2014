@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+from django.utils.html import strip_tags
 
 class Feed(models.Model):
     '''A social media feed belonging to a team
@@ -22,14 +23,14 @@ class Feed(models.Model):
 
     @property
     def source_name(self):
-        return self.SOURCES[self.soruce][1]
+        return self.SOURCES[self.source][1]
 
     @property
     def has_team(self):
         return self.team is not None
 
     def __unicode__(self):
-        return "{source}: {feed_id}".format(source=SOURCES[self.source], feed_id=feed_id)
+        return "{source}: {feed_id}".format(source=self.source_name, feed_id=self.feed_id)
 
 class Post(models.Model):
     '''
@@ -78,5 +79,8 @@ class Post(models.Model):
     @property
     def has_team(self):
         return self.team is not None
+
+    def __unicode__(self):
+        return "{type}: {message}...".format(type=self.source_name, message=strip_tags(self.message)[:100])
     
 
