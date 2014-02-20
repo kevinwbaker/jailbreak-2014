@@ -19,7 +19,7 @@
             		</div>
             	
             		<div id="profiler" class="profiler-{{ team.university_key }}">
-                        <img src="{{ team.photo|default:"http://placehold.it/200x200" }}" />
+                        <img src="{{ UPLOADS_URL }}{{ team.photo }}" />
                     </div>
 
             		<div class="details">
