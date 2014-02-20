@@ -17,10 +17,10 @@ class Team(models.Model):
     UCC = 2
     UCD = 3
     UNIVERSITIES = (
-        (TCD, 'tcd', "Trinity College Dublin"),
-        (NUIG, 'nuig', "National University of Ireland, Galway"),
-        (UCC, 'ucc', "University College Cork"),
-        (UCD, 'ucd', "University College Dublin"),
+        (TCD, 'tcd'),
+        (NUIG, 'nuig'),
+        (UCC, 'ucc'),
+        (UCD, 'ucd'),
     )
     
     number = models.PositiveIntegerField()
@@ -30,16 +30,27 @@ class Team(models.Model):
     sponsor_link = models.URLField()
     description = models.CharField(max_length=255)
     amount_raised = models.IntegerField(default=0)
-    university = models.PositiveSmallIntegerField(db_index=True)
+    university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
 
     @property
-    def university_name(self):
+    def university_key(self):
         return self.UNIVERSITIES[self.university][1]
 
     @property
+    def university_name(self):
+        return self.UNIVERSITIES[self.university][1].upper()
+
+    @property
     def university_full_name(self):
-        return self.UNIVERSITIES[self.university][2]
-    
+        if self.university is 0:
+            return "Trinity College Dublin"
+        elif self.university is 1:
+            return "National University of Ireland, Galway"
+        elif self.university == 2:
+            return "University College Cork"
+        elif self.university == 3:
+            return "University College Dublin"
+
     @property
     @memoize_instance
     def last_checkin(self):
@@ -68,7 +79,7 @@ class Team(models.Model):
         return distance
 
     def __unicode__(self):
-        return "{university}: {number} - {name}".format(name=self.name, number=self.number, university=self.university_name.upper())
+        return "{university}: {number} - {name}".format(name=self.name, number=self.number, university=self.university_name)
 
 class Checkin(models.Model):
     '''Locations the team has checked in at'''

@@ -18,7 +18,7 @@
 	                </div>
 	                <div class="small-8  medium-6 columns"> 
 	                    <h4><a href="{% url "team" team.slug %}">{{ team.name }}</a></h4>
-	                    <p>Team {{ team.number }} - {{ team.university_name|upper }}</p>
+	                    <p>Team {{ team.number }} - {{ team.university_name }}</p>
 	                    <p>{{ team.last_checkin.name }} <small>({{ team.distance|floatformat:"1" }} km)</small></p>
 
 	                    <div class="donate-button small">

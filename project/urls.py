@@ -2,6 +2,7 @@ from django.conf.urls import patterns, url, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
+from django.views.generic.base import RedirectView
 
 admin.autodiscover()
 
@@ -13,7 +14,8 @@ urlpatterns = patterns('',
     ),
     (r'^accounts/', include('accounts.urls')),
     (r'^teams/', include('teams.urls')),
-    url(r'^admin/', include(admin.site.urls))
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^.*$', RedirectView.as_view(url=settings.MAIN_SPONSOR_PAGE, permanent=False))
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',

@@ -15,9 +15,4 @@ urlpatterns = patterns('accounts',
         kwargs={'template':'logout.html'},
         name='logout'
     ),
-    url(r'^profile$',
-        view='views.profile',
-        kwargs={'template':'profile.html'},
-        name='profile'
-    ),
 )

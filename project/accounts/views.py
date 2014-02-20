@@ -58,13 +58,3 @@ def logout(request, template=None):
     return render(request, template, {
             'logout_page': True
         })
-
-@login_required
-def profile(request, template):
-    '''Users profile page'''
-
-    return render(request, template, {
-            'profile_page': True
-        })
-
-

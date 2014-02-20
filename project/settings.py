@@ -5,7 +5,7 @@ DIRNAME = os.path.abspath(os.path.dirname(__file__).decode('utf-8'))
 
 DEBUG = False 
 
-if int(os.environ.get('DJANGO_DEBUG', "1")):
+if int(os.environ.get('DJANGO_DEBUG', "1")) is 1:
     DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
@@ -19,12 +19,12 @@ MANAGERS = ADMINS
 
 # While debugging, use the built-in server's static file serving mechanism.
 # In production, host all files on S3.
-if not DEBUG:
-    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com').split(':')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com').split(':')
 
+if not DEBUG:
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
-        
+    
     # Access information for the S3 bucket
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
@@ -38,8 +38,6 @@ if not DEBUG:
 
     # Static files are stored in the bucket at /static
     # and user-uploaded files are stored at /media
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
     DEFAULT_S3_PATH = 'media'
     STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
@@ -49,9 +47,6 @@ if not DEBUG:
     AWS_PRELOAD_METADATA = True
     # URL prefix for static files.
     STATIC_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
-else:
-    # URL prefix for static files.
-    STATIC_URL = '/static/'
 
 
 # Localisation

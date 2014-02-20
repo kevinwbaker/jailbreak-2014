@@ -15,10 +15,10 @@
         	<div class="small-12 columns">
                 <header class="header">
             		<div id="cover-photo" class="show-for-medium-up">
-            			<img src="{{ STATIC_URL }}/base/images/headers/{{ team.university_name }}-header.png" height="200" />
+            			<img src="{{ STATIC_URL }}/base/images/headers/{{ team.university_key }}-header.png" height="200" />
             		</div>
             	
-            		<div id="profiler" class="profiler-{{ team.university_name }}">
+            		<div id="profiler" class="profiler-{{ team.university_key }}">
                         <img src="{{ team.photo|default:"http://placehold.it/200x200" }}" />
                     </div>
 
