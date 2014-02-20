@@ -10,7 +10,9 @@
             "sponsor_link": "http://www.sponsor.ie/peter--moore/",
             "description": "We're two mad people raising money for chairty! We are adventuring off into the final frontier",
             "amount_raised": 4321,
-            "university": 0
+            "university": 0,
+            "start_lat": 53.3418701,
+            "start_lng": -6.3098
         }
     },
     {
@@ -24,7 +26,9 @@
             "sponsor_link": "http://www.sponsor.ie/peter--moore/",
             "description": "Aliquam quam mauris, convallis quis fringilla suscipit, pulvinar nec dui. Pellentesque eget euismod quam. Curabitur neque felis, vestibulum quis adipiscing et, dictum ut sem. Curabitur orci velit, hendrerit sed nulla eu, fermentum ullamcorper lorem.",
             "amount_raised": 2321,
-            "university": 0
+            "university": 0,
+            "start_lat": 53.3418,
+            "start_lng": -6.3098
         }
     },
     {
@@ -34,11 +38,13 @@
             "number": 43,
             "name": "Catherine the great and John",
             "slug": "catherine-the-great-and-john",
-            "photo": "",
+            "photo": "jailbreak14-uploads/IMG_0719.JPG",
             "sponsor_link": "http://www.sponsor.ie/peter--moore/",
             "description": "Aliquam vulputate molestie tincidunt. Maecenas eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
             "amount_raised": 1421,
-            "university": 1
+            "university": 1,
+            "start_lat": 53.2740,
+            "start_lng": -9.0496433
         }
     },
     {
@@ -52,7 +58,9 @@
             "sponsor_link": "http://www.sponsor.ie/peter--moore/",
             "description": "Maecenas eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
             "amount_raised": 123,
-            "university": 2
+            "university": 2,
+            "start_lat": 51.8931,
+            "start_lng": -8.4948
         }
     },
     {
@@ -66,7 +74,9 @@
             "sponsor_link": "http://www.sponsor.ie/peter--moore/",
             "description": "Eget leo nisi. Vestibulum iaculis. Eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
             "amount_raised": 321,
-            "university": 3
+            "university": 3,
+            "start_lat": 53.3418,
+            "start_lng": -6.3098
         }
     }
 ]

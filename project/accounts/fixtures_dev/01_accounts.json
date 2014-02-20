@@ -16,14 +16,5 @@
             "email": "test@example.com", 
             "date_joined": "2014-02-20T03:25:03.700"
         }
-    },
-    {
-        "pk": 1, 
-        "model": "accounts.userprofile", 
-        "fields": {
-            "profile_completed": false, 
-            "user": 1, 
-            "team": null
-        }
     }
 ]

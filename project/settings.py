@@ -202,8 +202,8 @@ CRISPY_TEMPLATE_PACK = 'foundation'
 COMPRESS_ENABLED = True
 
 # Jailbreak Specific Things
-START_LNG = -6.3098048
-START_LAT = 53.3418701
+DUBLIN_START_LNG = -6.3098048
+DUBLIN_START_LAT = 53.3418701
 RADIUS_EARTH = 6373.0
 
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'

@@ -22,15 +22,18 @@ class Team(models.Model):
         (UCC, 'ucc'),
         (UCD, 'ucd'),
     )
-    
+
     number = models.PositiveIntegerField()
     name = models.CharField(max_length=128)
     slug = models.SlugField()
     photo = models.FileField(storage=s3, upload_to='jailbreak14-uploads')
     sponsor_link = models.URLField()
-    description = models.CharField(max_length=255, null=True)
-    amount_raised = models.IntegerField(default=0)
+    description = models.CharField(max_length=255, blank=True)
+    amount_raised = models.IntegerField(default=200)
     university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
+    
+    start_lat = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LAT)
+    start_lng = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LNG)
 
     @classmethod
     def university_key_to_value(cls, search):
@@ -85,8 +88,8 @@ class Team(models.Model):
         if not self.last_checkin:
             return 0
 
-        lat1 = radians(settings.START_LAT)
-        lon1 = radians(settings.START_LNG)
+        lat1 = radians(self.start_lat)
+        lon1 = radians(self.start_lng)
         lat2 = radians(self.last_checkin.lat_position)
         lon2 = radians(self.last_checkin.lng_position)
 
@@ -105,8 +108,8 @@ class Checkin(models.Model):
     '''Locations the team has checked in at'''
 
     name = models.CharField(max_length=255, help_text="A useful name for the location where they checked in")
-    lng_position = models.DecimalField(max_digits=8, decimal_places=3)
-    lat_position = models.DecimalField(max_digits=8, decimal_places=3)
+    lng_position = models.DecimalField(max_digits=8, decimal_places=4)
+    lat_position = models.DecimalField(max_digits=8, decimal_places=4)
     team = models.ForeignKey('Team', related_name='checkins')
     time = models.DateTimeField(default=datetime.datetime.utcnow)
 

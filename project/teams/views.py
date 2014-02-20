@@ -44,9 +44,9 @@ def universities(request, template=None):
 
         # calculate stats
         total_raised = sum([team.amount_raised for team in teams])
-        average_raised = total_raised/len(teams)
+        average_raised = total_raised/(len(teams) or 1)
         total_distance_from_start = int(sum([team.distance for team in teams]))
-        average_distance_from_start = total_distance_from_start/len(teams)
+        average_distance_from_start = total_distance_from_start/(len(teams) or 1)
 
         universities.append({
                 'name': name,
@@ -77,15 +77,15 @@ def universities(request, template=None):
                 ]
             })
 
-        # find which university is the bests
+        # find which university is the best
         best_travellers = None
         best_travellers_distance = 0
         best_raisers = None
         best_raisers_amount = 0
 
         for uni in universities:
-            average_raised = sum([team.amount_raised for team in uni['teams']])/len(uni['teams'])
-            average_travelled = sum([team.distance for team in uni['teams']])/len(uni['teams'])
+            average_raised = sum([team.amount_raised for team in uni['teams']])/(len(uni['teams']) or 1)
+            average_travelled = sum([team.distance for team in uni['teams']])/(len(uni['teams']) or 1)
 
             if average_travelled > best_travellers_distance:
                 best_travellers = uni['full_name']
@@ -124,9 +124,9 @@ def university(request, slug, template=None):
 
     # calculate stats
     total_raised = sum([team.amount_raised for team in teams])
-    average_raised = total_raised/len(teams)
+    average_raised = total_raised/(len(teams) or 1)
     total_distance_from_start = int(sum([team.distance for team in teams]))
-    average_distance_from_start = total_distance_from_start/len(teams)
+    average_distance_from_start = total_distance_from_start/(len(teams) or 1)
 
     university = {
         'name': name,
