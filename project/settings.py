@@ -26,15 +26,14 @@ if not DEBUG:
     DATABASES = {'default': dj_database_url.config()}
         
     # Access information for the S3 bucket
-    """AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     AWS_STATIC_BUCKET_NAME = os.environ['AWS_STATIC_BUCKET_NAME']
-    BOTO_S3_BUCKET = os.environ['BOTO_BUCKET']
+    BOTO_S3_BUCKET = os.environ['AWS_STATIC_BUCKET_NAME']
     #AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
 
     # Make this unique, and don't share it with anybody.
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+    #SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
     # Static files are stored in the bucket at /static
     # and user-uploaded files are stored at /media
@@ -46,7 +45,7 @@ if not DEBUG:
     STATIC_S3_PATH = 'static'
     AWS_S3_SECURE_URLS = False
     AWS_QUERYSTRING_AUTH = False
-    AWS_PRELOAD_METADATA = True"""
+    AWS_PRELOAD_METADATA = True
 
 
 # Localisation
