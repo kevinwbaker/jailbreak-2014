@@ -49,6 +49,8 @@ if not DEBUG:
     STATIC_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
 
 
+UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
+
 # Localisation
 TIME_ZONE = 'Europe/Dublin'
 LANGUAGE_CODE = 'en-us'

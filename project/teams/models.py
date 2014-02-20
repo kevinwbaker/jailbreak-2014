@@ -28,7 +28,7 @@ class Team(models.Model):
     slug = models.SlugField()
     photo = models.FileField(storage=s3, upload_to='jailbreak14-uploads')
     sponsor_link = models.URLField()
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, null=True)
     amount_raised = models.IntegerField(default=0)
     university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
 
