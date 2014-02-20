@@ -141,7 +141,6 @@ INSTALLED_APPS = (
     # 3rd party apps
     'south',
     'crispy_forms',
-    'crispy_forms_foundation',
     'compressor',
     'storages',
 
