@@ -3,7 +3,11 @@ import datetime
 
 DIRNAME = os.path.abspath(os.path.dirname(__file__).decode('utf-8'))
 
-DEBUG = False
+DEBUG = False 
+
+if int(os.environ.get('DJANGO_DEBUG', "1")):
+    DEBUG = True
+
 TEMPLATE_DEBUG = DEBUG
 REVISION = "v1"
 
@@ -13,24 +17,37 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'jailbreak',      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# While debugging, use the built-in server's static file serving mechanism.
+# In production, host all files on S3.
+if not DEBUG:
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com').split(':')
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-        'TIMEOUT': 3600
-    }
-}
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
+        
+    # Access information for the S3 bucket
+    """AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_STATIC_BUCKET_NAME = os.environ['AWS_STATIC_BUCKET_NAME']
+    BOTO_S3_BUCKET = os.environ['BOTO_BUCKET']
+    #AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
+
+    # Make this unique, and don't share it with anybody.
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+
+    # Static files are stored in the bucket at /static
+    # and user-uploaded files are stored at /media
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
+    DEFAULT_S3_PATH = 'media'
+    STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+    STATIC_S3_PATH = 'static'
+    AWS_S3_SECURE_URLS = False
+    AWS_QUERYSTRING_AUTH = False
+    AWS_PRELOAD_METADATA = True"""
+
 
 # Localisation
 TIME_ZONE = 'Europe/Dublin'
@@ -125,6 +142,7 @@ INSTALLED_APPS = (
     'crispy_forms_foundation',
     'compressor',
     'storages',
+    'gunicorn',
 
     # apps
     'accounts',
@@ -132,6 +150,29 @@ INSTALLED_APPS = (
     'feeds',
     'utilities'
 )
+
+def get_cache():
+  import os
+  try:
+    os.environ['MEMCACHE_SERVERS'] = os.environ['MEMCACHIER_SERVERS']
+    os.environ['MEMCACHE_USERNAME'] = os.environ['MEMCACHIER_USERNAME']
+    os.environ['MEMCACHE_PASSWORD'] = os.environ['MEMCACHIER_PASSWORD']
+    return {
+      'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'LOCATION': os.environ['MEMCACHIER_SERVERS'],
+        'TIMEOUT': 500,
+        'BINARY': True,
+      }
+    }
+  except:
+    return {
+      'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+      }
+    }
+
+CACHES = get_cache()
 
 # List of additional directories to look for fixtures in.
 FIXTURE_DIRS = []
@@ -161,8 +202,39 @@ RADIUS_EARTH = 6373.0
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
 
-# Try to import local_settings.
-try:
-    from local_settings import *
-except ImportError:
-    pass
+# A sample logging configuration. The only tangible logging
+# performed by this configuration is to send an email to
+# the site admins on every HTTP 500 error when DEBUG=False.
+# See http://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+
+
+if DEBUG:
+    # Try to import local_settings.
+    try:
+        from local_settings import *
+    except ImportError:
+        pass

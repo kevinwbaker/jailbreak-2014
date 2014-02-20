@@ -41,8 +41,8 @@ DATABASES = {
 # Nice to have a simple cache for testing
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        #'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        #'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'jailbreak14'
     }
 }
