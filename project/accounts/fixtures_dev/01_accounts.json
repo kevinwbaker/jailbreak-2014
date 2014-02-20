@@ -1,0 +1,29 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "admin", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2014-02-20T03:25:03.700", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$12000$6SVUUmKbtLpo$qpeoUEeRnvNN0ZW6o4LpqMA/H2QOZe4/C+ReY1/yMuA=", 
+            "email": "test@example.com", 
+            "date_joined": "2014-02-20T03:25:03.700"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "accounts.userprofile", 
+        "fields": {
+            "profile_completed": false, 
+            "user": 1, 
+            "team": null
+        }
+    }
+]
