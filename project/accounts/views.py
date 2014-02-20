@@ -58,3 +58,18 @@ def logout(request, template=None):
     return render(request, template, {
             'logout_page': True
         })
+
+def custom_500_error_view(request, template='500.html'):
+    '''Error pages don't get a chance to run the context processors
+    that are inserting values like STATIC_URL into the context so that
+    the theme of the site works.
+    '''
+    return render(request, template, {
+        'STATIC_URL': settings.STATIC_URL
+    })
+
+def customer_404_error_view(request, template='404.html'):
+    return render(request, template, {
+        'STATIC_URL': settings.STATIC_URL   
+    })
+    

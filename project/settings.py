@@ -216,6 +216,8 @@ RADIUS_EARTH = 6373.0
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
 
+RADIO_LIVE = os.environ.get('RADIO_LIVE', False)
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -245,7 +247,9 @@ LOGGING = {
     }
 }
 
-RADIO_LIVE = os.environ.get('RADIO_LIVE', False)
+# error handling stuff
+handler500 = 'accounts.views.custom_500_error_view'
+handler404 = 'accounts.views.custom_404_error_view'
 
 if DEBUG:
     # Try to import local_settings.
