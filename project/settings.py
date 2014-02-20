@@ -24,9 +24,6 @@ if not DEBUG:
 
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
-
-    # Use Redis as the broker for Celery tasks
-    BROKER_URL = os.environ['REDISTOGO_URL']
         
     # Access information for the S3 bucket
     """AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
