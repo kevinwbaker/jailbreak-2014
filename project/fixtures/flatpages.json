@@ -1,0 +1,92 @@
+[
+{
+    "pk": 1, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Snapchat Rat Race", 
+        "url": "/snapchat-rat-race/", 
+        "template_name": "flatpages/snapchat_rat_race.html", 
+        "sites": [
+            1
+        ], 
+        "content": "<p>The <a href=\"https://twitter.com/search?q=%23SnapChatRatRace\" target=\"_blank\">#SnapChatRatRace</a> challenges teams to find the Jailbreak rat hidden somewhere in Europe using only clues sent from the Rat\u2019s SnapChat account \u201cTheJailbreakRat\u201d.</p>\r\n\r\n<p>The Jailbreak Rat has broken out of Kilmainham Gaol, and has boarded a plane to a mystery location. Using SnapChat, he will send photographs with hints as to his location to all participants and his Twitter <a href=\"https://twitter.com/thejailbreakrat\">@TheJailbreakRat</a>. After each SnapChat, he will remain in that location for 30 minutes. The winners of the #SnapChatRatRace are the first team to locate the Jailbreak Rat and post a photograph online.</p>\r\n\r\n", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 2, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Teams Terms & Conditions", 
+        "url": "/terms-and-conditions/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "<ul>\r\n<li>You agree to pay a signup fee of \u20ac30 (for each person in the team), which covers insurance, T-shirt costs and goodie bags. This is a refundable cost after announcement of successful applicants (Monday 27th Janurary)</li>\r\n<li>You commit to a minimum fundraising target of \u20ac100 per person, raised before kick-off on the 22nd February.</li>\r\n<li>Your entry will only be finalised on receipt of the signed application form/disclaimer, given out at the safety talk.</li>\r\n<li>All sponsorship money must be handed in by 7th March 2014</li>\r\n<li>Each team must contain two students with at least one student from a participating university (DIT, NUIG, TCD, UCC, UCD), and all participants must be over the age of 18 years.</li>\r\n<li>For safety reasons you must travel in pairs - you must not travel alone. Never split up to get a lift. All pairs must stay together at all times. Whilst female-female teams are permitted, Jailbreak14 strongly recommends male-female or male-male teams.</li>\r\n<li>If you are hitching you must not thumb for lifts either in the slip-roads of motorways or actually on the motorways \u2013 this is illegal. For mixed couples, make sure that the male hitcher is the first in and the last out of each vehicle. On the day of Jailbreak, you will need to bring:\r\n<ol>\r\n<li>A valid passport, not expiring in the next 6 months if you intend to travel abroad</li>\r\n<li>The mobile phone (number of which you gave in your application form) with international roaming and credit</li>\r\n<li>Your Jailbreak 2014 T-shirt</li>\r\n<li>A letter confirming your participation in Jailbreak 2014</li>\r\n</ol>\r\n</li>\r\n<li>None of your own money is to be used for transport on the outward journey. You may, however, raise money for your outward journey anytime after the event begins at 9am on the 24th January 2014, providing that the donor is aware that this money is not going towards charity directly. Any money collected in your fundraising bucket is to be given directly to the charities on your return home. You may spend your own money on food, accommodation and the return journey as necessary.</li>\r\n<li>You are not allowed to use your own transport, friends\u2019/families\u2019 transport, air miles, travel vouchers, etc. Pre-arrangements by negotiating with travel companies or other corporate sponsorship are allowed before the event commences and during the weekend. Air miles are allowed from corporate donations also.</li>\r\n<li>Every time you cross a border or take a flight, you must inform the Jailbreak team. You must also do so every six hours. You must also do so at 9pm GMT on Sunday 23rd February to confirm your whereabouts. Failure to do so will lead to disqualification.</li>\r\n<li>If you are taking a flight, or other long-haul journey, ask about the return journey. It is recommended that you do not take a flight without guarantee of return. This is particularly relevant with regards to the new US Visa Rules (these are explained in the guide). You can pay for the return half of the ticket yourself.\r\nYour final position is your furthest point by 9pm on 23rd. If you are on a flight at 9pm we will calculate your in-air position.</li>\r\n<li>You must not travel or journey through any of these countries/territories due to their inherent danger for travellers: Libya, Venezuela, Iran, North Korea, Eritrea, Central African Republic, Egypt Congo, Democratic Republic of the Republic of South Sudan, Sudan, Burundi, Colombia, Chad, Lebanon, Syria, Tunisia, Kenya, Pakistan, Iraq, Algeria, Afghanistan, Haiti, El Salvador, Yemen, Saudi Arabia, Mali, Niger, Mexico, Philippines, Somalia, Israel, the West Bank, Gaza, Honduras, Nigeria, Mauritania, Cote d'Ivoire Libya Venezuela Iran.</li>\r\n<li>The insurance cover provided by Jailbreak will last until the end of Saturday, 1st March 2014 to give you ample time to return to Ireland. Your insurance for Jailbreak will cover you nearly world-wide. It is, however, not valid for trips to the list of countries you are not allowed to travel to. Further information on Jailbreak Insurance will be given at the safety talk.</li>\r\n<li>In order to participate you must have private health insurance coverage up to \u20ac55,000 and be an Irish resident for the past 6 months.</li>\r\n<li>In the event of an emergency, contact a member of the Jailbreak Committee you are assigned to immediately. Jailbreak will do everything in its capacity to assist you but will not be responsible for any situation you may find themselves in during and after the competition.</li>\r\n<li>The committee\u2019s ruling is final in any dispute of the rules.</li>\r\n</ul>\r\n", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 3, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "About Jailbreak 14", 
+        "url": "/about-jailbreak14/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "<p>Jailbreak challenges students to get as far away as possible from their starting point in 36 hours, with no money. Ireland\u2019s largest, most ambitious and craziest student charity event, Jailbreak raises much needed funds for Amnesty International and St. Vincent De Paul. This year shall see over 100 teams from every corner of Ireland competing to bring back the <a href=\"https://twitter.com/search?q=%23Jailbreak14\">#Jailbreak14</a> crown to UCD, NUIG, UCC or TCD. </p>\r\n\r\n<p>Last year, over \u20ac17,000 was raised by the event for Amnesty International and St. Vincent de Paul, with all participants coming from Trinity College. The winning team, Claire Cullen and Matthew Hainbach, made it as far as Miramar in Argentina, more than 7,000 miles away with only 25 miles separating them from the runners up. They even convinced Irish musician Chris de Burgh to pay for their ticket home. Other competitors reached Brunei, Indonesia, Australia (though outside the 36 hour time limit) and the Vatican City. The competition was featured by TIME Magazine, RTE, TV3, and national media outlets in Australia and Argentina.</p>\r\n\r\n<p>This year, Jailbreak has been expanded to include the four universities from across Ireland. The number of participants has also increased from 68 to over 200, with over \u20ac10,000 already raised for the two charities. Jailbreak 2014 will be officially launched in the Great Hall in Kilmainham Gaol, Europe\u2019s largest abandoned jail, on Saturday 22nd February at 9am. As Jailbreak is now a national event, participants can choose to start from Kilmainham Gaol, Cork Gaol or Eyre Square. The winning team is the team who is the furthest distance from their starting point at 9pm on Sunday, 36 hours later.</p>\r\n\r\n<p>An exciting new feature this year is the <a href=\"/snapchat-rat-race/\">#SnapChatRatRace</a>, featuring The Jailbreak Rat. The #SnapChatRatRace challenges teams to find the Jailbreak rat hidden somewhere in Europe using only clues sent from the Rat\u2019s SnapChat account \u201cTheJailbreakRat\u201d.  The Jailbreak Rat has broken out of Kilmainham Gaol, and this weekend will board a plane to a mystery location. Using SnapChat, he will send photographs with hints as to his location to all participants. After each SnapChat, he will remain in that location for 30 minutes. The winners of the #SnapChatRatRace are the first team to locate the Jailbreak Rat and post a photograph online.</p>\r\n\r\n<p>You can follow the competition with the official hashtag <a href=\"https://twitter.com/search?q=%23Jailbreak14\">#Jailbreak14</a> and donations can be made through the <a href=\"http://facebok.com/jailbreakhq/\">Facebook page</a>.</p>", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 4, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "About the Charities", 
+        "url": "/about-charities/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "<img src=\"/static/base/images/logos/amnesty-international.png\" class=\"logo\">\r\n<h3>About Amnesty International Ireland</h3>\r\n<p>Amnesty International Ireland is the country\u2019s largest human rights organisation with over 15,000 members and supporters. They\u2019re part of a global movement of more than 3.2 million people working in more than 150 countries around the world.</p>\r\n\r\n<p>Visit the <a href=\"http://www.amnesty.ie/\">Amnesty International\u2019s website</a> for more information about what your donations will be helping to finance.</p>\r\n\r\n<br class=\"clear\" />\r\n\r\n<img src=\"/static/base/images/logos/trinity-vdp.png\" class=\"logo\">\r\n<h3>About St. Vincent De Paul Ireland<h3>\r\n<p>The Society of St. Vincent de Paul is the largest, voluntary, charitable organisation in Ireland. Its membership of 11,000 volunteers throughout the country are supported by professional staff, working for social justice and the creation of a more just, caring nation. This unique network of social concern also gives practical support to those experiencing poverty and social exclusion, by providing a wide range of services to people in need.</p>\r\n\r\n<p>Visit the <a href=\"http://www.svp.ie/\">St. Vincent De Paul\u2019s website</a> for more information.</p>\r\n", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 5, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Press Enquiries", 
+        "url": "/press-enquiries/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "<p>Interviews are available with Jailbreak organisers or participants on request. Photos of the event will be available through the below contact.</p>\r\n\r\n<h5>Contact:</h5>\r\n<address>\r\nJack Cantillon,<br/>\r\nHead National Organiser<br />\r\n<a href=\"mailto:jcantillon@gmail.com\">jcantillon@gmail.com</a><br />\r\nTel: <a href=\"tel:353857570103\">+353 857570103</a><br />\r\n</address>", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 6, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Want a way to help #Jailbreak14?", 
+        "url": "/help-jailbreakers/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "<h5>Donate</h5>\r\n<p>We\u2019re doing this so you can enjoy it enough to want to donate to VDP & Amnesty International. If you\u2019d like to support our work please <a href=\"http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/\">donate here</a>.</p>\r\n\r\n<h5>Spread the Word</h5>\r\n<p>#Jailbreak14 is a viral competition to raise awareness for both charities but that can only happen with your help. So, here\u2019s where you go for all the hype:</p>\r\n<ul class=\"small\"> \r\n<li>Follow us on <a href=\" http://twitter.com/jailbreakhq/\">Twitter</a></li>\r\n<li>Like us on <a href=\"http://facebok.com/jailbreakhq/\">Facebook</a></li>\r\n<li>View our video on our <a href=\"http://www.youtube.com/Jailbreak14Videos/\">YouTube channel</a></li>\r\n<li>The official hashtag is: <a href=\"https://twitter.com/search?src=typd&q=%23Jailbreak14\">#Jailbreak14</a></li>\r\n</ul>\r\n\r\n<h5>Offer Accommodation</h5>\r\n<p>Jailbreak participants are venturing into the unknown, potentially without the security of a roof over their head for the night. We\u2019d love if you\u2019d tweet us <a href=\" http://twitter.com/jailbreakhq/\">@JailbreakHQ</a> and offer a couch for the night wherever you are in the world. We can liaise with our participants and put them in contact with you to make sure they\u2019re safe for the night.</p>\r\n", 
+        "enable_comments": false
+    }
+}
+]

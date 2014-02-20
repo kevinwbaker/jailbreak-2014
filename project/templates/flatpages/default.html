@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ flatpage.title }} - {{ block.super }}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}base/css/flatpages.css" />
+{% endblock %}
+
+{% block body_html %}
+<div class="row">
+    <div class="small-8 columns">
+    	<h1>{{ flatpage.title }}</h1>
+        {{ flatpage.content|safe }}
+    </div>
+</div>
+{% endblock %}

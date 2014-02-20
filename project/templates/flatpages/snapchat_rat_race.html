@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}base/css/flatpages.css" />
+{% endblock %}
+
+{% block title %}{{ flatpage.title }} - {{ block.super }}{% endblock %}
+
+{% block body_html %}
+<section id="flatpage">
+	<div class="row">
+	    <div class="small-12 medium-8 columns">
+	    	<img src="{{ STATIC_URL }}base/images/headers/snapchat.png" id="snapchat-header" />
+	        <div class="flex-video">
+		    	<a class="twitter-timeline" href="https://twitter.com/thejailbreakrat" data-widget-id="436318321785323520">Tweets by @thejailbreakrat</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+	    </div>
+	    <div class="small-12 medium-4 columns">
+	    	{{ flatpage.content|safe }}
+
+	    	<a href="https://twitter.com/intent/tweet?button_hashtag=SnapchatRatRace&text=Have%20you%20heard%20about%20%23jailbreak14%20Snapchat%20Rat%20Race%20around%20Europe%3F" class="twitter-hashtag-button" data-size="large" data-related="thejailbreakrat,jailbreakhq" data-url="http://jailbreak2014.com/snapchat-rat-race/">Tweet #SnapchatRatRace</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	    </div>
+	</div>
+</section>
+{% endblock %}

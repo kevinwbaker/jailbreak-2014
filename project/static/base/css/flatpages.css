@@ -1,0 +1,46 @@
+/* ===============================
+ * Define mobile styles and inherited by larger screens
+ */
+@media only screen { 
+	#flatpage {
+		margin-bottom: 40px;
+	}
+
+	ul li {
+		margin-bottom: 15px;
+	}
+
+	ul ol {
+		padding-left: 30px;
+	}
+
+	ul.small  li {
+		margin-bottom: 5px;
+	}
+
+	img.logo {
+		display: none;
+	}
+
+	address {
+		line-height: 1.5em;
+	}
+
+	#snapchat-header {
+		margin-bottom: 40px;
+		border-radius: 5px;
+		overflow: hidden;
+	}
+
+ /* ===============================
+  * min-width 641px, medium screens
+  */
+@media only screen and (min-width: 40.063em) {
+	img.logo {
+		display: block;
+		float: left;
+		border-radius: 5px;
+		overflow: hidden;
+		margin-right: 20px;
+	}
+}
