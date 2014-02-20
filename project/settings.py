@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     # 3rd party apps
     'south',
     'crispy_forms',
+    'crispy_forms_foundation',
     'compressor',
 
     # apps
@@ -147,6 +148,7 @@ SITE_ID = 1
 INTERNAL_IPS = ('127.0.0.1',)
 
 CRISPY_FAIL_SILENTLY = not DEBUG
+CRISPY_TEMPLATE_PACK = 'foundation'
 
 COMPRESS_ENABLED = True
 

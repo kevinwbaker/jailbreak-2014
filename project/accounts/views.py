@@ -3,14 +3,14 @@ import datetime
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth import logout
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404
 
 from teams.models import Team
 from feeds.models import Post
-from accounts.forms import LoginForm
+from accounts.forms import EmailAuthenticationForm
 from utilities.utils import create_form
 
 def home(request, template=None):
@@ -37,11 +37,13 @@ def home(request, template=None):
 def login(request, template=None):
     '''User login page'''
 
-    login_form = create_form(LoginForm, request, request)
-    if request.method == 'POST':
-        login_form.save()
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/')
 
-        return HttpResponseRedirect(reverse('accounts:profile'))
+    login_form = create_form(EmailAuthenticationForm, request, request)
+    if request.method == 'POST':
+        if login_form.is_valid():
+            return HttpResponseRedirect(r'/')
 
     return render(request, template, {
             'login_form': login_form,
@@ -49,9 +51,9 @@ def login(request, template=None):
         })
 
 @login_required
-def logout(request):
+def logout(request, template=None):
     '''User logout page'''
-    logout(request)
+    auth_logout(request)
 
     return render(request, template, {
             'logout_page': True

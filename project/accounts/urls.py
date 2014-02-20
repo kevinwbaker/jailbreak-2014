@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('accounts',
-    url(r'^login$',
+    url(r'^login',
         view='views.login',
         kwargs={'template':'login.html'},
         name='login'

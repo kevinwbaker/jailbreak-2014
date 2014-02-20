@@ -12,14 +12,16 @@ def static(request):
 
 def jailbreak_settings(request):
     # timer related stuff
-    started = False
-    seconds_to_start = (settings.START_TIME - datetime.datetime.now()).total_seconds()
-    if seconds_to_start < 0:
-        seconds_to_start = 0
+    if settings.START_TIME > datetime.datetime.now():
+        started = False
+        seconds_to_start = (settings.START_TIME - datetime.datetime.now()).total_seconds()
+    else:
         started = True
+        seconds_to_start = 0
 
     return {
        'MAIN_SPONSOR_PAGE': settings.MAIN_SPONSOR_PAGE,
        'STARTED': started,
        'SECONDS_TO_START': seconds_to_start,
+       'RADIO_LIVE': True
     }

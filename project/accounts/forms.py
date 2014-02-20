@@ -5,15 +5,15 @@ from django.contrib.auth import login as auth_login, authenticate as auth_authen
 from django.conf import settings
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit, ButtonHolder, Hidden
+from crispy_forms.layout import Layout, Fieldset, Submit, ButtonHolder, Hidden, Row
 
-class LoginForm(forms.Form):
+class SignInBase(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
 
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
-        super(LoginForm, self).__init__(*args, **kwargs)
+        super(SignInBase, self).__init__(*args, **kwargs)
 
     def clean_email(self):
         '''Forces the email address to lowercase'''
@@ -36,16 +36,22 @@ class LoginForm(forms.Form):
                   "Cookies are required for logging in."))
         return self.cleaned_data
 
-    def _make_helper(self, fields, legend="", submit_label="", button_css_class="btn-primary"):
+class EmailAuthenticationForm(SignInBase):
 
-        helper = FormHelper()
-        helper.layout = Layout(
-            Fieldset(legend,
-                *fields),
-
-            Hidden(name='form_id', value=self.__class__.__name__),
-            ButtonHolder(Submit('submit', submit_label, css_class=button_css_class))
+    def __init__(self, *args, **kwargs):
+        super(EmailAuthenticationForm, self).__init__(*args, prefix='signin', **kwargs)
+        
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Fieldset("", Row('email', 'password')),
+            ButtonHolder(Submit('submit', _("Sign In")))
         )
-        helper.form_class = "form-horizontal"
-        helper.form_id = self.__class__.__name__
-        return helper
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        password = self.cleaned_data.get('password')
+
+        self._signin(email, password)
+        return self.cleaned_data
+
+        

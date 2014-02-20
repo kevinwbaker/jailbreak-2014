@@ -1,3 +1,5 @@
+import datetime
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -44,3 +46,5 @@ CACHES = {
         'LOCATION': 'ducss'
     }
 }
+
+START_TIME = datetime.datetime(2011, 1, 1)
