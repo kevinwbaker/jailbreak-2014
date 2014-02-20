@@ -9,8 +9,7 @@ def static(request):
     else:
         static_url = settings.STATIC_URL
     return {
-        'STATIC_URL': static_url,
-        'UPLOADS_URL': settings.UPLOADS_URL
+        'STATIC_URL': static_url
     }
 
 def jailbreak_settings(request):

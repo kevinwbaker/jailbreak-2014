@@ -56,9 +56,13 @@ class Team(models.Model):
         if not self.photo:
             return settings.DEFAULT_PROFILER
 
-        return self.UPLOADS_URL + self.photo
-    
+        print "*****"
+        print settings.UPLOADS_URL
+        print self.photo
+        print "URL: %s%s " % (settings.UPLOADS_URL, self.photo)
 
+        return "%s%s" % (settings.UPLOADS_URL, self.photo)
+    
     @property
     @memoize_instance
     def last_checkin(self):

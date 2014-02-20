@@ -1,7 +1,7 @@
 <div class="card facebook {% if post.has_team %}is-team{% endif %}">
     {% if post.has_team %}
         <div class="team">
-            <p><img src="{{ post.team.photo|default:"http://placehold.it/40x40" }}" width="40" height="40" alt="{{ post.team.name }}" /><a href="{% url "team" post.team.slug %}">Team {{ post.team.number }}: {{ post.team.name }}</a></p>
+            <p><img src="{{ post.team.photo_url }}" width="40" height="40" alt="{{ post.team.name }}" /><a href="{% url "team" post.team.slug %}">Team {{ post.team.number }}: {{ post.team.name }}</a></p>
         </div>
     {% endif %}
 

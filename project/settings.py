@@ -54,7 +54,7 @@ if not DEBUG:
     DEFAULT_PROFILER = STATIC_URL + 'base/images/jailbreak-profiler.jpg'
 
 
-UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/jailbreak14/'
+UPLOADS_URL = 'http://s3-eu-west-1.amazonaws.com/jailbreak14/'
 
 # Localisation
 TIME_ZONE = 'Europe/Dublin'

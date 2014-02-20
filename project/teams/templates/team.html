@@ -10,9 +10,7 @@
 
 {% block body_html %}
     <section id="team">
-
-    <h1>UPLOADS: {{ UPLOADS_URL }}</h1>
-
+    
         <div class="row">
         	<div class="small-12 columns">
                 <header class="header">
@@ -21,7 +19,7 @@
             		</div>
             	
             		<div id="profiler" class="profiler-{{ team.university_key }}">
-                        <img src="{{ team.photo_url }}" />
+                        <img src="{{ team.photo_url }}" height="200" width="200" />
                     </div>
 
             		<div class="details">
