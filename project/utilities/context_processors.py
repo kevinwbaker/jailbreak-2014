@@ -21,6 +21,7 @@ def jailbreak_settings(request):
 
     return {
        'MAIN_SPONSOR_PAGE': settings.MAIN_SPONSOR_PAGE,
+       'DEFAULT_PROFILER': settings.DEFAULT_PROFILER,
        'STARTED': started,
        'SECONDS_TO_START': seconds_to_start,
        'RADIO_LIVE': True

@@ -51,9 +51,11 @@ if not DEBUG:
     # django compressor
     #COMPRESS_URL = STATIC_URL
     #COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_PROFILER = STATIC_URL + 'static/base/images/jailbreak-profiler.jpg'
 
 
 UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/static/'
+
 
 # Localisation
 TIME_ZONE = 'Europe/Dublin'
