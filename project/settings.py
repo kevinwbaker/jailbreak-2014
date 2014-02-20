@@ -56,7 +56,6 @@ if not DEBUG:
 
 UPLOADS_URL = 'http://jailbreak14.s3.amazonaws.com/'
 
-
 # Localisation
 TIME_ZONE = 'Europe/Dublin'
 LANGUAGE_CODE = 'en-us'

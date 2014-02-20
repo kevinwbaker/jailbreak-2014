@@ -8,7 +8,10 @@ def static(request):
         static_url = u'%sv%s/' % (settings.STATIC_URL, settings.REVISION)
     else:
         static_url = settings.STATIC_URL
-    return {'STATIC_URL': static_url}
+    return {
+        'STATIC_URL': static_url,
+        'UPLOADS_URL': settings.UPLOADS_URL
+    }
 
 def jailbreak_settings(request):
     # timer related stuff
