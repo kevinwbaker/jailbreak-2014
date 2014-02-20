@@ -93,10 +93,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-# Regex patterns used in multiple url.py files.
-DOMAIN_PATTERN = '(?P<domain>[\w-]+\.[\w.-]+)'
-EMAIL_LHS_PATTERN = '(?P<email_lhs>[0-9A-Za-z\.+_\-]+)'
-
 TEMPLATE_DIRS = (
     'templates',
 )

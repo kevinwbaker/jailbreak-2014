@@ -7,7 +7,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404
-from django.conf import settings
 
 from teams.models import Team
 from feeds.models import Post
@@ -27,21 +26,11 @@ def home(request, template=None):
     total_amount_raised = sum([team.amount_raised for team in teams])
     total_distance_from_start = sum([team.distance for team in teams])
 
-    # timer related stuff
-    started = False
-    seconds_to_start = (settings.START_TIME - datetime.datetime.now()).total_seconds()
-    if seconds_to_start < 0:
-        seconds_to_start = 0
-        started = True
-    print seconds_to_start
-
     return render(request, template, {
             'standings': teams_sort_by_distance,
             'posts': posts,
             'total_amount_raised': total_amount_raised,
             'total_distance_from_start': int(total_distance_from_start),
-            'STARTED': started,
-            'seconds_to_start': seconds_to_start,
             'home_page': True
         })
 

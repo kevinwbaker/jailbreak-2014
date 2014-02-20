@@ -75,3 +75,8 @@ class Checkin(models.Model):
     lat_position = models.DecimalField(max_digits=8, decimal_places=3)
     team = models.ForeignKey('Team', related_name='checkins')
     time = models.DateTimeField(default=datetime.datetime.utcnow)
+
+    def __unicode__(self):
+        return "Checkin in from {team} at {name})".format(team=self.team, name=self.name, )
+
+
