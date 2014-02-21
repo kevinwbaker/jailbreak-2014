@@ -518,8 +518,8 @@
 		width: 100%;
 	}
 
-	#map-canvas img {
-		max-width: none;
+	.map-container img {
+		max-width: none !important;
 	}
 
 	.info-window h3 {
