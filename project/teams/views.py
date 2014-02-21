@@ -16,7 +16,6 @@ def teams(request, template=None):
     context = RequestContext(request)
 
     context['teams'] = Team.objects.all()
-    context['teams_listing_page'] = True
     return render_to_response(template, context_instance=context)
 
 def team(request, slug, template=None):
@@ -31,7 +30,6 @@ def team(request, slug, template=None):
     context['team'] = team
     context['checkins'] = team.checkins.all()
     context['posts'] = team.posts.all()
-    context['team_page'] = True
     return render_to_response(template, context_instance=context)
 
 def universities(request, template=None):
@@ -107,7 +105,6 @@ def universities(request, template=None):
             'best_travellers_distance': int(best_travellers_distance),
             'best_raisers': best_raisers,
             'best_raisers_amount': best_raisers_amount,
-            'universities_page': True
         })
 
 def university(request, slug, template=None):
@@ -165,18 +162,7 @@ def university(request, slug, template=None):
 
     return render(request, template, {
             'university': university,
-            'university_page': True
         })
-
-@login_required
-def edit_team(request, template=None):
-    '''View to allow teams edit their details'''
-    context = RequestContext(request)
-
-    if request.method == 'POST':
-        pass
-
-    return render_to_response(template, context_instance=context)
 
 @staff_member_required
 def add_checkin(request, template=None):

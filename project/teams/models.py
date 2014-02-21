@@ -82,11 +82,6 @@ class Team(models.Model):
         if not self.photo:
             return settings.DEFAULT_PROFILER
 
-        print "*****"
-        print settings.UPLOADS_URL
-        print self.photo
-        print "URL: %s%s " % (settings.UPLOADS_URL, self.photo)
-
         return "%s%s" % (settings.UPLOADS_URL, self.photo)
     
     @property
@@ -114,19 +109,15 @@ class Team(models.Model):
     @property
     @memoize_instance
     def distance_travelled(self):
-        print "HEY"
         travelled = 0
         lat1 = radians(self.start_lat)
         lon1 = radians(self.start_lng)
-
-        print self.checkins.all()
 
         for checkin in self.checkins.all():
             lat2 = radians(checkin.lat_position)
             lon2 = radians(checkin.lng_position)
 
             travelled += world_distance(lat1, lon1, lat2, lon2)
-            print "T: ", travelled
 
             lat1 = lat2
             lon1 = lon2

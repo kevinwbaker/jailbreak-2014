@@ -49,39 +49,5 @@
             "start_lat": 53.2740,
             "start_lng": -9.0496
         }
-    },
-    {
-        "model": "teams.team",
-        "pk": 4, 
-        "fields": {
-            "number": 23,
-            "name": "Mary Boyle and Jackie King",
-            "slug": "mary-boyle-and-jackie-kind",
-            "photo": "",
-            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
-            "youtube_embed_link": null,
-            "description": "Maecenas eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
-            "amount_raised": 123,
-            "university": 2,
-            "start_lat": 51.8931,
-            "start_lng": -8.4948
-        }
-    },
-    {
-        "model": "teams.team",
-        "pk": 5, 
-        "fields": {
-            "number": 43,
-            "name": "Richard and Michael",
-            "slug": "richard-and-michael",
-            "photo": "",
-            "sponsor_link": "http://www.sponsor.ie/peter--moore/",
-            "youtube_embed_link": null,
-            "description": "Eget leo nisi. Vestibulum iaculis. Eget leo nisi. Vestibulum iaculis, ligula quis faucibus ornare, sapien quam pellentesque nibh",
-            "amount_raised": 321,
-            "university": 3,
-            "start_lat": 53.3418,
-            "start_lng": -6.3098
-        }
     }
 ]
