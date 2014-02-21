@@ -80,11 +80,10 @@
 		overflow: hidden;
 	}
 
-	#profiler div {
+	#profiler img {
 		overflow: hidden;
 		width: 200px;
 		height: 200px;
-    	background: #fff 50% 50%
 	}
 
 	.profiler-tcd { border-color: #FDDC39; }
