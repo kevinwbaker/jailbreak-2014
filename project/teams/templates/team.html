@@ -52,7 +52,7 @@
                     <li class="description">The distance we have travelled between checkins</li>
                 </ul>
 
-                {% if not posts or team.youtube_embed_link %}
+                {% if posts or not team.youtube_embed_link %}
                 <div class="donate-button">
                     <div class="donate-link">
                         <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
@@ -66,7 +66,11 @@
             </div>
 
             <div class="small-12 medium-8 columns">
-                <div id="map-canvas"></div>
+                <section id="map">
+                    <div class="flex-video">
+                        <div id="map-canvas">
+                    </div>
+                </section>
             </div>
         </div>
 
