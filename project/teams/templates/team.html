@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="details">
-                        <h2>#{{team.number }}: {{ team.name }} <span class="university"><a href="{% url "university" team.university_key %}">{{ team.university_full_name }}</a></span></h2>
-                        
+                        <h2>Team #{{team.number }}: {{ team.name }}</h2>
+                        <p><a href="{% url "university" team.university_key %}">{{ team.university_full_name }}</a></p>
                         <p class="desc">{{ team.description }}</p>
                     </div>
                 </header>
@@ -52,6 +52,7 @@
                     <li class="description">The distance we have travelled between checkins</li>
                 </ul>
 
+                {% if not posts or team.youtube_embed_link %}
                 <div class="donate-button">
                     <div class="donate-link">
                         <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
@@ -61,6 +62,7 @@
                     </div>
                     <br class="clear" />
                 </div>
+                {% endif %}
             </div>
 
             <div class="small-12 medium-8 columns">
@@ -85,7 +87,7 @@
             </div>
         {% endif %}
 
-        
+        {% if team.youtube_embed_link %}
         <div class="row">
             <div class="small-12 medium-8 columns">
                 <h3>Application Video</h3>
@@ -111,7 +113,7 @@
                 </div>
             </div>
         </div>
-
+        {% endif %}
     </section>
 {% endblock %}
 
