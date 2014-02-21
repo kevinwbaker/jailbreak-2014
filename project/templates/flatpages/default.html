@@ -7,10 +7,12 @@
 {% endblock %}
 
 {% block body_html %}
-<div class="row">
-    <div class="small-8 columns">
-    	<h1>{{ flatpage.title }}</h1>
-        {{ flatpage.content|safe }}
-    </div>
-</div>
+<section id="flatpage">
+	<div class="row">
+	    <div class="small-8 columns">
+	    	<h1>{{ flatpage.title }}</h1>
+	        {{ flatpage.content|safe }}
+	    </div>
+	</div>
+</section>
 {% endblock %}

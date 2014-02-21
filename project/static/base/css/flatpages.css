@@ -3,7 +3,7 @@
  */
 @media only screen { 
 	#flatpage {
-		margin-bottom: 40px;
+		margin: 40px 0;
 	}
 
 	#flatpage ul li {
