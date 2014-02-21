@@ -76,10 +76,15 @@
 		border-width: 2px;
 		border-style: solid;
 		border-radius: 5px;
+		padding: 3px;
+		overflow: hidden;
 	}
 
-	#profiler img{
-		margin: 5px;
+	#profiler div {
+		overflow: hidden;
+		width: 200px;
+		height: 200px;
+    	background: #fff 50% 50%
 	}
 
 	.profiler-tcd { border-color: #FDDC39; }
