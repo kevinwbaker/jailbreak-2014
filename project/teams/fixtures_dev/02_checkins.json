@@ -4,8 +4,9 @@
 		"pk": 1,
 		"fields": {
 			"name": "Dublin Airport, Ireland",
-			"lng_position": -6.23993397,
-			"lat_position": 53.42515896,
+			"message": "A lovely taxi driver named Jim gave us a lift to the Airport. Australia here we come.",
+			"lng_position": -6.2399,
+			"lat_position": 53.4251,
 			"team": 1,
 			"time": "2014-02-15T17:54:26"
 		}
@@ -15,8 +16,9 @@
 		"pk": 2,
 		"fields": {
 			"name": "London, UK",
-			"lng_position": -0.17876386,
-			"lat_position": 51.4916703,
+			"message": "Hello London! Can't believe we've already left the island this is gonna be mad.",
+			"lng_position": -0.1787,
+			"lat_position": 51.491,
 			"team": 2,
 			"time": "2014-02-15T11:54:26"
 		}
@@ -26,8 +28,9 @@
 		"pk": 3,
 		"fields": {
 			"name": "Hollyhead, Wales",
-			"lng_position": -4.63680982,
-			"lat_position": 53.3084157,
+			"message": "Team 4 have made their way onto the boat to Wales",
+			"lng_position": -4.6368,
+			"lat_position": 53.3084,
 			"team": 4,
 			"time": "2014-02-15T18:54:26"
 		}
@@ -37,10 +40,59 @@
 		"pk": 4,
 		"fields": {
 			"name": "Paris, France",
-			"lng_position": 2.37658739,
-			"lat_position": 48.80119231,
+			"message": "Bonjour! Team 5 have made it to Paris, France.",
+			"lng_position": 2.3765,
+			"lat_position": 48.801,
 			"team": 5,
 			"time": "2014-02-14T09:54:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 5,
+		"fields": {
+			"name": "Heathrow, London, UK",
+			"message": "Hello London. We can't stay as we have a flight booked already!",
+			"lng_position": -0.4542,
+			"lat_position": 51.4700,
+			"team": 1,
+			"time": "2014-02-15T18:22:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 6,
+		"fields": {
+			"name": "Dover, England",
+			"message": "Our flight fell through, but we have made our way to the Ferry at Dover in England.",
+			"lng_position": 1.3134,
+			"lat_position": 51.1278,
+			"team": 1,
+			"time": "2014-02-15T20:54:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 7,
+		"fields": {
+			"name": "Paris, France",
+			"message": "Paris! At last!",
+			"lng_position": 2.3765,
+			"lat_position": 48.801,
+			"team": 1,
+			"time": "2014-02-15T23:54:26"
+		}
+	},
+	{
+		"model": "teams.checkin",
+		"pk": 8,
+		"fields": {
+			"name": "Dubai, UAE",
+			"message": "Can't believe we've just left Europe! This is unbelievable.",
+			"lng_position": 55.3074,
+			"lat_position": 25.2711,
+			"team": 1,
+			"time": "2014-02-16T07:54:26"
 		}
 	}
 ]

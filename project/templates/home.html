@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load humanize %}
 {% load show_post %}
 
 {% block extra_css %}
@@ -39,7 +40,7 @@
                     <div class="medium-6 columns">                      
                         <h4><a href="{% url "team" team.slug %}">{{ team.name }}</a></h4>
                         <p>Team {{ team.number }} - {{ team.university_name }}</p>
-                        <p class="location">{{ team.last_checkin.name }} <span>({{ team.distance|floatformat:"1" }} km)</span></p>
+                        <p class="location">{{ team.last_checkin.name }} <span>({{ team.distance|floatformat:"0"|intcomma }} km)</span></p>
 
                         <div class="donate-button small">
                             <div class="donate-link">
@@ -62,8 +63,10 @@
 
     <section id="home-main" class="medium-8 small-12 columns">
 
-        <section id="map" class="flex-video">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76235.50443936698!2d-6.249427395117186!3d53.33682034292388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sie!4v1392484951339" width="800" height="450" frameborder="0" style="border:0"></iframe>
+        <section id="map">
+            <div class="flex-video">
+                <div id="map-canvas">
+            </div>
         </section>
 
         <section id="main-stats">
@@ -121,4 +124,101 @@
         });
     </script>
     {% endif %}
+
+<script>
+    var colours = {
+        'tcd': '#FDDC39',
+        'nuig': '#1DAFEC',
+        'ucc': '#EA168C',
+        'ucd': '#17A552'
+    }
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 4,
+            center: new google.maps.LatLng(53.3418, -6.3098),
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        // auto zoom map to show all markers
+        var markerBounds = new google.maps.LatLngBounds();
+
+        {% for team in standings %}
+            // TEAM
+            // path drawn across map
+            var checkinLines = [
+                new google.maps.LatLng({{ team.start_lat }}, {{ team.start_lng }}),
+                {% for checkin in team.checkins.all %}
+                    new google.maps.LatLng({{ checkin.lat_position }}, {{ checkin.lng_position }}),
+                {% endfor %}
+            ];
+            var travelPath = new google.maps.Polyline({
+                path: checkinLines,
+                geodesic: true,
+                strokeColor: colours['{{ team.university_key }}'],
+                strokeOpacity: 1.0,
+                strokeWeight: 3
+            });
+
+            travelPath.setMap(map);
+
+            // CHECKINS
+            var infowindow = null;
+            var markers = Array();
+
+            // start pointss
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng({{ team.start_lat }}, {{ team.start_lng }}),
+                map: map,
+                title: "#{{ team.number }} {{ team.name }}",
+                html: "<div class=\"info-window\"><h4>The start point</h4><p>Like all good stories let's begin at the start...</p></div>"
+            });
+            markers.push(marker);
+
+            // checkins from the field
+            {% for checkin in team.checkins.all %}
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng({{ checkin.lat_position }}, {{ checkin.lng_position }}),
+                    map: map,
+                    title: "#{{ team.number }} {{ team.name }} checked in at {{ checkin.name }}",
+                    html: "<div class=\"info-window row\"><div class=\"small-3 columns\"><a href=\"{% url "team" team.slug %}\"><img width=\"75\" height=\"75\" src=\"{{ UPLOADS_URL }}{{ team.photo_url }}\" /></a></div><div class=\"small-9 columns\"><h3><a href=\"{% url "team" team.slug %}\">#{{ team.number }} {{ team.name }}</a></h3><h4>{{ checkin.name }}</h4><p>{{ checkin.message }}</p></div></div>"
+                });
+                markers.push(marker);
+            {% endfor %}
+
+            // content info window for this marker
+            infowindow = new google.maps.InfoWindow({
+                content: "holding..."
+            });
+            for (var i = 0; i < markers.length; i++) {
+                var marker = markers[i];
+                google.maps.event.addListener(marker, 'click', function () {
+                    // where I have added .html to the marker object.
+                    infowindow.setContent(this.html);
+                    infowindow.open(map, this);
+                });
+
+                // auto-zooming
+                markerBounds.extend(marker.position);
+            }
+
+
+        {% endfor %}
+
+        // Then you just call the fitBounds method and the Maps widget does all rest.
+        map.fitBounds(markerBounds);
+    }
+
+    function loadScript() {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+          'callback=initialize';
+      document.body.appendChild(script);
+    }
+
+    window.onload = loadScript;
+</script>
 {% endblock %}

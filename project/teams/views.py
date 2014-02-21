@@ -1,5 +1,6 @@
 import datetime
 
+from django.http import Http404
 from django.http import HttpResponseNotFound
 from django.template import RequestContext
 from django.shortcuts import render, render_to_response, get_object_or_404
@@ -15,7 +16,6 @@ def teams(request, template=None):
     context = RequestContext(request)
 
     context['teams'] = Team.objects.all()
-
     context['teams_listing_page'] = True
     return render_to_response(template, context_instance=context)
 
@@ -23,8 +23,12 @@ def team(request, slug, template=None):
     '''Full details for an team'''
     context = RequestContext(request)
 
-    context['team'] = get_object_or_404(Team, slug=slug)
+    try:
+        team = Team.objects.get(slug=slug)
+    except Team.DoesNotExist:
+        raise Http404
 
+    context['team'] = team
     context['team_page'] = True
     return render_to_response(template, context_instance=context)
 
@@ -110,7 +114,7 @@ def university(request, slug, template=None):
     # find matching university id for slug
     uni_id = Team.university_key_to_value(slug)
     if uni_id is None:
-        return HttpResponseNotFound('University Not Found')
+        raise Http404
 
     # get a possibly empty list of teams
     teams = Team.objects.all().filter(university=uni_id)

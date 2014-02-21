@@ -10,32 +10,32 @@
 
 {% block body_html %}
 <section id="university" class="university-page">
-	<div class="row">
-		<div class="small-12 medium-8 columns">
-			<h2>{{ university.full_name }}</h2>
-		</div>
-		<div class="medium-4 columns show-for-medium-up">
-			<a href="{% url "universities" %}" class="button small compare-button">Compare Universities</a> 
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-12 medium-4 columns">
-            <ul class="pricing-table {{ university.key }}">
-              <li class="title">{{ university.full_name }}</li>
-              {% for stat in university.stats %}
-              	<li class="bullet-item">{{ stat.name }}</li>
-              	<li class="price">{{ stat.value|safe }}</li>
-              {% endfor %}
-            </ul>
+    <div class="row">
+        <div class="small-12 medium-8 columns">
+            <h2>{{ university.full_name }}</h2>
         </div>
-		<div class="small-12 medium-8 columns">
-            <ul class="teams-list small-block-grid-1 large-block-grid-2">
-              {% for team in university.teams %}
-              	{% show_team team %}
-              {% endfor %}
-            </ul>
+        <div class="medium-4 columns show-for-medium-up">
+            <a href="{% url "universities" %}" class="button small compare-button">Compare Universities</a> 
         </div>
-	</div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-4 columns">
+        <ul class="pricing-table {{ university.key }}">
+          <li class="title">{{ university.full_name }}</li>
+          {% for stat in university.stats %}
+            <li class="bullet-item">{{ stat.name }}</li>
+            <li class="price">{{ stat.value|safe }}</li>
+          {% endfor %}
+        </ul>
+    </div>
+        <div class="small-12 medium-8 columns">
+        <ul class="teams-list small-block-grid-1 large-block-grid-2">
+          {% for team in university.teams %}
+            {% show_team team %}
+          {% endfor %}
+        </ul>
+    </div>
+    </div>
 
 </section>
    

@@ -106,13 +106,28 @@ class Team(models.Model):
         lat2 = radians(self.last_checkin.lat_position)
         lon2 = radians(self.last_checkin.lng_position)
 
-        dlon = lon2 - lon1
-        dlat = lat2 - lat1
-        a = (sin(dlat/2))**2 + cos(lat1) * cos(lat2) * (sin(dlon/2))**2
-        c = 2 * atan2(sqrt(a), sqrt(1-a))
-        distance = settings.RADIUS_EARTH * c
+        return world_distance(lat1, lon1, lat2, lon2)
 
-        return distance
+    @property
+    def distance_travelled(self):
+        print "HEY"
+        travelled = 0
+        lat1 = radians(self.start_lat)
+        lon1 = radians(self.start_lng)
+
+        print self.checkins.all()
+
+        for checkin in self.checkins.all():
+            lat2 = radians(checkin.lat_position)
+            lon2 = radians(checkin.lng_position)
+
+            travelled += world_distance(lat1, lon1, lat2, lon2)
+            print "T: ", travelled
+
+            lat1 = lat2
+            lon1 = lon2
+    
+        return travelled
 
     def __unicode__(self):
         return "{university}: {number} - {name}".format(name=self.name, number=self.number, university=self.university_name)
@@ -121,6 +136,7 @@ class Checkin(models.Model):
     '''Locations the team has checked in at'''
 
     name = models.CharField(max_length=255, help_text="A useful name for the location where they checked in")
+    message = models.TextField(null=True, help_text="A nice message from the team or about thier journey to this checkin point")
     lng_position = models.DecimalField(max_digits=8, decimal_places=4)
     lat_position = models.DecimalField(max_digits=8, decimal_places=4)
     team = models.ForeignKey('Team', related_name='checkins')
@@ -128,3 +144,13 @@ class Checkin(models.Model):
 
     def __unicode__(self):
         return "Checkin in from {team} at {name})".format(team=self.team, name=self.name)
+
+def world_distance(lat1, lon1, lat2, lon2):
+    '''Calculates the distance between two sets of GPS coordinates'''
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = (sin(dlat/2))**2 + cos(lat1) * cos(lat2) * (sin(dlon/2))**2
+    c = 2 * atan2(sqrt(a), sqrt(1-a))
+    distance = settings.RADIUS_EARTH * c
+
+    return distance

@@ -505,6 +505,39 @@
 	.alert-box ul {
 		margin-bottom: 0;
 	}
+
+	/* Map */
+	#map .flex-video {
+		padding-top: 0;
+		margin: 0;
+	}
+
+	#map-canvas {
+		min-height: 450px;
+		height: 100%;
+		width: 100%;
+	}
+
+	#map-canvas img {
+		max-width: none;
+	}
+
+	.info-window h3 {
+		margin: 0;
+	}
+
+	.info-window h3 a {
+		font-size: 1em !important;
+	}
+
+	.info-window h4 {
+		margin: 0;
+	}
+
+	.info-window p {
+		margin: 0 !important;
+		font-size: 80%;
+	}
 } 
 
 
