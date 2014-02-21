@@ -28,23 +28,51 @@
         <div class="off-canvas-wrap">
           <div class="inner-wrap">
 
-            <header id="header">
-                <div>
-                    <div class="medium-6 small-10 columns">
-                        <div id="menu-burger" class="show-for-small-only">
-                            <a class="left-off-canvas-toggle"><i class="fi-list"></i></a>
-                        </div>
+            <header>
+                    <nav class="top-bar" data-topbar>
+                      <ul class="title-area">
+                        <li class="show-for-small-only">
+                            <div id="menu-burger">
+                                <a class="left-off-canvas-toggle"><i class="fi-list"></i></a>
+                            </div>
+                        </li>
+                        <li class="name">
+                          <h1><a href="/">Jailbreak 14</a></h1>
+                        </li>
+                      </ul>
 
-                        <div id="site-title">
-                            <h1><a href="/">Jailbreak 2014</a></h1>
-                        </div>
-                    </div>
+                      <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                          <li class="active"><a href="/donate">Donate</a></li>
+                        </ul>
 
-                    <div class="medium-6 columns show-for-medium-up">
-                        <h2 id="supporters-logo">Law Soc, Trinity VDP &amp; Amnesty International</h2>
-                    </div>
-                </div>
+                        <!-- Left Nav Section -->
+                        <ul class="left">
+                            <li class="has-dropdown">
+                                <a href="#">Teams</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url "teams" %}"><i class="fi-torsos-all"></i>Full Team List</a></li>
+                                    <li><a href="{% url "universities" %}"><i class="fi-trophy"></i>University Awards</a></li>
+                                    <li><a href="/pages/snapchat-rat-race/"><i class="fi-social-snapchat"></i>Snapchat Rat Race</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">About Jailbreak</a>
+                                <ul class="dropdown">
+                                    <li><a href="/pages/about-jailbreak14/"><i class="fi-projection-screen"></i>What is Jailbreak?</a></li>
+                                    <li><a href="/pages/help-jailbreakers/"><i class="fi-heart"></i>How can I help?</a></li>
+                                    <li><a href="/pages/about-charities/"><i class="fi-info"></i>Who are the chairties?</a></li>
+                                    <li><a href="/pages/terms-and-conditions/"><i class="fi-list-thumbnails"></i>Terms &amp; Conditions</a></li>
+                                    <li><a href="/pages/press-enquiries/"><i class="fi-megaphone"></i>Press Enquiries</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                      </section>
+                    </nav>
             </header>
+
+
 
             <!-- Off Canvas Menu -->
             <aside class="left-off-canvas-menu">
@@ -64,7 +92,7 @@
                     <li><label>FQA</label></li>
                     <li><a href="/pages/about-jailbreak14/"><i class="fi-info"></i>What is Jailbreak?</a></li>
                     <li><a href="/pages/help-jailbreakers/"><i class="fi-heart"></i>How can I help?</a></li>
-                    <li><a href="/pages/about-charities/"><i class="fi-info"></i>How can I donate?</a></li>
+                    <li><a href="/pages/about-charities/"><i class="fi-info"></i>About the charities</a></li>
                     <li><a href="/pages/terms-and-conditions/"><i class="fi-info"></i>Terms &amp; Conditions</a></li>
                 </ul>
                 <ul class="off-canvas-list">

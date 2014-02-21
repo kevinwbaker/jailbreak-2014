@@ -4,36 +4,63 @@
  */
 @media only screen { 
 	/* Header */
-	#header {
+	.top-bar {
 		background: #171717;
-		height: 70px;
-		overflow: hidden;
-		margin-bottom: 40px;
+		z-index: 100;
 	}
 
 	#menu-burger {
-		margin-left: -15px;
 		border-right: 1px solid #3A3A3C;
-		height: 70px;
-		width: 70px;
-		padding: 0;
+		height: 33px;
+		width: 45px;
+		padding: 0 10px;
 		float: left;
+		vertical-align: top;
 	}
 
 	#menu-burger a {
 		display: block;
 		color: white;
-		line-height: 2.3em;
-		font-size: 2em;
+		line-height: 1.4em;
+		font-size: 1.5em;
 		text-align: center;
 	}
 
-	#site-title {
+	.top-bar .name {
 		text-indent: -9999px;
-		background: url("../images/jailbreak-header-smaller.png") no-repeat;
+		background: url("../images/jailbreak-header.png") no-repeat;
 		height: 50px;
-		margin: 10px 0;
-		margin-left: 70px;
+		margin: 6px 10px 0 60px;
+	}
+
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		background: #171717;
+	}
+
+	.top-bar-section li:not(.has-form) a:not(.button):hover {
+		background: #3A3A3C;
+	}
+
+	.top-bar .right {
+		margin-right: 30px;
+	}
+
+	.top-bar-section li.active:not(.has-form) a:not(.button) {
+		padding: 0 15px;
+		line-height: 45px;
+		color: #3A3A3C;
+		background: #FBD753;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 0.7em;
+	}
+
+	.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+		background: #FFDF6B;
+	}
+
+	.dropdown li i {
+		padding-right: 8px;
 	}
 
 	#site-title h1 {
@@ -83,7 +110,6 @@
 
 	#countdown {
 		position: relative;
-		margin-top: -40px;
 		height: 100vh;
 		background: #171717;
 	}
@@ -100,17 +126,28 @@
 		filter: blur(3px);
 	}
 
+	#timer-row {
+		margin-top: -75vh;
+	}
+
+	#countdown-timer {
+		width: 460px;
+		display: inline-block;
+	}
+
+	#countdown-timer-wrap {
+	    margin: 0 auto;
+	    width: 470px
+	}
+
 	.timer-box {
-		position: absolute;;
-		top: 25%;
-		left: 22%;
 		border-radius: 10px;
 		background: rgba(0, 0, 0, 0.5);
 		border: 1px solid #4C4C4E;
 		padding: 20px 30px;
 		color: #F5F5F5;
-		max-width: 695px;
 	}
+
 	.timer-box h2 {
 		color: #F5F5F5;
 		text-align: center;
@@ -546,14 +583,10 @@
   */
 @media only screen and (min-width: 40.063em) {
 	/* Header */
-	#header {
-		height: 100px;
-	}
-
-	#site-title {
+	.top-bar .name {
 		background: url("../images/jailbreak-header.png") no-repeat;
-		height: 75px;
-		margin: 15px 0 0 0;
+		width: 153px;
+		margin: 6px 10px 0 30px;
 	}
 
 	#supporters-logo {
