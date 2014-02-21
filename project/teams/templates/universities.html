@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load unescape %}
+
 {% block title %}Compare Universities - {{ block.super }}{% endblock %}
 
 {% block extra_css %}
@@ -24,14 +26,21 @@
 			            	</div>
 			            	<div class="small-6 columns">
 			            		<h4>Best Money Raisers</h4>
+
+
 			            		<p>{{ best_raisers }}'s Teams are so far the best at raising money online having raised a superb &euro; {{ best_raisers_amount }} on average per team.</p>
 			            	</div>
 			            </div>
 
 			            <div class="lower">
 			            	<div class="buttons">
-			            		<a href="" class="button small"><i class="fi-social-twitter"></i> Tweet</a>
+			            	{% with best_raisers|add:" are so far in the lead having raised "|add:best_raisers_amount_str|add:" euro on average per team." as tweet_message %}
+
+	            	            {% include "tweet_button.html" %}
+
 			            		<a href="" class="button small"><i class="fi-like"></i> like</a>
+			            	
+			            	{% endwith %}
 		            		</div>
 		            	</div>
 		            </div>
@@ -47,14 +56,25 @@
 			            	</div>
 			            	<div class="small-6 columns">
 			            		<h4>Best Travellers</h4>
-			            		<p>{{ best_travellers }}'s Teams are the best travellers having traveller on average {{ best_travellers_distance }} km per team.</p>
+			            		{% if best_travellers %}
+			            			<p>{{ best_travellers }}'s Teams are the best travellers having traveller on average {{ best_travellers_distance }} km per team.</p>
+			            		{% else %}
+			            			<p>No university is winning in this category yet!</p>
+			            		{% endif %}
 			            	</div>
 		            	</div>
 
 		            	<div class="lower">
 			            	<div class="buttons">
-			            		<a href="" class="button small"><i class="fi-social-twitter"></i> Tweet</a>
-			            		<a href="" class="button small"><i class="fi-like"></i> like</a>
+				            	{% if best_travellers %}
+				            		{% with best_travellers|add:" are leading the way with over "|add:best_travellers_distance_str|add:" km from start on average" as tweet_message %}
+
+			            	            {% include "tweet_button.html" %}
+
+					            		<a href="" class="button small"><i class="fi-like"></i> like</a>
+					            	
+					            	{% endwith %}
+					            {% endif %}
 		            		</div>
 	            		</div>
 	            	</div>

@@ -101,8 +101,10 @@ def universities(request, template=None):
             'universities': universities,
             'best_travellers': best_travellers,
             'best_travellers_distance': int(best_travellers_distance),
+            'best_travellers_distance_str': str(int(best_travellers_distance)),
             'best_raisers': best_raisers,
             'best_raisers_amount': best_raisers_amount,
+            'best_raisers_amount_str': str(best_raisers_amount),
         })
 
 def university(request, slug, template=None):
