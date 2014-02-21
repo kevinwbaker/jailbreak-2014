@@ -47,7 +47,7 @@
                                 <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
                             </div>
                             <div class="count">
-                                &euro; {{ team.amount_raised }}
+                                &euro; {{ team.amount_raised|intcomma }}
                             </div>
                             <br class="clear" />
                         </div>
