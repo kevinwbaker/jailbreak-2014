@@ -27,7 +27,7 @@ def get_amount_raised(url):
 
     for val in values:
         try:
-            return int(val.text.strip())
+            return int(val.text.strip().replace(',', ''))
         except ValueError:
             pass
 
@@ -47,4 +47,6 @@ class Command(BaseCommand):
                 print "Updating amount for {team} from {previous} to {new}".format(team=team, previous=team.amount_raised, new=raised)
                 team.amount_raised = raised
                 team.save()
+            else:
+                print "Unable to update the amount for {team}".format(team=team)
     
