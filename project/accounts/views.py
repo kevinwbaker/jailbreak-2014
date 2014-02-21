@@ -16,7 +16,7 @@ from utilities.utils import create_form
 def home(request, template=None):
     '''Home page'''
     # Standings
-    teams = Team.objects.all()
+    teams = Team.objects.prefetch_related('checkins').all()
     teams_sort_by_distance = sorted(teams, key=lambda x: x.distance, reverse=True)
     
     # Feed
