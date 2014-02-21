@@ -41,6 +41,8 @@ class Team(models.Model):
     slug = models.SlugField()
     photo = models.FileField(storage=s3, upload_to='jailbreak14-uploads', blank=True, null=True)
     sponsor_link = models.URLField()
+    youtube_embed_link = models.URLField(null=True, help_text="Embed link of the team's application video")
+
     description = models.CharField(max_length=255, blank=True)
     amount_raised = models.IntegerField(default=200)
     university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
@@ -96,6 +98,7 @@ class Team(models.Model):
             return None
     
     @property
+    @memoize_instance
     def distance(self):
         '''The distance between the team (based on their last checkin) and the start pt'''
         if not self.last_checkin:
@@ -109,6 +112,7 @@ class Team(models.Model):
         return world_distance(lat1, lon1, lat2, lon2)
 
     @property
+    @memoize_instance
     def distance_travelled(self):
         print "HEY"
         travelled = 0

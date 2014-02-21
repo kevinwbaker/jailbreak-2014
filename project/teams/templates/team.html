@@ -68,23 +68,50 @@
             </div>
         </div>
 
-
+        {% if posts %}
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <h3>Team Updates</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">    
+                    {% for post in posts %}
+                        <div class="{%cycle 'left' '' %}">
+                            {% show_post post %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
 
         
         <div class="row">
-            <div class="small-12 medium-6 columns">
-                <h3>Team Updates</h3>
+            <div class="small-12 medium-8 columns">
+                <h3>Application Video</h3>
             </div>
         </div>
         <div class="row">
-            <div class="small-12 columns">    
-                {% for post in team.posts.all %}
-                    <div class="{%cycle 'left' '' %}">
-                        {% show_post post %}
+            <div class="small-12 medium-8 columns">    
+                <div class="flex-video widescreen">
+                    <iframe width="800" height="400" src="{{ team.youtube_embed_link }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="small-12 medium-4 columns">    
+                <p>Please help us support Amnesty International and Society of Saint Vincent de Paul.</p>
+                <div class="donate-button">
+                    <div class="donate-link">
+                        <a href="{{ team.sponsor_link }}"><i class="fi-heart"></i>Donate</a>
                     </div>
-                {% endfor %}
+                    <div class="count">
+                        &euro; <div class="odometer" data-value="{{ team.amount_raised }}">0</div>
+                    </div>
+                    <br class="clear" />
+                </div>
             </div>
         </div>
+
     </section>
 {% endblock %}
 
@@ -109,7 +136,7 @@
         // path drawn across map
         var checkinLines = [
             new google.maps.LatLng({{ team.start_lat }}, {{ team.start_lng }}),
-            {% for checkin in team.checkins.all %}
+            {% for checkin in checkins %}
                 new google.maps.LatLng({{ checkin.lat_position }}, {{ checkin.lng_position }}),
             {% endfor %}
         ];
@@ -139,7 +166,7 @@
         markers.push(marker);
         
         // CHECKINS
-        {% for checkin in team.checkins.all %}
+        {% for checkin in checkins %}
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng({{ checkin.lat_position }}, {{ checkin.lng_position }}),
                 map: map,

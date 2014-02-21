@@ -29,6 +29,8 @@ def team(request, slug, template=None):
         raise Http404
 
     context['team'] = team
+    context['checkins'] = team.checkins.all()
+    context['posts'] = team.posts.all()
     context['team_page'] = True
     return render_to_response(template, context_instance=context)
 
