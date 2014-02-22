@@ -25,3 +25,4 @@ newrelic
 beautifulsoup4
 requests
 python-dateutil
+TwitterAPI
