@@ -20,11 +20,11 @@ def home(request, template=None):
     
     # Feed
     posts = []
-    tweets = Tweet.objects.all().order_by('-time').select_related('team')
+    tweets = Tweet.objects.all().order_by('-time').select_related('team')[:40]
     for tweet in tweets:
         posts.append(('twitter', tweet))
 
-    checkins = Checkin.objects.all().order_by('-time').select_related('team')
+    checkins = Checkin.objects.all().order_by('-time').select_related('team')[:40]
     for checkin in checkins:
         posts.append(('checkin', checkin))
 

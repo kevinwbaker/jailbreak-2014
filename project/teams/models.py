@@ -47,8 +47,8 @@ class Team(models.Model):
     amount_raised = models.IntegerField(default=200)
     university = models.PositiveSmallIntegerField(db_index=True, choices=UNIVERSITIES, default=TCD)
     
-    start_lat = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LAT, choices=STARTING_LAT)
-    start_lng = models.DecimalField(max_digits=8, decimal_places=4, default=settings.DUBLIN_START_LNG, choices=STARTING_LNG)
+    start_lat = models.DecimalField(max_digits=12, decimal_places=8, default=settings.DUBLIN_START_LAT, choices=STARTING_LAT)
+    start_lng = models.DecimalField(max_digits=12, decimal_places=8, default=settings.DUBLIN_START_LNG, choices=STARTING_LNG)
 
     @classmethod
     def university_key_to_value(cls, search):
@@ -132,13 +132,13 @@ class Checkin(models.Model):
 
     name = models.CharField(max_length=255, help_text="A useful name for the location where they checked in")
     message = models.TextField(null=True, help_text="A nice message from the team or about thier journey to this checkin point")
-    lng_position = models.DecimalField(max_digits=8, decimal_places=4)
-    lat_position = models.DecimalField(max_digits=8, decimal_places=4)
+    lng_position = models.DecimalField(max_digits=12, decimal_places=8)
+    lat_position = models.DecimalField(max_digits=12, decimal_places=8)
     team = models.ForeignKey('Team', related_name='checkins')
     time = models.DateTimeField(default=datetime.datetime.utcnow)
 
     def __unicode__(self):
-        return "Checkin in from {team} at {name})".format(team=self.team, name=self.name)
+        return "Checkin in from {team} at {location}".format(team=self.team, location=self.name)
 
 def world_distance(lat1, lon1, lat2, lon2):
     '''Calculates the distance between two sets of GPS coordinates'''
