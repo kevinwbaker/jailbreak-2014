@@ -125,7 +125,7 @@ class Team(models.Model):
         return travelled
 
     def __unicode__(self):
-        return "{university}: {number} - {name}".format(name=self.name, number=self.number, university=self.university_name)
+        return "{name} ({university} #{number})".format(name=self.name, number=self.number, university=self.university_name)
 
 class Checkin(models.Model):
     '''Locations the team has checked in at'''

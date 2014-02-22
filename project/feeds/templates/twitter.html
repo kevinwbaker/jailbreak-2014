@@ -6,7 +6,9 @@
     {% endif %}
 
     {% if post.has_media %}
-        <img src="{{ post.media_url }}" />
+        <div class="media-container">
+            <a href="{{ post.media_url }}"><img class="media-image" src="{{post.media_url }}" /></a>
+        </div>
     {% endif %}
 
     <div class="body">

@@ -45,20 +45,17 @@ class Command(BaseCommand):
             since_id = django_settings.get('TWITTER_SINCE_ID_%s' % stream.stream_id, default=1)
             new_since_id = since_id
 
-            print "SINCE:::::: ", since_id
-
             # make APiI request and check HTTP response
             r = api.request('lists/statuses', 
                     {
                         'list_id': stream.stream_id, 
                         'include_rts': stream.include_rts,
                         'since_id': since_id,
-                        'count': 25
+                        'count': 50
                     }
                 )
             if r.status_code != 200:
                 logging.exception("API Call Failed")
-                print dir(r)
                 raise Exception("API Call Failed")
 
             # prcoess tweets
@@ -76,7 +73,7 @@ class Command(BaseCommand):
 
                     # extract out the media from the entities
                     try:
-                        media_url = tweet['entities']['media']['media_url']
+                        media_url = tweet['entities']['media'][0]['media_url']
                     except:
                         media_url = None
 
@@ -133,7 +130,13 @@ def _html_for_tweet(tweet, use_display_url=True, use_expanded_url=False):
             text = text.replace(tweet['text'][start:end], hashtag_html % {'hashtag': entity['text']})
 
         # Urls
-        for entity in entities['urls']:
+        media_entities = []
+        try:
+            media_entities = entities['media']
+        except KeyError:
+            pass
+
+        for entity in (entities['urls'] + media_entities):
             start, end = entity['indices'][0], entity['indices'][1]
             if use_display_url and entity.get('display_url'):
                 shown_url = entity['display_url']
