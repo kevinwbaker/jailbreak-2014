@@ -58,13 +58,26 @@
             "in_reply_to_user_name": null,
             "retweeted": true,
             "user_id": 2341021908,
-            "user_name": "@TheJailbreakRat",
+            "user_name": "TheJailbreakRat",
             "user_photo": "http://pbs.twimg.com/profile_images/378800000767470690/adb86ff5ef67e75f63955249f3758094_bigger.jpeg",
             "team": 1
         }
+    },
+    {
+        "model": "feeds.tweet",
+        "pk": 4, 
+        "fields": {
+            "tweet_id": "437246744242692096",
+            "media_url": null,
+            "message": "<a href=\"https://twitter.com/thejailbreakrat\" target=\"_blank\">@thejailbreakrat</a> that's in Paris right?!",
+            "time": "2014-02-20T12:00:01",
+            "in_reply_to_user_name": "thejailbreakrat",
+            "retweeted": true,
+            "user_id": 42034750,
+            "user_name": "pinkballetdance",
+            "user_photo": "http://pbs.twimg.com/profile_images/1722638725/111_normal.jpg",
+            "team": 1
+        }
     }
-
-
-    
 ]
 

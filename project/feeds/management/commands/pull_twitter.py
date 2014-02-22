@@ -102,7 +102,7 @@ class Command(BaseCommand):
 
                         logging.debug("Created tweet %i" % new_tweet.tweet_id)
                     else:
-                        logging.debug("Tweet %s has already been added to the database")
+                        logging.debug("Tweet %s has already been added to the database" % tweet['id'])
                         new_tweet = None
 
                 except Exception as e:
