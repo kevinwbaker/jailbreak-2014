@@ -13,6 +13,9 @@ s3 = S3Storage()
 class Team(models.Model):
     '''Team taking part'''
 
+    class Meta:
+        ordering = ('name',)
+
     TCD = 0
     NUIG = 1
     UCC = 2

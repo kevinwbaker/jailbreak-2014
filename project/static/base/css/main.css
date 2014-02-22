@@ -7,7 +7,6 @@
 	.top-bar {
 		background: #171717;
 		z-index: 100;
-		margin-bottom: 40px;
 	}
 
 	#menu-burger {
@@ -29,9 +28,9 @@
 
 	.top-bar .name {
 		text-indent: -9999px;
-		background: url("../images/jailbreak-header.png") no-repeat;
-		height: 50px;
-		margin: 6px 10px 0 60px;
+		background: url("../images/jailbreak-header.png") 30px 8px no-repeat;
+		height: 45px;
+		width: 190px;
 	}
 
 	.top-bar-section li:not(.has-form) a:not(.button) {
@@ -82,10 +81,14 @@
 		text-align: center;
 	}
 
+	#main-content {
+		margin-top: 40px;
+	}
+
 	/* Home Main */
+
 	#home-main {
 		padding: 0;
-		overflow: hidden;
 		margin-top: -40px;
 	}
 
@@ -113,7 +116,6 @@
 		position: relative;
 		height: 100vh;
 		background: #171717;
-		margin-top: -40px;
 	}
 
 	#countdown-bg {
@@ -587,33 +589,12 @@
 		margin: 0 !important;
 		font-size: 80%;
 	}
-} 
-
-
- /* ===============================
-  * min-width 641px, medium screens
-  */
-@media only screen and (min-width: 40.063em) {
-	/* Header */
-	.top-bar .name {
-		background: url("../images/jailbreak-header.png") no-repeat;
-		width: 153px;
-		margin: 6px 10px 0 30px;
-	}
-
-	#supporters-logo {
-		background: url("../images/logos/supporters.png") top right no-repeat;
-		text-indent: -9999px;
-		height: 75px;
-		margin: 15px 0 0 0;
-	}
 
 	/* Standings */
 	#standings {
-		margin: 0;
+		margin: -40px 0 0;
 		padding: 0;
-		overflow: hidden;
-		margin-top: -40px;
+		margin-bottom: 40px;
 	}
 
 	#standings h3 {
@@ -679,4 +660,12 @@
 	#standings .full-standings-list a:hover {
 		background: #EBEBEB;
 	}
+} 
+
+
+ /* ===============================
+  * min-width 641px, medium screens
+  */
+@media only screen and (min-width: 40.063em) {
+
 }
