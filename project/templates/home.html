@@ -113,9 +113,7 @@
         {% endif %}
 
         <section id="social-feed" >
-            {% for type, post in posts %}
-                {% show_post type post %}
-            {% endfor %}
+
         </section>
     </section>
 </div> 
@@ -227,7 +225,7 @@
         function loadScript() {
           var script = document.createElement('script');
           script.type = 'text/javascript';
-          script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+          script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCilx16orfN-zqVBQlCc65od3ynaS-5KOM&sensor=false&' +
               'callback=initialize';
           document.body.appendChild(script);
         }
