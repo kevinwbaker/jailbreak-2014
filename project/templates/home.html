@@ -113,7 +113,9 @@
         {% endif %}
 
         <section id="social-feed" >
-
+        {% for type, post in posts %}
+            {% show_post type post %}
+        {% endfor %}
         </section>
     </section>
 </div> 
@@ -170,7 +172,7 @@
                     geodesic: true,
                     strokeColor: colours['{{ team.university_key }}'],
                     strokeOpacity: 1.0,
-                    strokeWeight: 3
+                    strokeWeight: 2
                 });
 
                 travelPath.setMap(map);
