@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404
 
-from teams.models import Team
+from teams.models import Team, Checkin
 from feeds.models import Tweet
 from utilities.utils import create_form
 
@@ -24,13 +24,19 @@ def home(request, template=None):
     for tweet in tweets:
         posts.append(('twitter', tweet))
 
+    checkins = Checkin.objects.all().order_by('-time').select_related('team')
+    for checkin in checkins:
+        posts.append(('checkin', checkin))
+
+    posts_sorted = sorted(posts, key=lambda x: x[1].time, reverse=True)
+
     # Stats
     total_amount_raised = sum([team.amount_raised for team in teams])
     total_distance_from_start = sum([team.distance for team in teams])
 
     return render(request, template, {
             'standings': teams_sort_by_distance,
-            'posts': posts,
+            'posts': posts_sorted,
             'total_amount_raised': total_amount_raised,
             'total_distance_from_start': int(total_distance_from_start),
             'home_page': True
