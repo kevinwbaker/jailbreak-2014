@@ -53,7 +53,7 @@ class Command(BaseCommand):
                         'list_id': stream.stream_id, 
                         'include_rts': stream.include_rts,
                         'since_id': since_id,
-                        'count': 20
+                        'count': 25
                     }
                 )
             if r.status_code != 200:

@@ -36,7 +36,7 @@ class TwitterStream(models.Model):
 class Tweet(models.Model):
     '''A tweet from Twitter'''
 
-    tweet_id = models.BigIntegerField(unique=True)
+    tweet_id = models.CharField(unique=True, max_length=25)
     media_url = models.URLField(blank=True, null=True)
     message = models.TextField()  # even though it is a tweet the message contains HTML that might make it more than 140 chars
     time = models.DateTimeField(default=datetime.datetime.utcnow)
