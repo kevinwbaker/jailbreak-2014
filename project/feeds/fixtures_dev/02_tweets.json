@@ -1,0 +1,70 @@
+[
+    {
+        "model": "feeds.tweet",
+        "pk": 1, 
+        "fields": {
+            "tweet_id": "266031293945503744",
+            "media_url": "http://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg:large",
+            "message": "We just meet this lovely couple who gave us $100 dollars. Sweetest people. <a href=\"https://twitter.com/search?q=%23jailbreak14&src=hash\">#jailbreak2014</a>",
+            "time": "2014-02-16T10:00:01",
+            "in_reply_to_user_name": null,
+            "retweeted": false,
+            "user_name": "BarrackObama",
+            "user_id": 266031293945503744,
+            "user_photo": "https://pbs.twimg.com/profile_images/378800000607588261/dad9f009a228a78a14f1f4bed0c54f76_bigger.png",
+            "team": 1
+        }
+    },
+    {
+        "model": "feeds.tweet",
+        "pk": 2, 
+        "fields": {
+            "tweet_id": "436575287271514112",
+            "media_url": "http://pbs.twimg.com/media/Bg8G6RjIAAAowhv.jpg:large",
+            "message": "She's a coming! 2 days. <a href=\"https://twitter.com/search?q=%23jailbreak14&src=hash\">#jailbreak14</a> <a href=\"https://pic.twitter.com/O0fpOp9CBV\">pic.twitter.com/O0fpOp9CBV</a>",
+            "time": "2014-02-16T11:00:01",
+            "in_reply_to_user_name": null,
+            "retweeted": false,
+            "user_name": "JailbreakHQ",
+            "user_id": 2192696442,
+            "user_photo": "http://pbs.twimg.com/profile_images/378800000767470690/adb86ff5ef67e75f63955249f3758094_bigger.jpeg",
+            "team": 1
+        }
+    },
+    {
+        "model": "feeds.tweet",
+        "pk": 3, 
+        "fields": {
+            "tweet_id": "436970881580290048",
+            "media_url": "https://pbs.twimg.com/media/BhBus5MIAAEiK4E.jpg:large",
+            "message": "Bit of downtime for the rat, but I can never avoid my globetrotting ways! <a href=\"https://twitter.com/search?q=%23whereintheworldiscarmensandiego&src=hash\">#whereintheworldiscarmensandiego</a> <a href=\"https://twitter.com/search?q=%23whereintheworldiscarmensandiego&src=hash\">#flags</a> <a href=\"http://pic.twitter.com/MttPJe7TLo\">pic.twitter.com/MttPJe7TLo</a>",
+            "time": "2014-02-16T12:00:01",
+            "in_reply_to_user_name": null,
+            "retweeted": true,
+            "user_id": 2341021908,
+            "user_name": "TheJailbreakRat",
+            "user_photo": "http://pbs.twimg.com/profile_images/378800000767470690/adb86ff5ef67e75f63955249f3758094_bigger.jpeg",
+            "team": null
+        }
+    },
+    {
+        "model": "feeds.tweet",
+        "pk": 4, 
+        "fields": {
+            "tweet_id": "437018493570277376",
+            "media_url": null,
+            "message": "The organisers and <a href=\"http:/twitter.com/TheJailbreakRat\">@thejailbreakrat</a> give an interview on Jailbreak's eve. What more could you want? <a href=\"http://www.youtube.com/watch?v=fEIj2Mp9dSc&list=PLYr-hKm0DabDQNkpEpInABltNqYGjk-40\">http://www.youtube.com/watch?v=fEIj...</a>",
+            "time": "2014-02-16T12:00:01",
+            "in_reply_to_user_name": null,
+            "retweeted": true,
+            "user_id": 2341021908,
+            "user_name": "@TheJailbreakRat",
+            "user_photo": "http://pbs.twimg.com/profile_images/378800000767470690/adb86ff5ef67e75f63955249f3758094_bigger.jpeg",
+            "team": 1
+        }
+    }
+
+
+    
+]
+

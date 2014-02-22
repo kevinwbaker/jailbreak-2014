@@ -27,7 +27,7 @@ def team(request, slug, template=None):
 
     context['team'] = team
     context['checkins'] = team.checkins.all()
-    context['posts'] = team.posts.all()
+    context['posts'] = [('checkin', team) for team in team.checkins.all()]
     return render_to_response(template, context_instance=context)
 
 def universities(request, template=None):

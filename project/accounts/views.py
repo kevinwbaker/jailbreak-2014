@@ -9,8 +9,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404
 
 from teams.models import Team
-from feeds.models import Post
-from accounts.forms import EmailAuthenticationForm
+from feeds.models import Tweet
 from utilities.utils import create_form
 
 def home(request, template=None):
@@ -20,7 +19,10 @@ def home(request, template=None):
     teams_sort_by_distance = sorted(teams, key=lambda x: x.distance, reverse=True)
     
     # Feed
-    posts = Post.objects.all().order_by('-time').select_related('team')
+    posts = []
+    tweets = Tweet.objects.all().order_by('-time').select_related('team')
+    for tweet in tweets:
+        posts.append(('twitter', tweet))
 
     # Stats
     total_amount_raised = sum([team.amount_raised for team in teams])
@@ -32,31 +34,6 @@ def home(request, template=None):
             'total_amount_raised': total_amount_raised,
             'total_distance_from_start': int(total_distance_from_start),
             'home_page': True
-        })
-
-def login(request, template=None):
-    '''User login page'''
-
-    if request.user.is_authenticated():
-        return HttpResponseRedirect('/')
-
-    login_form = create_form(EmailAuthenticationForm, request, request)
-    if request.method == 'POST':
-        if login_form.is_valid():
-            return HttpResponseRedirect(r'/')
-
-    return render(request, template, {
-            'login_form': login_form,
-            'login_page': True
-        })
-
-@login_required
-def logout(request, template=None):
-    '''User logout page'''
-    auth_logout(request)
-
-    return render(request, template, {
-            'logout_page': True
         })
 
 def custom_500_error_view(request, template='500.html'):

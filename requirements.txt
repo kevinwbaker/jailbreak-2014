@@ -9,6 +9,7 @@ django-crispy-forms==1.4
 django-debug-toolbar==1.0.1
 django-grappelli==2.4.5
 django-pylibmc==0.5.0
+django-settings
 django-storages
 boto
 django-boto
@@ -23,3 +24,4 @@ psycopg2
 newrelic
 beautifulsoup4
 requests
+python-dateutil

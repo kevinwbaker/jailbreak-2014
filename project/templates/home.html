@@ -109,8 +109,8 @@
         {% endif %}
 
         <section id="social-feed" >
-            {% for post in posts %}
-                {% show_post post %}
+            {% for type, post in posts %}
+                {% show_post type post %}
             {% endfor %}
         </section>
     </section>

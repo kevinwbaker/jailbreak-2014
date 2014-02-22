@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from feeds.models import Feed
-from feeds.models import Post
+from feeds.models import TwitterStream, Tweet
 
-admin.site.register(Feed)
-admin.site.register(Post)
+admin.site.register(TwitterStream)
+admin.site.register(Tweet)

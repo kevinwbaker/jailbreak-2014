@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load unescape %}
+{% load humanize %}
 
 {% block title %}Compare Universities - {{ block.super }}{% endblock %}
 
@@ -37,8 +37,6 @@
 			            	{% with best_raisers|add:" are so far in the lead having raised "|add:best_raisers_amount_str|add:" euro on average per team." as tweet_message %}
 
 	            	            {% include "tweet_button.html" %}
-
-			            		<a href="" class="button small"><i class="fi-like"></i> like</a>
 			            	
 			            	{% endwith %}
 		            		</div>
@@ -70,8 +68,6 @@
 				            		{% with best_travellers|add:" are leading the way with over "|add:best_travellers_distance_str|add:" km from start on average" as tweet_message %}
 
 			            	            {% include "tweet_button.html" %}
-
-					            		<a href="" class="button small"><i class="fi-like"></i> like</a>
 					            	
 					            	{% endwith %}
 					            {% endif %}
@@ -91,7 +87,7 @@
                       <li class="title">{{ university.full_name }}</li>
                       {% for stat in university.stats %}
                       	<li class="bullet-item">{{ stat.name }}</li>
-                      	<li class="price">{{ stat.value|safe }}</li>
+                      	<li class="price">{{ stat.value|intcomma|safe }}</li>
                       {% endfor %}
                     </ul>
                 </div>

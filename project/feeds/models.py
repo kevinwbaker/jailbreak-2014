@@ -3,84 +3,73 @@ import datetime
 from django.db import models
 from django.utils.html import strip_tags
 
-class Feed(models.Model):
-    '''A social media feed belonging to a team
+class TwitterStream(models.Model):
+    '''A Twitter statuses stream.
 
-    Each team can have multiple feeds for each source.
+    May or may not belong to a team.
     '''
 
     TWITTER = 0
     TWITTER_LIST = 1
-    FACEBOOK_PAGE = 2
-    SOURCES = (
+    TYPES = (
         (TWITTER, 'Twitter'),
         (TWITTER_LIST, 'Twitter List'),
-        (FACEBOOK_PAGE, 'Facebook Page'),
     )
-    source = models.PositiveSmallIntegerField()
-    feed_id = models.CharField(max_length=128)
-    team = models.ForeignKey('teams.Team', related_name='feeds', null=True)
+    type = models.PositiveSmallIntegerField()
+    stream_id = models.PositiveIntegerField(max_length=128)
+    include_rts = models.BooleanField(default=False)
+    label = models.CharField(max_length=100, help_text="A label to easily identify streams")
+    team = models.ForeignKey('teams.Team', related_name='feeds', blank=True, null=True)
 
     @property
-    def source_name(self):
-        return self.SOURCES[self.source][1]
+    def type_name(self):
+        return self.TYPES[self.type][1]
 
     @property
     def has_team(self):
         return self.team is not None
 
     def __unicode__(self):
-        return "{source}: {feed_id}".format(source=self.source_name, feed_id=self.feed_id)
+        return "{type}: ({stream_id}) {label} (include rts: {include})".format(type=self.type_name, stream_id=self.stream_id, label=self.label, include=self.include_rts)
 
-class Post(models.Model):
-    '''
-    A post from a social media or custom feed.
 
-    This post does not need to belong to a team as it can 
-    contain messages from the system for example if a new event
-    we want to publise occurs.
-    '''
-    MANUAL = 0
-    CHECKIN = 1
-    TWITTER = 2
-    FACEBOOK_PAGE = 3
-    SOURCES = (
-        (MANUAL, 'manual', "Manual"),
-        (CHECKIN, 'checkin', "Checkin"),
-        (TWITTER, 'twitter', "Twitter"),
-        (FACEBOOK_PAGE, 'facebook', "Facebook Page"),
-    )
-    source = models.PositiveSmallIntegerField()
+class Tweet(models.Model):
+    '''A tweet from Twitter'''
 
-    url = models.URLField(null=True) # where was the original message
-    media = models.URLField(null=True)
-    message = models.TextField() # html of the message
+    tweet_id = models.PositiveIntegerField(unique=True)
+    media_url = models.URLField(blank=True, null=True)
+    message = models.TextField()  # even though it is a tweet the message contains HTML that might make it more than 140 chars
     time = models.DateTimeField(default=datetime.datetime.utcnow)
+
+    in_reply_to_user_name = models.CharField(max_length=250, blank=True, null=True)
+    retweeted = models.BooleanField(default=False)
     
     # user of the social media who posted it
-    user = models.CharField(max_length=250, null=True)
-    user_photo = models.URLField(null=True) # url to where the message is hosted
-    user_url = models.URLField(null=True)
-    
-    team = models.ForeignKey('teams.Team', related_name='posts', null=True)
+    user_name = models.CharField(max_length=250)
+    user_photo = models.URLField() # url to where the message is hosted
+    user_id = models.PositiveIntegerField()
+
+    team = models.ForeignKey('teams.Team', related_name='tweets', blank=True, null=True)
 
     @property
-    def source_key(self):
-        return self.SOURCES[self.source][1]
+    def tweet_url(self):
+        '''Builds the URL to the original tweet on Twitter.com'''
+        return 'http://twitter.com/{username}/status/{tweet_id}'.format(tweet_id=self.tweet_id, username=self.user_name)
 
     @property
-    def source_name(self):
-        return self.SOURCES[self.source][2]
+    def user_url(self):
+        '''Builds the URL to the users profile on Twitter.com'''
+        return 'http://twitter.com/{username}'.format(username=self.user_name)
+
 
     @property
     def has_media(self):
-        return self.media is not None
+        return self.media_url is not None
 
     @property
     def has_team(self):
         return self.team is not None
 
     def __unicode__(self):
-        return "{type}: {message}...".format(type=self.source_name, message=strip_tags(self.message)[:100])
-    
+        return "Tweet: {user_name} {message}...".format(user_name=self.user_name, message=strip_tags(self.message)[:100])  
 

@@ -7,6 +7,7 @@
 	.top-bar {
 		background: #171717;
 		z-index: 100;
+		margin-bottom: 40px;
 	}
 
 	#menu-burger {

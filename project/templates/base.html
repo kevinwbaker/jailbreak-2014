@@ -98,9 +98,7 @@
                 <ul class="off-canvas-list">
                     <li><label>Miscellaneous</label></li>
                     {% if not user.is_authenticated %}
-                        <li><a href="{% url "login" %}"><i class="fi-lock"></i>Login</a></li>
-                    {% else %}
-                        <li><a href="{% url "logout" %}"><i class="fi-eject"></i>Logout</a></li>
+                        <li><a href="/admin/"><i class="fi-lock"></i>Admin</a></li>
                     {% endif %}
                 </ul>
             </aside>

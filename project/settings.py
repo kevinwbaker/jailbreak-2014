@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     #'compressor',
     'storages',
+    'django_settings',
 
     # apps
     'accounts',
@@ -217,6 +218,12 @@ MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
 
 RADIO_LIVE = os.environ.get('RADIO_LIVE', False)
+
+# Twitter API
+TWITTER_CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY', None)
+TWITTER_CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET', None)
+TWITTER_ACCESS_TOKEN_KEY = os.environ.get('TWITTER_ACCESS_TOKEN_KEY', None)
+TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET', None)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

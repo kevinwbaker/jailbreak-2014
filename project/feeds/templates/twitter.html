@@ -6,7 +6,7 @@
     {% endif %}
 
     {% if post.has_media %}
-        <img src="{{ post.media }}" />
+        <img src="{{ post.media_url }}" />
     {% endif %}
 
     <div class="body">
@@ -15,22 +15,22 @@
         <div class="header">
             <div class="avatar"><img src="{{ post.user_photo }}" width="40" height="40" /></div>
             <h4>
-                <span class="username"><a href="{{ post.user_url }}">@{{ post.user }}</a></span>
+                <span class="username"><a href="{{ post.user_url }}">{{ post.user_name }}</a></span>
             </h4>
         </div>
 
         <p>{{ post.message|safe }}</p>
    
         <div class="lower">
-            <span class="logo"><a href="{{ post.url }}" about="_blank" title="View this tweet on Twitter"><i class="fi-social-twitter"></i></span></a>
+            <span class="logo"><a href="{{ post.tweet_url }}" about="_blank" title="View this tweet on Twitter"><i class="fi-social-twitter"></i></span></a>
 
-            <a href="{{ post.url }}" class="button secondary small" about="_blank" title="Reply to this tweet on Twitter">
-                <i class="fi-at-sign"></i>Reply
-            </a>
-            <a href="{{ post.url }}" class="button secondary small" about="_blank"  title="Retweet this tweet on Twitter">
+            <a href="https://twitter.com/intent/reply?in_reply_to={{ post.post_id }}" class="button secondary small" about="_blank"  title="Retweet this tweet on Twitter">
                 <i class="fi-quote"></i>Retweet
             </a>
-            <a href="{{ post.url }}" class="button secondary small"  about="_blank" title="Favourite this tweet on Twitter">
+            <a href="https://twitter.com/intent/retweet?tweet_id={{ post.post_id }}" class="button secondary small" about="_blank"  title="Retweet this tweet on Twitter">
+                <i class="fi-quote"></i>Retweet
+            </a>
+            <a href="https://twitter.com/intent/favorite?tweet_id={{ post.post_id }}" class="button secondary small"  about="_blank" title="Favourite this tweet on Twitter">
                 <i class="fi-star"></i>Favourite
             </a>
             <br class="clear" />

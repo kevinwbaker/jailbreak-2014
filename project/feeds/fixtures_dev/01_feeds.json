@@ -1,29 +1,13 @@
 [
     {
-        "model": "feeds.feed",
+        "model": "feeds.twitterstream",
         "pk": 1, 
         "fields": {
-            "source": 0,
-            "feed_id": "jailbreakers14",
-            "team": 1
-        }
-    },
-    {
-        "model": "feeds.feed",
-        "pk": 2,
-        "fields": {
-            "source": 0,
-            "feed_id": "TeamKateLaura",
-            "team": 1
-        }
-    },
-    {
-        "model": "feeds.feed",
-        "pk": 3,
-        "fields": {
-            "source": 1,
-            "feed_id": "https://www.facebook.com/PeterAndSeanJailbreak14",
-            "team": 1
+            "type": 1,
+            "stream_id": 105996992,
+            "label": "Main Jailbreak accounts list",
+            "include_rts": true,
+            "team": null
         }
     }
 ]
