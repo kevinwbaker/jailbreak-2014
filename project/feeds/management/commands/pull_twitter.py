@@ -51,7 +51,7 @@ class Command(BaseCommand):
                         'list_id': stream.stream_id, 
                         'include_rts': stream.include_rts,
                         'since_id': since_id,
-                        'count': 50
+                        'count': 15
                     }
                 )
             if r.status_code != 200:
@@ -81,25 +81,29 @@ class Command(BaseCommand):
                     time_tz = dateutil.parser.parse(tweet['created_at'])
                     time = datetime.datetime(time_tz.year, time_tz.month, time_tz.day, time_tz.hour, time_tz.minute, time_tz.second)
 
-                    new_tweet = Tweet.objects.create(
-                            tweet_id=tweet['id'],
-                            media_url=media_url,
-                            message=_html_for_tweet(tweet),
-                            time=time,
-                            in_reply_to_user_name=tweet['in_reply_to_screen_name'],
-                            retweeted=True,
-                            user_id=tweet['user']['id'],
-                            user_name=tweet['user']['screen_name'],
-                            user_photo=tweet['user']['profile_image_url'],
-                            team=None
-                        )
-                    
-                    # update the since id so we don't get the same
-                    # tweets mutliple times from twitter
-                    if new_tweet.tweet_id < new_since_id:
-                        new_since_id = new_tweet.tweet_id
+                    if not Tweet.objects.all().filter(tweet_id=tweet['id']).exists():
+                        new_tweet = Tweet.objects.create(
+                                tweet_id=tweet['id'],
+                                media_url=media_url,
+                                message=_html_for_tweet(tweet),
+                                time=time,
+                                in_reply_to_user_name=tweet['in_reply_to_screen_name'],
+                                retweeted=True,
+                                user_id=tweet['user']['id'],
+                                user_name=tweet['user']['screen_name'],
+                                user_photo=tweet['user']['profile_image_url'],
+                                team=None
+                            )
 
-                    logging.debug("Created tweet %i" % new_tweet.tweet_id)
+                        # update the since id so we don't get the same
+                        # tweets mutliple times from twitter
+                        if new_tweet.tweet_id < new_since_id:
+                            new_since_id = new_tweet.tweet_id
+
+                        logging.debug("Created tweet %i" % new_tweet.tweet_id)
+                    else:
+                        logging.debug("Tweet %s has already been added to the database")
+                        new_tweet = None
 
                 except Exception as e:
                     logging.exception("Failed to process tweet %d" % tweet['id'])
