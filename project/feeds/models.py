@@ -47,7 +47,7 @@ class Tweet(models.Model):
     # user of the social media who posted it
     user_name = models.CharField(max_length=250)
     user_photo = models.URLField() # url to where the message is hosted
-    user_id = models.PositiveIntegerField()
+    user_id = models.CharField(max_length=25)
 
     team = models.ForeignKey('teams.Team', related_name='tweets', blank=True, null=True)
 
