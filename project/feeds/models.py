@@ -16,7 +16,7 @@ class TwitterStream(models.Model):
         (TWITTER_LIST, 'Twitter List'),
     )
     type = models.PositiveSmallIntegerField()
-    stream_id = models.PositiveIntegerField(max_length=128)
+    stream_id = models.BigIntegerField(max_length=128)
     include_rts = models.BooleanField(default=False)
     label = models.CharField(max_length=100, help_text="A label to easily identify streams")
     team = models.ForeignKey('teams.Team', related_name='feeds', blank=True, null=True)
@@ -36,7 +36,7 @@ class TwitterStream(models.Model):
 class Tweet(models.Model):
     '''A tweet from Twitter'''
 
-    tweet_id = models.PositiveIntegerField(unique=True)
+    tweet_id = models.BigIntegerField(unique=True)
     media_url = models.URLField(blank=True, null=True)
     message = models.TextField()  # even though it is a tweet the message contains HTML that might make it more than 140 chars
     time = models.DateTimeField(default=datetime.datetime.utcnow)
