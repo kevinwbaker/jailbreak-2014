@@ -120,7 +120,7 @@ def _html_for_tweet(tweet, use_display_url=True, use_expanded_url=False):
             start, end = entity['indices'][0], entity['indices'][1]
 
             mention_html = '<a href="https://twitter.com/%s" target="_blank">@%s</a>' % (entity['screen_name'], entity['screen_name'])
-            text = text.replace(tweet['text'][start:end], mention_html)
+            text = text.replace(tweet['text'][start:end].encode('utf-8'), mention_html)
 
         # Hashtags
         for entity in entities['hashtags']:
