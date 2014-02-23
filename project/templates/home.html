@@ -150,7 +150,8 @@
             var mapOptions = {
                 zoom: 4,
                 center: new google.maps.LatLng(53.3418, -6.3098),
-                mapTypeId: google.maps.MapTypeId.TERRAIN
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                streetViewControl: false
             };
 
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
