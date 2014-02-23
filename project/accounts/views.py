@@ -19,7 +19,7 @@ def home(request, template=None):
             _ = team.checkins
 
         teams = sorted(teams, key=lambda x: x.distance, reverse=True)
-        cache.set('standings', teams, 60)
+        cache.set('standings', teams, 180)
     else:
         teams = cache.get('standings')
 
