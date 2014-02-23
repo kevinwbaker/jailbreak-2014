@@ -151,11 +151,18 @@
     <script src="{{ STATIC_URL }}utilities/js/flipclock.min.js"></script>
     <script>
         $(document).ready(function() {
+            var timer_ends = function() {
+                $("countdown-timer-wrap").html("<p>Jailbreak 2014 is now over, please wait for the judges to annouce the results</p>");
+            };
+
             var clock = $('#countdown-timer').FlipClock({
                 autostart: false,
-                countdown: true
+                countdown: true,
+                callbacks: {
+                    stop: timer_ends
+                }
             });
-            clock.setTime({{ SECONDS_TO_END }});
+            clock.setTime(2); //{{ SECONDS_TO_END }});
             clock.start();
         });
     </script>
