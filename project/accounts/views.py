@@ -45,7 +45,7 @@ def home(request, template=None):
             'standings': teams,
             'posts': posts,
             'checkins': checkins,
-            'total_amount_raised': (total_amount_raised+7000),
+            'total_amount_raised': (total_amount_raised+7300),
             'total_distance_from_start': int(total_distance_from_start),
             'home_page': True
         })
