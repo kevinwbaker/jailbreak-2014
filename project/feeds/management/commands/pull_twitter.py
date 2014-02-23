@@ -131,7 +131,7 @@ def _html_for_tweet(tweet, use_display_url=True, use_expanded_url=False):
             start, end = entity['indices'][0], entity['indices'][1]
 
             hashtag_html = '<a href="https://twitter.com/search?q=%%23%(hashtag)s" target="_blank">#%(hashtag)s</a>'
-            text = text.replace(tweet['text'][start:end], hashtag_html % {'hashtag': entity['text']})
+            text = text.replace(tweet['text'][start:end].encode('utf-8'), hashtag_html % {'hashtag': entity['text']})
 
         # Urls
         media_entities = []
@@ -150,6 +150,6 @@ def _html_for_tweet(tweet, use_display_url=True, use_expanded_url=False):
                 shown_url = entity['url']
 
             url_html = '<a href="%s" target="_blank">%s</a>'
-            text = text.replace(tweet['text'][start:end], url_html % (entity['url'], shown_url))
+            text = text.replace(tweet['text'][start:end].encode('utf-8'), url_html % (entity['url'], shown_url))
 
     return text
