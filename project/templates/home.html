@@ -10,27 +10,6 @@
 {% endblock %}
 
 {% block body_html %}
-{% if not STARTED %}
-<section id="countdown">
-    <div id="countdown-bg"></div>
-
-    <div id="timer-row">
-        <div class="row">
-            <div class="small-12 small-centered medium-10 large-8 columns">
-                <div class="timer-box">
-                    <h2>Jailbreak 2014 starts in...</h2>
-                    <div id="countdown-timer-wrap">
-                        <div id="countdown-timer"></div>
-                    </div>
-
-                    <p>Find out what <a href="/pages/about-jailbreak14/">Jailbreak 2014</a> is all about. Checkout our <a href="/teams/">teams</a> for this year, learn about the <a href="/pages/snapchat-rat-race/">Snapchat Rat Race</a>, or <a href="/donate">donate</a> to Jailbreak.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-{% else %}
 <div class="row">
     
     <section id="standings" class="small-12 medium-4 columns">
@@ -82,6 +61,53 @@
             </div>
         </section>
 
+        {% if not ENDED %}
+        <section id="end-timer" class="show-for-medium-up">
+            <div class="row">
+                <div class="small-12 small-centered columns">
+                    <ul class="pricing-table">
+                        <li class="title">Jailbreak 2014 ends in...</li>
+                        <li class="price">
+                            <div id="countdown-timer-wrap">
+                                <div id="countdown-timer"></div>
+                            </div>
+                        </li>
+                        <li class="description">There is not long left. Teams must checkin at thier final location before time runs out.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        {% else %}
+        <section id="end-timer" class="show-for-medium-up">
+            <div class="row">
+                <div class="small-12 small-centered columns">
+                    <ul class="pricing-table">
+                        <li class="title">Jailbreak 2014 has now ended</li>
+                        <li class="price">
+                            Please wait for the Judges to decalre a winner.
+                        </li>
+                        <!--<li class="title">
+                            THE WINNERS ARE....
+                        </li>
+                        <li CLASS="price">
+                            <div class="small-6 columns">
+                                <a href="http://www.jailbreak14.com/teams/Finn-and-Lulu/" class="th radius"><img class="profiler" src="http://s3-eu-west-1.amazonaws.com/jailbreak14/jailbreak14-uploads/TCDTeam1.jpg" width="150" height="150" /></a>
+                            </div>
+                            <div class="small-6 columns">                      
+                                <h4><a href="http://www.jailbreak14.com/teams/Finn-and-Lulu/">Finn and Lulu</a></h4>
+                                <p>Team 1 - TCD</p>
+                                <p class="location">Touchdown in Singapore! <span>(11,217 km)</span></p>
+
+                                <a class="button expand" href="http://www.sponsor.ie/tcd-team1finnandlouise/event/jailbreak14"><i class="fi-heart"></i>Donate</a>
+                            </div>
+                            <br class="clear" />
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
         <section id="main-stats">
             <div class="row">
                 <div class="small-12 medium-6 columns">
@@ -119,11 +145,9 @@
         </section>
     </section>
 </div> 
-{% endif %} 
 {% endblock %}
 
 {% block footer_javascript %}
-    {% if not STARTED %}
     <script src="{{ STATIC_URL }}utilities/js/flipclock.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -131,13 +155,11 @@
                 autostart: false,
                 countdown: true
             });
-            clock.setTime({{ SECONDS_TO_START }});
+            clock.setTime({{ SECONDS_TO_END }});
             clock.start();
         });
     </script>
-    {% endif %}
 
-    {% if STARTED %}
     <script>
         var colours = {
             'tcd': '#FDDC39',
@@ -235,5 +257,4 @@
 
         window.onload = loadScript;
     </script>
-    {% endif %}
 {% endblock %}

@@ -14,17 +14,17 @@ def static(request):
 
 def jailbreak_settings(request):
     # timer related stuff
-    if settings.START_TIME > datetime.datetime.now():
-        started = False
-        seconds_to_start = (settings.START_TIME - datetime.datetime.now()).total_seconds()
+    if settings.END_TIME > datetime.datetime.now():
+        ended = False
+        seconds_to_end = (settings.END_TIME - datetime.datetime.now()).total_seconds()
     else:
-        started = True
-        seconds_to_start = 0
+        ended = True
+        seconds_to_end = 0
 
     return {
        'MAIN_SPONSOR_PAGE': settings.MAIN_SPONSOR_PAGE,
        'DEFAULT_PROFILER': settings.DEFAULT_PROFILER,
-       'STARTED': started,
-       'SECONDS_TO_START': seconds_to_start,
+       'ENDED': ended,
+       'SECONDS_TO_END': seconds_to_end,
        'RADIO_LIVE': settings.RADIO_LIVE
     }

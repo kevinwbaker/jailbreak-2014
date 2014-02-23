@@ -216,6 +216,7 @@ RADIUS_EARTH = 6373.0
 
 MAIN_SPONSOR_PAGE = 'http://www.sponsor.ie/jailbreak-14-1/event/jailbreak14/'
 START_TIME = datetime.datetime(2014, 02, 22, 9) # 9am Saturday 22/Feb/2104
+END_TIME = datetime.datetime(2014, 02, 23, 21) # 9pm Sunday 23/Feb/2104
 
 RADIO_LIVE = os.environ.get('RADIO_LIVE', False)
 

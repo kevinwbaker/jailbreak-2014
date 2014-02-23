@@ -171,9 +171,26 @@
 	}
 
 	.flip-clock-label {
-		color: #F5F5F5 !important;
+		color: #3A3A3C !important;
 		text-transform: uppercase;
 		font-size: 83%;
+	}
+
+	#end-timer {
+		margin: 20px;
+	}
+	#end-timer h3 {
+		color: #FBD753;
+		text-align: center
+	}
+
+	#end-timer .flip-clock-label ul li a {
+		text-decoration: none;
+		border-bottom: 0;
+	}
+
+	#end-timer .pricing-table #countdown-timer * {
+		line-height: inherit !important;
 	}
 
 	/* List Styling */
