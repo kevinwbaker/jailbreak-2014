@@ -26,12 +26,12 @@ def home(request, template=None):
     posts = []
 
     # tweets
-    tweets = Tweet.objects.all().order_by('-time').select_related('team')[:40]
+    tweets = Tweet.objects.all().order_by('-time').select_related('team')[:30]
     for tweet in tweets:
         posts.append(('twitter', tweet))
 
     # checkins
-    checkins = Checkin.objects.all().order_by('-time').select_related('team')[:40]
+    checkins = Checkin.objects.all().order_by('-time').select_related('team')[:30]
     for checkin in checkins:
         posts.append(('checkin', checkin))
 
