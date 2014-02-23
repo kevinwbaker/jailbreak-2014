@@ -13,15 +13,14 @@ from feeds.models import Tweet
 def home(request, template=None):
     '''Home page'''
     # Standings
-    if not cache.get('standings'):
+    teams = cache.get('standings')
+    if not teams:
         teams = Team.objects.prefetch_related('checkins').all()
         for team in teams:
             _ = team.checkins
 
         teams = sorted(teams, key=lambda x: x.distance, reverse=True)
         cache.set('standings', teams, 180)
-    else:
-        teams = cache.get('standings')
 
     # home page feed
     posts = []
