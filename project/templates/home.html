@@ -110,6 +110,8 @@
 
         <section id="main-stats">
             <div class="row">
+
+
                 <div class="small-12 medium-6 columns">
                     <ul class="pricing-table">
                       <li class="title">Total Raised</li>
@@ -226,7 +228,7 @@
                         position: new google.maps.LatLng({{ checkin.lat_position }}, {{ checkin.lng_position }}),
                         map: map,
                         title: "#{{ team.number }} {{ team.name }} checked in at {{ checkin.name }}",
-                        html: "<div class=\"info-window row\"><div class=\"small-3 columns\"><a href=\"{% url "team" team.slug %}\"><img width=\"75\" height=\"75\" src=\"{{ UPLOADS_URL }}{{ team.photo_url }}\" /></a></div><div class=\"small-9 columns\"><h3><a href=\"{% url "team" team.slug %}\">#{{ team.number }} {{ team.name }}</a></h3><h4>{{ checkin.name }}</h4><p>{{ checkin.message|default:" " }}</p></div></div>"
+                        html: "{% spaceless %}<div class=\"info-window row\"><div class=\"small-3 columns\"><a href=\"{% url "team" team.slug %}\"><img width=\"75\" height=\"75\" src=\"{{ UPLOADS_URL }}{{ team.photo_url }}\" /></a></div><div class=\"small-9 columns\"><h3><a href=\"{% url "team" team.slug %}\">#{{ team.number }} {{ team.name }}</a></h3><h4>{{ checkin.name|escapejs }}</h4><p>{{ checkin.message|escapejs|default:" " }}</p></div></div>{% endspaceless %}"
                     });
                     markers.push(marker);
                 {% endfor %}
